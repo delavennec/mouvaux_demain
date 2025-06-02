@@ -194,7 +194,7 @@ export default function ProgrammePage() {
               <Link href="/contact">Je soutiens Mouvaux Demain</Link>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <Link href="/association">Adhérer à l'association</Link>
+              <Link href="/association">En savoir plus sur l'association</Link>
             </Button>
           </div>
         </div>

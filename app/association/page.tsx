@@ -128,15 +128,14 @@ export default function AssociationPage() {
 
             <Card className="bg-emerald-50 border-emerald-200">
               <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6 text-gray-900">Rejoignez-nous</h3>
+                <h3 className="text-2xl font-bold mb-6 text-gray-900">Nous soutenir</h3>
                 <p className="text-gray-600 mb-6">
-                  Participez activement au projet politique de Mouvaux Demain en adhérant à notre association.
+                  Participez activement au projet politique de Mouvaux Demain et soutenez notre démarche citoyenne.
                 </p>
                 <div className="space-y-4">
                   <Button asChild className="w-full bg-emerald-600 hover:bg-emerald-700">
-                    <Link href="/contact">Adhérer à l'association</Link>
+                    <Link href="/contact">Nous contacter</Link>
                   </Button>
-                  <p className="text-sm text-gray-500 text-center">Cotisation annuelle : 20€</p>
                 </div>
               </CardContent>
             </Card>
