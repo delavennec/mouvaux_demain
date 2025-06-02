@@ -1,0 +1,185 @@
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Shield, Leaf, Calculator, ChevronRight } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+
+export default function HomePage() {
+  return (
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-emerald-900/80 via-blue-900/60 to-emerald-800/70 z-10" />
+        <Image
+          src="/placeholder.svg?height=800&width=1200"
+          alt="Équipe Mouvaux Demain"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="relative z-20 text-center text-white px-4 max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            Un vote libre et constructif pour Mouvaux
+          </h1>
+          <div className="bg-emerald-600/90 px-6 py-3 rounded-lg mb-8 inline-block">
+            <p className="text-lg md:text-xl font-medium">Pour un avenir responsable, écologique et républicain</p>
+          </div>
+          <Button asChild size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 text-lg">
+            <Link href="/contact">Je soutiens Mouvaux Demain</Link>
+          </Button>
+        </div>
+      </section>
+
+      {/* Highlights Section */}
+      <section className="py-16 px-4 bg-gradient-to-br from-blue-50 via-emerald-50 to-indigo-50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Nos priorités pour Mouvaux</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="group hover:shadow-lg transition-shadow cursor-pointer">
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-emerald-200 transition-colors">
+                  <Shield className="w-8 h-8 text-emerald-600" />
+                </div>
+                <h3 className="text-xl font-semibold mb-4 text-gray-900">Sécurité</h3>
+                <p className="text-gray-600 mb-4">
+                  Renforcement des effectifs de police municipale et mise en place de dispositifs de vidéoprotection.
+                </p>
+                <Link
+                  href="/programme#securite"
+                  className="text-emerald-600 font-medium inline-flex items-center hover:text-emerald-700"
+                >
+                  En savoir plus <ChevronRight className="w-4 h-4 ml-1" />
+                </Link>
+              </CardContent>
+            </Card>
+
+            <Card className="group hover:shadow-lg transition-shadow cursor-pointer">
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors">
+                  <Leaf className="w-8 h-8 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-semibold mb-4 text-gray-900">Écologie</h3>
+                <p className="text-gray-600 mb-4">
+                  Transition écologique pragmatique avec développement des énergies renouvelables locales.
+                </p>
+                <Link
+                  href="/programme#ecologie"
+                  className="text-emerald-600 font-medium inline-flex items-center hover:text-emerald-700"
+                >
+                  En savoir plus <ChevronRight className="w-4 h-4 ml-1" />
+                </Link>
+              </CardContent>
+            </Card>
+
+            <Card className="group hover:shadow-lg transition-shadow cursor-pointer">
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-orange-200 transition-colors">
+                  <Calculator className="w-8 h-8 text-orange-600" />
+                </div>
+                <h3 className="text-xl font-semibold mb-4 text-gray-900">Budget</h3>
+                <p className="text-gray-600 mb-4">
+                  Gestion budgétaire responsable sans augmentation des impôts locaux.
+                </p>
+                <Link
+                  href="/programme#budget"
+                  className="text-emerald-600 font-medium inline-flex items-center hover:text-emerald-700"
+                >
+                  En savoir plus <ChevronRight className="w-4 h-4 ml-1" />
+                </Link>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter Signup - Primary CTA */}
+      <section className="py-16 px-4 bg-gradient-to-r from-emerald-600 via-blue-600 to-emerald-700">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Suivez notre campagne au quotidien</h2>
+          <p className="text-xl text-emerald-100 mb-8 max-w-2xl mx-auto">
+            Recevez en exclusivité nos propositions, invitations aux événements et actualités de campagne directement
+            dans votre boîte mail.
+          </p>
+          <div className="max-w-md mx-auto">
+            <div className="flex flex-col sm:flex-row gap-3">
+              <input
+                type="email"
+                placeholder="Votre adresse email"
+                className="flex-1 px-4 py-3 rounded-lg border-0 text-gray-900 placeholder-gray-500"
+              />
+              <Button className="bg-white text-emerald-600 hover:bg-gray-100 px-6 py-3 font-semibold">
+                Je m'inscris
+              </Button>
+            </div>
+            <p className="text-emerald-100 text-sm mt-3">
+              ✓ Pas de spam • ✓ Désinscription facile • ✓ Données protégées
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* News Teaser */}
+      <section className="py-16 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Actualités</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card>
+              <CardContent className="p-6">
+                <div className="text-sm text-emerald-600 font-medium mb-2">15 Mai 2025</div>
+                <h3 className="text-lg font-semibold mb-3">Réunion publique - Quartier Centre</h3>
+                <p className="text-gray-600 text-sm">
+                  Venez échanger sur nos propositions pour améliorer la sécurité et les services de proximité.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="p-6">
+                <div className="text-sm text-emerald-600 font-medium mb-2">12 Mai 2025</div>
+                <h3 className="text-lg font-semibold mb-3">Atelier participatif - Transition écologique</h3>
+                <p className="text-gray-600 text-sm">
+                  Construisons ensemble les solutions pour une Mouvaux plus verte et durable.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="p-6">
+                <div className="text-sm text-emerald-600 font-medium mb-2">8 Mai 2025</div>
+                <h3 className="text-lg font-semibold mb-3">Rencontre avec les commerçants</h3>
+                <p className="text-gray-600 text-sm">
+                  Échanges sur le soutien au dynamisme économique local et aux commerces de proximité.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+          <div className="text-center mt-8">
+            <Button asChild variant="outline">
+              <Link href="/agenda">Voir tout l'agenda</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter CTA - Secondary */}
+      <section className="py-16 px-4 bg-gradient-to-br from-orange-50 via-emerald-50 to-blue-50">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-6 text-gray-900">Ne ratez aucune actualité</h2>
+          <p className="text-lg text-gray-600 mb-8">
+            Rejoignez les <strong>500+ habitants</strong> qui suivent déjà notre campagne par email.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
+            <input
+              type="email"
+              placeholder="votre@email.fr"
+              className="flex-1 px-4 py-3 rounded-lg border border-gray-300 text-gray-900"
+            />
+            <Button className="bg-gradient-to-r from-emerald-600 to-blue-600 hover:from-emerald-700 hover:to-blue-700 px-6 py-3">
+              Rejoindre
+            </Button>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
