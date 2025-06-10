@@ -12,11 +12,34 @@ import { Mail, FileText, Linkedin, Facebook } from "lucide-react"
 import { useState } from "react"
 
 const documents = [
-  { title: "Programme complet", type: "PDF", size: "2.1 MB" },
-  { title: "Tract de campagne", type: "PDF", size: "1.5 MB" },
-  { title: "Statuts de l'association", type: "PDF", size: "0.8 MB" },
-  { title: "Bulletin d'adhésion", type: "PDF", size: "0.3 MB" },
-  { title: "Compte-rendu AG 2024", type: "PDF", size: "1.2 MB" },
+  { 
+    title: "Circulaire Charles Delavenne", 
+    type: "PDF", 
+    size: "728 KB",
+    path: "/circulaire_Charles_Delavenne.pdf",
+    available: true
+  },
+  { 
+    title: "Programme complet", 
+    type: "PDF", 
+    size: "2.1 MB",
+    available: false,
+    comingSoon: "Disponible prochainement"
+  },
+  { 
+    title: "Tract de campagne", 
+    type: "PDF", 
+    size: "1.5 MB",
+    available: false,
+    comingSoon: "En cours de finalisation"
+  },
+  { 
+    title: "Statuts de l'association", 
+    type: "PDF", 
+    size: "0.8 MB",
+    available: false,
+    comingSoon: "Bientôt disponible"
+  },
 ]
 
 export default function ContactPage() {
@@ -211,11 +234,24 @@ export default function ContactPage() {
                         <h4 className="font-medium text-gray-900">{doc.title}</h4>
                         <p className="text-sm text-gray-500">
                           {doc.type} • {doc.size}
+                          {!doc.available && doc.comingSoon && (
+                            <span className="ml-2 text-blue-600 italic">
+                              {doc.comingSoon}
+                            </span>
+                          )}
                         </p>
                       </div>
-                      <Button variant="ghost" size="sm">
-                        Télécharger
-                      </Button>
+                      {doc.available ? (
+                        <a href={doc.path} download target="_blank" rel="noopener noreferrer">
+                          <Button variant="ghost" size="sm">
+                            Télécharger
+                          </Button>
+                        </a>
+                      ) : (
+                        <Button variant="ghost" size="sm" disabled>
+                          Télécharger
+                        </Button>
+                      )}
                     </div>
                   ))}
                 </div>
