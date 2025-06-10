@@ -15,7 +15,7 @@ export function Footer() {
               <span className="font-bold text-lg">Mouvaux Demain</span>
             </div>
             <p className="text-gray-300 mb-6 max-w-md">
-              Un vote libre et constructif pour Mouvaux. Pour un avenir responsable, écologique et républicain.
+              Un vote ambitieux et constructif pour Mouvaux. Pour un cadre de vie serein et agréable.
             </p>
 
             {/* Newsletter signup in footer */}

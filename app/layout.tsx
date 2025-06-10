@@ -11,11 +11,11 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Mouvaux Demain - Charles Delavenne",
-  description: "Un vote libre et constructif pour Mouvaux. Pour un avenir responsable, écologique et républicain.",
+  description: "Un vote ambitieux et constructif pour Mouvaux. Pour un cadre de vie serein et agréable.",
   keywords: "Mouvaux, Charles Delavenne, élections, municipales, écologie, sécurité, budget",
   openGraph: {
     title: "Mouvaux Demain - Charles Delavenne",
-    description: "Un vote libre et constructif pour Mouvaux. Pour un avenir responsable, écologique et républicain.",
+    description: "Un vote ambitieux et constructif pour Mouvaux. Pour un cadre de vie serein et agréable.",
     type: "website",
   },
     generator: 'v0.dev'

@@ -19,12 +19,12 @@ export default function HomePage() {
         />
         <div className="relative z-20 text-center text-white px-4 max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Un vote libre et constructif pour Mouvaux
+            Un vote ambitieux et constructif pour Mouvaux
           </h1>
-          <div className="bg-blue-600/90 px-6 py-3 rounded-lg mb-8 inline-block">
-            <p className="text-lg md:text-xl font-medium">Pour un avenir responsable, écologique et républicain</p>
+          <div className="flex flex-col items-center justify-center bg-blue-600/90 px-6 py-3 rounded-lg mb-8 inline-block">
+            <p className="text-lg md:text-xl font-medium">Pour un cadre de vie serein et agréable</p>
           </div>
-          <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">
+          <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg mx-auto">
             <Link href="/contact">Je soutiens Mouvaux Demain</Link>
           </Button>
         </div>
