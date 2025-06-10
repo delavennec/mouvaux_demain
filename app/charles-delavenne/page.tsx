@@ -19,7 +19,7 @@ export default function CharlesDelavennePage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <Image
-                src="/placeholder.svg?height=500&width=400"
+                src="/DLGA-Charles-DELAVENNE-STUDIOFALOUR-0013.jpg?height=500&width=400"
                 alt="Charles Delavenne"
                 width={400}
                 height={500}
