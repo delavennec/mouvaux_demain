@@ -43,12 +43,12 @@ export default function AssociationPage() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Mouvaux Demain</h1>
-          <p className="text-xl text-emerald-600 font-medium">L'association au service de notre territoire</p>
+          <p className="text-xl text-blue-600 font-medium">L'association au service de notre territoire</p>
         </div>
 
         {/* Présentation */}
         <section className="mb-16">
-          <Card className="bg-gradient-to-br from-emerald-50 via-blue-50 to-indigo-50 border-emerald-200">
+          <Card className="bg-gradient-to-br from-blue-50 via-indigo-50 to-slate-50 border-blue-200">
             <CardContent className="p-8">
               <h2 className="text-3xl font-bold mb-6 text-gray-900">Notre mission</h2>
               <div className="text-lg text-gray-700 space-y-4">
@@ -75,15 +75,15 @@ export default function AssociationPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {objectifs.map((objectif) => {
               const Icon = objectif.icon
-              let bgColor = "bg-emerald-100"
-              let textColor = "text-emerald-600"
+              let bgColor = "bg-blue-100"
+              let textColor = "text-blue-600"
 
               if (objectif.title === "Culture") {
                 bgColor = "bg-purple-100"
                 textColor = "text-purple-600"
               } else if (objectif.title === "Développement économique") {
-                bgColor = "bg-blue-100"
-                textColor = "text-blue-600"
+                bgColor = "bg-indigo-100"
+                textColor = "text-indigo-600"
               } else if (objectif.title === "Sécurité") {
                 bgColor = "bg-orange-100"
                 textColor = "text-orange-600"
@@ -126,14 +126,14 @@ export default function AssociationPage() {
               </CardContent>
             </Card>
 
-            <Card className="bg-emerald-50 border-emerald-200">
+            <Card className="bg-blue-50 border-blue-200">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-6 text-gray-900">Nous soutenir</h3>
                 <p className="text-gray-600 mb-6">
                   Participez activement au projet politique de Mouvaux Demain et soutenez notre démarche citoyenne.
                 </p>
                 <div className="space-y-4">
-                  <Button asChild className="w-full bg-emerald-600 hover:bg-emerald-700">
+                  <Button asChild className="w-full bg-blue-600 hover:bg-blue-700">
                     <Link href="/contact">Nous contacter</Link>
                   </Button>
                 </div>
@@ -149,7 +149,7 @@ export default function AssociationPage() {
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div>
                   <h3 className="text-2xl font-bold mb-6 text-gray-900 flex items-center">
-                    <MapPin className="w-6 h-6 mr-2 text-emerald-600" />
+                    <MapPin className="w-6 h-6 mr-2 text-blue-600" />
                     Siège social
                   </h3>
                   <div className="text-lg text-gray-700 space-y-2">
@@ -180,7 +180,7 @@ export default function AssociationPage() {
           </p>
 
           {/* Newsletter signup */}
-          <div className="bg-gradient-to-r from-blue-50 to-emerald-50 rounded-lg p-6 mb-8 max-w-lg mx-auto border-2 border-blue-200">
+          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-6 mb-8 max-w-lg mx-auto border-2 border-blue-200">
             <h3 className="text-xl font-semibold mb-4 text-gray-900">📧 Newsletter de l'association</h3>
             <p className="text-gray-600 mb-4 text-sm">
               Recevez nos comptes-rendus d'activités et invitations aux événements
@@ -191,17 +191,14 @@ export default function AssociationPage() {
                 placeholder="votre@email.fr"
                 className="flex-1 px-3 py-2 rounded border border-gray-300 text-sm"
               />
-              <Button
-                size="sm"
-                className="bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700"
-              >
+              <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
                 S'inscrire
               </Button>
             </div>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-emerald-600 hover:bg-emerald-700">
+            <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
               <Link href="/contact">Nous contacter</Link>
             </Button>
             <Button asChild variant="outline" size="lg">

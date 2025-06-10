@@ -9,7 +9,7 @@ export function Footer() {
           {/* Logo and Description */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-emerald-600 rounded-full flex items-center justify-center">
+              <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
                 <span className="text-white font-bold text-sm">MD</span>
               </div>
               <span className="font-bold text-lg">Mouvaux Demain</span>
@@ -27,20 +27,20 @@ export function Footer() {
                   placeholder="Votre email"
                   className="flex-1 px-3 py-2 rounded text-gray-900 text-sm"
                 />
-                <button className="bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white px-4 py-2 rounded text-sm font-medium transition-colors">
+                <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm font-medium transition-colors">
                   S'inscrire
                 </button>
               </div>
             </div>
 
             <div className="flex space-x-4">
-              <a href="mailto:contact@delavenne.fr" className="text-gray-300 hover:text-emerald-400 transition-colors">
+              <a href="mailto:contact@delavenne.fr" className="text-gray-300 hover:text-blue-400 transition-colors">
                 <Mail className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-300 hover:text-emerald-400 transition-colors">
+              <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-300 hover:text-emerald-400 transition-colors">
+              <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">
                 <Facebook className="w-5 h-5" />
               </a>
             </div>
@@ -51,27 +51,27 @@ export function Footer() {
             <h3 className="font-semibold mb-4">Navigation</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-gray-300 hover:text-emerald-400 transition-colors">
+                <Link href="/" className="text-gray-300 hover:text-blue-400 transition-colors">
                   Accueil
                 </Link>
               </li>
               <li>
-                <Link href="/charles-delavenne" className="text-gray-300 hover:text-emerald-400 transition-colors">
+                <Link href="/charles-delavenne" className="text-gray-300 hover:text-blue-400 transition-colors">
                   Charles Delavenne
                 </Link>
               </li>
               <li>
-                <Link href="/programme" className="text-gray-300 hover:text-emerald-400 transition-colors">
+                <Link href="/programme" className="text-gray-300 hover:text-blue-400 transition-colors">
                   Programme
                 </Link>
               </li>
               <li>
-                <Link href="/association" className="text-gray-300 hover:text-emerald-400 transition-colors">
+                <Link href="/association" className="text-gray-300 hover:text-blue-400 transition-colors">
                   Association
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-300 hover:text-emerald-400 transition-colors">
+                <Link href="/contact" className="text-gray-300 hover:text-blue-400 transition-colors">
                   Contact
                 </Link>
               </li>
@@ -92,10 +92,10 @@ export function Footer() {
         <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">© {new Date().getFullYear()} Mouvaux Demain. Tous droits réservés.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link href="#" className="text-gray-400 hover:text-emerald-400 text-sm transition-colors">
+            <Link href="#" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">
               Mentions légales
             </Link>
-            <Link href="#" className="text-gray-400 hover:text-emerald-400 text-sm transition-colors">
+            <Link href="#" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">
               Politique de confidentialité
             </Link>
           </div>

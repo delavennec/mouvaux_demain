@@ -8,29 +8,8 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Checkbox } from "@/components/ui/checkbox"
-import { Mail, Calendar, FileText, Linkedin, Facebook } from "lucide-react"
+import { Mail, FileText, Linkedin, Facebook } from "lucide-react"
 import { useState } from "react"
-
-const agenda = [
-  {
-    date: "15 Mai 2025",
-    title: "Réunion publique - Quartier Centre",
-    description: "Échanges sur la sécurité et les services de proximité",
-    time: "19h00",
-  },
-  {
-    date: "18 Mai 2025",
-    title: "Atelier participatif - Transition écologique",
-    description: "Construisons ensemble les solutions durables",
-    time: "14h00",
-  },
-  {
-    date: "22 Mai 2025",
-    title: "Rencontre avec les associations",
-    description: "Dialogue sur la vie associative et culturelle",
-    time: "18h30",
-  },
-]
 
 const documents = [
   { title: "Programme complet", type: "PDF", size: "2.1 MB" },
@@ -122,7 +101,7 @@ export default function ContactPage() {
                   </div>
 
                   <div className="space-y-4">
-                    <div className="bg-gradient-to-r from-emerald-50 to-blue-50 p-4 rounded-lg border border-emerald-200">
+                    <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-lg border border-blue-200">
                       <div className="flex items-start space-x-3">
                         <Checkbox
                           id="newsletter"
@@ -131,10 +110,10 @@ export default function ContactPage() {
                           className="mt-1"
                         />
                         <div>
-                          <Label htmlFor="newsletter" className="text-sm font-medium text-emerald-800">
+                          <Label htmlFor="newsletter" className="text-sm font-medium text-blue-800">
                             ✉️ Je souhaite recevoir la newsletter de Mouvaux Demain
                           </Label>
-                          <p className="text-xs text-emerald-700 mt-1">
+                          <p className="text-xs text-blue-700 mt-1">
                             Actualités exclusives, invitations aux événements, propositions détaillées
                           </p>
                         </div>
@@ -154,7 +133,7 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  <Button type="submit" className="w-full bg-emerald-600 hover:bg-emerald-700">
+                  <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
                     Envoyer le message
                   </Button>
                 </form>
@@ -162,7 +141,7 @@ export default function ContactPage() {
             </Card>
 
             {/* Newsletter Signup Card */}
-            <Card className="mt-8 bg-gradient-to-br from-blue-50 via-emerald-50 to-purple-50 border-blue-200">
+            <Card className="mt-8 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 border-blue-200">
               <CardContent className="p-8">
                 <h3 className="text-xl font-bold mb-4 text-gray-900">📬 Newsletter Mouvaux Demain</h3>
                 <p className="text-gray-600 mb-6">
@@ -173,11 +152,9 @@ export default function ContactPage() {
                     <input
                       type="email"
                       placeholder="Votre adresse email"
-                      className="flex-1 px-4 py-3 rounded-lg border border-emerald-300"
+                      className="flex-1 px-4 py-3 rounded-lg border border-blue-300"
                     />
-                    <Button className="bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700">
-                      Je m'abonne
-                    </Button>
+                    <Button className="bg-blue-600 hover:bg-blue-700">Je m'abonne</Button>
                   </div>
                   <div className="text-sm text-gray-500 space-y-1">
                     <p>✓ Contenu exclusif chaque semaine</p>
@@ -194,20 +171,20 @@ export default function ContactPage() {
                 <h3 className="text-xl font-bold mb-6 text-gray-900">Autres moyens de contact</h3>
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
-                    <Mail className="w-5 h-5 text-emerald-600" />
-                    <a href="mailto:contact@delavenne.fr" className="text-emerald-600 hover:text-emerald-700">
+                    <Mail className="w-5 h-5 text-blue-600" />
+                    <a href="mailto:contact@delavenne.fr" className="text-blue-600 hover:text-blue-700">
                       contact@delavenne.fr
                     </a>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <Linkedin className="w-5 h-5 text-emerald-600" />
-                    <a href="#" className="text-emerald-600 hover:text-emerald-700">
+                    <Linkedin className="w-5 h-5 text-blue-600" />
+                    <a href="#" className="text-blue-600 hover:text-blue-700">
                       LinkedIn
                     </a>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <Facebook className="w-5 h-5 text-emerald-600" />
-                    <a href="#" className="text-emerald-600 hover:text-emerald-700">
+                    <Facebook className="w-5 h-5 text-blue-600" />
+                    <a href="#" className="text-blue-600 hover:text-blue-700">
                       Facebook
                     </a>
                   </div>
@@ -216,34 +193,8 @@ export default function ContactPage() {
             </Card>
           </div>
 
-          {/* Agenda & Documents */}
+          {/* Documents */}
           <div className="space-y-8">
-            {/* Agenda */}
-            <Card>
-              <CardContent className="p-8">
-                <h2 className="text-2xl font-bold mb-6 text-gray-900 flex items-center">
-                  <Calendar className="w-6 h-6 mr-2 text-blue-600" />
-                  Prochains événements
-                </h2>
-                <div className="space-y-4">
-                  {agenda.map((event, index) => (
-                    <div key={index} className="border-l-4 border-emerald-600 pl-4 py-2">
-                      <div className="flex justify-between items-start mb-1">
-                        <h4 className="font-semibold text-gray-900">{event.title}</h4>
-                        <span className="text-sm text-emerald-600 font-medium">{event.time}</span>
-                      </div>
-                      <p className="text-sm text-gray-600 mb-1">{event.description}</p>
-                      <p className="text-sm text-gray-500">{event.date}</p>
-                    </div>
-                  ))}
-                </div>
-                <Button variant="outline" className="w-full mt-6">
-                  Voir tout l'agenda
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Documents */}
             <Card>
               <CardContent className="p-8">
                 <h2 className="text-2xl font-bold mb-6 text-gray-900 flex items-center">

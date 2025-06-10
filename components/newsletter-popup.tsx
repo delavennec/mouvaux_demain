@@ -54,7 +54,7 @@ export function NewsletterPopup() {
           <X className="w-4 h-4" />
         </Button>
         <CardContent className="p-8 text-center">
-          <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full flex items-center justify-center mx-auto mb-6">
             <Mail className="w-8 h-8 text-blue-600" />
           </div>
           <h3 className="text-2xl font-bold mb-4 text-gray-900">Restez informé de notre campagne</h3>
@@ -70,10 +70,7 @@ export function NewsletterPopup() {
               className="w-full px-4 py-3 rounded-lg border border-gray-300"
               required
             />
-            <Button
-              type="submit"
-              className="w-full bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700"
-            >
+            <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
               Je m'inscris gratuitement
             </Button>
           </form>

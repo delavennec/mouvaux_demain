@@ -22,7 +22,7 @@ export function Header() {
       <div className="container flex h-16 items-center justify-between px-4">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-emerald-600 rounded-full flex items-center justify-center">
+          <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
             <span className="text-white font-bold text-sm">MD</span>
           </div>
           <span className="font-bold text-lg text-gray-900">Mouvaux Demain</span>
@@ -34,8 +34,8 @@ export function Header() {
             <Link
               key={item.name}
               href={item.href}
-              className={`text-sm font-medium transition-colors hover:text-emerald-600 ${
-                pathname === item.href ? "text-emerald-600" : "text-gray-700"
+              className={`text-sm font-medium transition-colors hover:text-blue-600 ${
+                pathname === item.href ? "text-blue-600" : "text-gray-700"
               }`}
             >
               {item.name}
@@ -48,11 +48,7 @@ export function Header() {
           <Button asChild variant="outline" size="sm">
             <Link href="/contact">Je soutiens</Link>
           </Button>
-          <Button
-            asChild
-            size="sm"
-            className="bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white"
-          >
+          <Button asChild size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">
             <Link href="#newsletter">Newsletter</Link>
           </Button>
         </div>
@@ -71,25 +67,18 @@ export function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`text-lg font-medium transition-colors hover:text-emerald-600 ${
-                    pathname === item.href ? "text-emerald-600" : "text-gray-700"
+                  className={`text-lg font-medium transition-colors hover:text-blue-600 ${
+                    pathname === item.href ? "text-blue-600" : "text-gray-700"
                   }`}
                 >
                   {item.name}
                 </Link>
               ))}
               <div className="pt-4 space-y-3">
-                <Button
-                  asChild
-                  variant="outline"
-                  className="w-full border-emerald-600 text-emerald-600 hover:bg-emerald-50"
-                >
+                <Button asChild variant="outline" className="w-full border-blue-600 text-blue-600 hover:bg-blue-50">
                   <Link href="/contact">Je soutiens</Link>
                 </Button>
-                <Button
-                  asChild
-                  className="w-full bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700"
-                >
+                <Button asChild className="w-full bg-blue-600 hover:bg-blue-700">
                   <Link href="#newsletter">Newsletter gratuite</Link>
                 </Button>
               </div>

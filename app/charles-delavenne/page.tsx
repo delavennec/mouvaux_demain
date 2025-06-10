@@ -11,7 +11,7 @@ export default function CharlesDelavennePage() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Charles Delavenne</h1>
-          <p className="text-xl text-emerald-600 font-medium">Tête de liste Mouvaux Demain</p>
+          <p className="text-xl text-blue-600 font-medium">Tête de liste Mouvaux Demain</p>
         </div>
 
         {/* Intro Section */}
@@ -47,10 +47,10 @@ export default function CharlesDelavennePage() {
         <section className="mb-16 bg-gradient-to-br from-gray-50 to-blue-50 py-12 px-6 rounded-2xl">
           <h2 className="text-3xl font-bold mb-12 text-center text-gray-900">Parcours professionnel et engagement</h2>
           <div className="relative">
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-emerald-200"></div>
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-blue-200"></div>
             <div className="space-y-8">
               <div className="relative flex items-start">
-                <div className="absolute left-6 w-4 h-4 bg-emerald-600 rounded-full"></div>
+                <div className="absolute left-6 w-4 h-4 bg-blue-600 rounded-full"></div>
                 <div className="ml-16">
                   <Card>
                     <CardContent className="p-6">
@@ -64,7 +64,7 @@ export default function CharlesDelavennePage() {
               </div>
 
               <div className="relative flex items-start">
-                <div className="absolute left-6 w-4 h-4 bg-blue-600 rounded-full"></div>
+                <div className="absolute left-6 w-4 h-4 bg-indigo-600 rounded-full"></div>
                 <div className="ml-16">
                   <Card>
                     <CardContent className="p-6">
@@ -113,21 +113,21 @@ export default function CharlesDelavennePage() {
 
         {/* Quote Section */}
         <section className="mb-16">
-          <Card className="bg-gradient-to-br from-emerald-50 via-blue-50 to-indigo-50 border-emerald-200">
+          <Card className="bg-gradient-to-br from-blue-50 via-indigo-50 to-slate-50 border-blue-200">
             <CardContent className="p-12 text-center">
-              <Quote className="w-12 h-12 text-emerald-600 mx-auto mb-6" />
+              <Quote className="w-12 h-12 text-blue-600 mx-auto mb-6" />
               <blockquote className="text-2xl md:text-3xl font-medium text-gray-900 mb-6 leading-relaxed">
                 "Je refuse l'opportunisme et les carrières politiques déconnectées. Être élu local, c'est un engagement
                 de chaque instant au service des habitants, pas une étape dans un parcours personnel."
               </blockquote>
-              <cite className="text-lg text-emerald-600 font-medium">Charles Delavenne</cite>
+              <cite className="text-lg text-blue-600 font-medium">Charles Delavenne</cite>
             </CardContent>
           </Card>
         </section>
 
         {/* Newsletter Signup - Inline */}
         <section className="mb-16">
-          <Card className="bg-gradient-to-r from-blue-50 via-emerald-50 to-purple-50 border-blue-200">
+          <Card className="bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50 border-blue-200">
             <CardContent className="p-8 text-center">
               <h3 className="text-2xl font-bold mb-4 text-gray-900">Restez connecté avec Charles Delavenne</h3>
               <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
@@ -141,9 +141,7 @@ export default function CharlesDelavennePage() {
                     placeholder="Votre email"
                     className="flex-1 px-4 py-3 rounded-lg border border-gray-300"
                   />
-                  <Button className="bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700">
-                    Suivre Charles
-                  </Button>
+                  <Button className="bg-blue-600 hover:bg-blue-700">Suivre Charles</Button>
                 </div>
               </div>
             </CardContent>
@@ -165,7 +163,7 @@ export default function CharlesDelavennePage() {
                 Jean-Louis Borloo : le refus du cynisme politique, la primauté des convictions et du bon sens local.
               </p>
             </div>
-            <Button asChild size="lg" className="bg-emerald-600 hover:bg-emerald-700">
+            <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
               <Link href="/programme">Découvrir notre programme</Link>
             </Button>
           </div>

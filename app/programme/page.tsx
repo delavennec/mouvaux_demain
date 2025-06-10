@@ -94,8 +94,8 @@ export default function ProgrammePage() {
             const Icon = engagement.icon
             const isOpen = openItems.includes(engagement.id)
 
-            let iconContainerClass = "w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center"
-            let iconClass = "w-6 h-6 text-emerald-600"
+            let iconContainerClass = "w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center"
+            let iconClass = "w-6 h-6 text-blue-600"
 
             switch (engagement.id) {
               case "budget":
@@ -103,8 +103,8 @@ export default function ProgrammePage() {
                 iconClass = "w-6 h-6 text-orange-600"
                 break
               case "ecologie":
-                iconContainerClass = "w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center"
-                iconClass = "w-6 h-6 text-blue-600"
+                iconContainerClass = "w-12 h-12 bg-green-100 rounded-full flex items-center justify-center"
+                iconClass = "w-6 h-6 text-green-600"
                 break
               case "services":
                 iconContainerClass = "w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center"
@@ -144,7 +144,7 @@ export default function ProgrammePage() {
                         <ul className="space-y-3">
                           {engagement.points.map((point, index) => (
                             <li key={index} className="flex items-start space-x-3">
-                              <div className="w-2 h-2 bg-emerald-600 rounded-full mt-2 flex-shrink-0"></div>
+                              <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
                               <span className="text-gray-700">{point}</span>
                             </li>
                           ))}
@@ -160,10 +160,10 @@ export default function ProgrammePage() {
 
         {/* Newsletter Signup - Programme */}
         <section className="mb-12">
-          <Card className="bg-gradient-to-r from-blue-600 via-emerald-600 to-purple-600 text-white">
+          <Card className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white">
             <CardContent className="p-8 text-center">
               <h3 className="text-2xl font-bold mb-4">Recevez le détail de nos propositions</h3>
-              <p className="text-emerald-100 mb-6 max-w-2xl mx-auto">
+              <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
                 Chaque semaine, nous détaillons une de nos propositions avec des exemples concrets et des témoignages
                 d'habitants. Inscrivez-vous pour tout savoir !
               </p>
@@ -176,21 +176,21 @@ export default function ProgrammePage() {
                   />
                   <Button className="bg-white text-blue-600 hover:bg-gray-100">Je veux tout savoir</Button>
                 </div>
-                <p className="text-emerald-100 text-sm mt-3">Déjà 300+ inscrits • Contenu exclusif chaque semaine</p>
+                <p className="text-blue-100 text-sm mt-3">Déjà 300+ inscrits • Contenu exclusif chaque semaine</p>
               </div>
             </CardContent>
           </Card>
         </section>
 
         {/* CTA Section */}
-        <div className="text-center bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50 rounded-lg p-12">
+        <div className="text-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-lg p-12">
           <h2 className="text-3xl font-bold mb-6 text-gray-900">Soutenez notre projet pour Mouvaux</h2>
           <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
             Ensemble, construisons une commune plus sûre, plus verte et plus dynamique. Votre soutien est essentiel pour
             porter ces engagements.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-emerald-600 hover:bg-emerald-700">
+            <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
               <Link href="/contact">Je soutiens Mouvaux Demain</Link>
             </Button>
             <Button asChild variant="outline" size="lg">
