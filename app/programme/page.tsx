@@ -6,6 +6,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import { Shield, Calculator, Leaf, Building2, Briefcase, Users, ChevronDown } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
+import { NewsletterForm } from "@/components/newsletter-form"
 
 const engagements = [
   {
@@ -168,14 +169,13 @@ export default function ProgrammePage() {
                 d'habitants. Inscrivez-vous pour tout savoir !
               </p>
               <div className="max-w-md mx-auto">
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <input
-                    type="email"
-                    placeholder="Votre adresse email"
-                    className="flex-1 px-4 py-3 rounded-lg text-gray-900"
-                  />
-                  <Button className="bg-white text-blue-600 hover:bg-gray-100">Je veux tout savoir</Button>
-                </div>
+                <NewsletterForm 
+                  buttonText="Je veux tout savoir"
+                  buttonClassName="bg-white text-blue-600 hover:bg-gray-100"
+                  inputClassName="flex-1 px-4 py-3 rounded-lg text-gray-900"
+                  messageClassName="text-blue-100 text-sm mt-2"
+                  layout="row"
+                />
                 <p className="text-blue-100 text-sm mt-3">Déjà 300+ inscrits • Contenu exclusif chaque semaine</p>
               </div>
             </CardContent>

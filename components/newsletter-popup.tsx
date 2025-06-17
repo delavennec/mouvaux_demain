@@ -5,13 +5,11 @@ import type React from "react"
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { X, Mail, Loader2 } from "lucide-react"
+import { X, Mail } from "lucide-react"
+import { NewsletterForm } from "@/components/newsletter-form"
 
 export function NewsletterPopup() {
   const [isVisible, setIsVisible] = useState(false)
-  const [email, setEmail] = useState("")
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [message, setMessage] = useState<{ text: string; isError: boolean } | null>(null)
 
   useEffect(() => {
     // Show popup after 30 seconds or when user scrolls 50% of page
@@ -40,44 +38,11 @@ export function NewsletterPopup() {
     localStorage.setItem("newsletter-popup-shown", "true")
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    
-    // Reset message state
-    setMessage(null)
-    setIsSubmitting(true)
-    
-    try {
-      // Call our API endpoint
-      const response = await fetch('/api/newsletter', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email }),
-      });
-      
-      const data = await response.json();
-      
-      setMessage({
-        text: data.message,
-        isError: !data.success,
-      });
-      
-      // If subscription was successful, close the popup after 3 seconds
-      if (data.success) {
-        setTimeout(() => {
-          handleClose();
-        }, 3000);
-      }
-    } catch (error) {
-      setMessage({
-        text: "Une erreur est survenue lors de l'inscription. Veuillez réessayer.",
-        isError: true,
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+  // Success callback to close the popup when newsletter signup is successful
+  const handleSuccess = () => {
+    setTimeout(() => {
+      handleClose()
+    }, 3000)
   }
 
   if (!isVisible) return null
@@ -96,38 +61,16 @@ export function NewsletterPopup() {
           <p className="text-gray-600 mb-6">
             Recevez nos actualités exclusives et invitations aux événements directement par email.
           </p>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <input
-              type="email"
-              placeholder="Votre adresse email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-3 rounded-lg border border-gray-300"
-              required
-              disabled={isSubmitting}
-            />
-            
-            {message && (
-              <div className={`text-sm ${message.isError ? 'text-red-600' : 'text-green-600'}`}>
-                {message.text}
-              </div>
-            )}
-            
-            <Button 
-              type="submit" 
-              className="w-full bg-blue-600 hover:bg-blue-700"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? (
-                <>
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Inscription en cours...
-                </>
-              ) : (
-                "Je m'inscris gratuitement"
-              )}
-            </Button>
-          </form>
+          
+          <NewsletterForm 
+            buttonText="Je m'inscris gratuitement"
+            buttonClassName="w-full bg-blue-600 hover:bg-blue-700"
+            inputClassName="w-full px-4 py-3 rounded-lg border border-gray-300"
+            messageClassName="text-sm mt-2"
+            layout="column"
+            onSuccess={handleSuccess}
+          />
+          
           <p className="text-xs text-gray-500 mt-4">Pas de spam • Désinscription facile • Données protégées</p>
         </CardContent>
       </Card>

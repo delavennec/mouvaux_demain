@@ -10,6 +10,7 @@ interface NewsletterFormProps {
   inputClassName?: string
   messageClassName?: string
   layout?: "row" | "column"
+  onSuccess?: () => void
 }
 
 export function NewsletterForm({
@@ -18,6 +19,7 @@ export function NewsletterForm({
   inputClassName = "",
   messageClassName = "",
   layout = "column",
+  onSuccess,
 }: NewsletterFormProps) {
   const [email, setEmail] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -47,9 +49,13 @@ export function NewsletterForm({
         isError: !data.success,
       });
       
-      // Clear form if successful
+      // If subscription was successful
       if (data.success) {
         setEmail("");
+        // Call onSuccess callback if provided
+        if (onSuccess) {
+          onSuccess();
+        }
       }
     } catch (error) {
       setMessage({
@@ -79,9 +85,10 @@ export function NewsletterForm({
         />
         
         <Button 
-          type="submit" 
+          type="button" 
           className={buttonClassName}
           disabled={isSubmitting}
+          onClick={handleSubmit}
         >
           {isSubmitting ? (
             <>

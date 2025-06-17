@@ -1,5 +1,6 @@
 import { Mail, Linkedin, Facebook } from "lucide-react"
 import Link from "next/link"
+import { NewsletterForm } from "@/components/newsletter-form"
 
 export function Footer() {
   return (
@@ -21,15 +22,14 @@ export function Footer() {
             {/* Newsletter signup in footer */}
             <div className="mb-6">
               <h4 className="font-semibold text-white mb-3">📧 Newsletter</h4>
-              <div className="flex flex-col sm:flex-row gap-2 max-w-sm">
-                <input
-                  type="email"
-                  placeholder="Votre email"
-                  className="flex-1 px-3 py-2 rounded text-gray-900 text-sm"
+              <div className="max-w-sm">
+                <NewsletterForm 
+                  buttonText="S'inscrire"
+                  buttonClassName="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm font-medium transition-colors"
+                  inputClassName="flex-1 px-3 py-2 rounded text-gray-900 text-sm"
+                  messageClassName="text-sm mt-2 text-gray-300"
+                  layout="row"
                 />
-                <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm font-medium transition-colors">
-                  S'inscrire
-                </button>
               </div>
             </div>
 

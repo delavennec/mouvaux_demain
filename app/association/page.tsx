@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { GraduationCap, Palette, Building, Shield, Heart, Leaf, Download, MapPin } from "lucide-react"
 import Link from "next/link"
+import { NewsletterForm } from "@/components/newsletter-form"
 
 const objectifs = [
   {
@@ -185,16 +186,13 @@ export default function AssociationPage() {
             <p className="text-gray-600 mb-4 text-sm">
               Recevez nos comptes-rendus d'activités et invitations aux événements
             </p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <input
-                type="email"
-                placeholder="votre@email.fr"
-                className="flex-1 px-3 py-2 rounded border border-gray-300 text-sm"
-              />
-              <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-                S'inscrire
-              </Button>
-            </div>
+            <NewsletterForm 
+              buttonText="S'inscrire"
+              buttonClassName="bg-blue-600 hover:bg-blue-700"
+              inputClassName="flex-1 px-3 py-2 rounded border border-gray-300 text-sm"
+              messageClassName="text-sm mt-2"
+              layout="row"
+            />
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Quote } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { NewsletterForm } from "@/components/newsletter-form"
 
 export default function CharlesDelavennePage() {
   return (
@@ -135,14 +136,13 @@ export default function CharlesDelavennePage() {
                 comprendre sa vision pour Mouvaux.
               </p>
               <div className="max-w-md mx-auto">
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <input
-                    type="email"
-                    placeholder="Votre email"
-                    className="flex-1 px-4 py-3 rounded-lg border border-gray-300"
-                  />
-                  <Button className="bg-blue-600 hover:bg-blue-700">Suivre Charles</Button>
-                </div>
+                <NewsletterForm 
+                  buttonText="Suivre Charles"
+                  buttonClassName="bg-blue-600 hover:bg-blue-700"
+                  inputClassName="flex-1 px-4 py-3 rounded-lg border border-gray-300"
+                  messageClassName="text-sm mt-2"
+                  layout="row"
+                />
               </div>
             </CardContent>
           </Card>

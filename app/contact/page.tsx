@@ -11,6 +11,7 @@ import { Checkbox } from "../../components/ui/checkbox"
 import { Mail, FileText, Linkedin, Facebook, CheckCircle, AlertCircle, Loader2 } from "lucide-react"
 import { useState } from "react"
 import { toast } from "sonner"
+import { NewsletterForm } from "@/components/newsletter-form"
 
 const documents = [
   { 
@@ -256,14 +257,13 @@ export default function ContactPage() {
                   Rejoignez notre communauté et recevez toutes nos actualités directement par email.
                 </p>
                 <div className="space-y-4">
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <input
-                      type="email"
-                      placeholder="Votre adresse email"
-                      className="flex-1 px-4 py-3 rounded-lg border border-blue-300"
-                    />
-                    <Button className="bg-blue-600 hover:bg-blue-700">Je m'abonne</Button>
-                  </div>
+                  <NewsletterForm 
+                    buttonText="Je m'abonne"
+                    buttonClassName="bg-blue-600 hover:bg-blue-700"
+                    inputClassName="flex-1 px-4 py-3 rounded-lg border border-blue-300"
+                    messageClassName="text-sm mt-2"
+                    layout="row"
+                  />
                   <div className="text-sm text-gray-500 space-y-1">
                     <p>✓ Contenu exclusif chaque semaine</p>
                     <p>✓ Invitations prioritaires aux événements</p>
