@@ -2,10 +2,10 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-import { NewsletterPopup } from "@/components/newsletter-popup"
-import { ScrollToTop } from "@/components/scroll-to-top"
+import { Header } from "../components/header"
+import { Footer } from "../components/footer"
+import { NewsletterPopup } from "../components/newsletter-popup"
+import { ScrollToTop } from "../components/scroll-to-top"
 
 const inter = Inter({ subsets: ["latin"] })
 
