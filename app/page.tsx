@@ -118,33 +118,13 @@ export default function HomePage() {
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Actualités</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-1 gap-8 max-w-lg mx-auto">
             <Card>
               <CardContent className="p-6">
-                <div className="text-sm text-blue-600 font-medium mb-2">15 Mai 2025</div>
-                <h3 className="text-lg font-semibold mb-3">Réunion publique - Quartier Centre</h3>
+                <div className="text-sm text-blue-600 font-medium mb-2">Samedi 05 juillet 2025 (18h00)</div>
+                <h3 className="text-lg font-semibold mb-3">Réunion publique – Apéro républicain</h3>
                 <p className="text-gray-600 text-sm">
-                  Venez échanger sur nos propositions pour améliorer la sécurité et les services de proximité.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="p-6">
-                <div className="text-sm text-blue-600 font-medium mb-2">12 Mai 2025</div>
-                <h3 className="text-lg font-semibold mb-3">Atelier participatif - Transition écologique</h3>
-                <p className="text-gray-600 text-sm">
-                  Construisons ensemble les solutions pour une Mouvaux plus verte et durable.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="p-6">
-                <div className="text-sm text-blue-600 font-medium mb-2">8 Mai 2025</div>
-                <h3 className="text-lg font-semibold mb-3">Rencontre avec les commerçants</h3>
-                <p className="text-gray-600 text-sm">
-                  Échanges sur le soutien au dynamisme économique local et aux commerces de proximité.
+                  Salle Courcol, Mouvaux
                 </p>
               </CardContent>
             </Card>
