@@ -11,6 +11,9 @@ const nextConfig = {
     unoptimized: process.env.NODE_ENV === 'development',
   },
   poweredByHeader: false,
+  experimental: {
+    esmExternals: true
+  }
 }
 
 export default nextConfig
