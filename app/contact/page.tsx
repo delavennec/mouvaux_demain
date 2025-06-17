@@ -8,8 +8,9 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Checkbox } from "@/components/ui/checkbox"
-import { Mail, FileText, Linkedin, Facebook } from "lucide-react"
+import { Mail, FileText, Linkedin, Facebook, CheckCircle, AlertCircle, Loader2 } from "lucide-react"
 import { useState } from "react"
+import { toast } from "sonner"
 
 const documents = [
   { 
@@ -52,10 +53,63 @@ export default function ContactPage() {
     gdpr: false,
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [formStatus, setFormStatus] = useState<"idle" | "success" | "error">("idle")
+  const [errorMessage, setErrorMessage] = useState("")
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
-    console.log("Form submitted:", formData)
+    
+    // Reset status
+    setFormStatus("idle")
+    setErrorMessage("")
+    
+    // Validate required fields
+    if (!formData.name || !formData.email || !formData.message || !formData.gdpr) {
+      setFormStatus("error")
+      setErrorMessage("Veuillez remplir tous les champs obligatoires")
+      toast.error("Veuillez remplir tous les champs obligatoires")
+      return
+    }
+    
+    setIsSubmitting(true)
+    
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+      
+      const data = await response.json()
+      
+      if (response.ok) {
+        setFormStatus("success")
+        toast.success("Votre message a bien été envoyé. Nous vous répondrons dans les meilleurs délais.")
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+          newsletter: false,
+          gdpr: false,
+        })
+      } else {
+        setFormStatus("error")
+        setErrorMessage(data.error || "Une erreur est survenue lors de l'envoi du message")
+        toast.error(data.error || "Une erreur est survenue lors de l'envoi du message")
+      }
+    } catch (error) {
+      setFormStatus("error")
+      setErrorMessage("Une erreur est survenue. Veuillez réessayer plus tard.")
+      toast.error("Une erreur est survenue. Veuillez réessayer plus tard.")
+      console.error("Contact form submission error:", error)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleInputChange = (field: string, value: string | boolean) => {
@@ -78,6 +132,26 @@ export default function ContactPage() {
               <CardContent className="p-8">
                 <h2 className="text-2xl font-bold mb-6 text-gray-900">Nous contacter</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {formStatus === "success" && (
+                    <div className="flex items-start space-x-3 p-4 rounded-lg bg-green-50 border border-green-200 text-green-800">
+                      <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
+                      <div>
+                        <p className="font-medium">Message envoyé avec succès</p>
+                        <p className="text-sm mt-1">Merci pour votre message ! Nous vous répondrons dans les meilleurs délais.</p>
+                      </div>
+                    </div>
+                  )}
+
+                  {formStatus === "error" && (
+                    <div className="flex items-start space-x-3 p-4 rounded-lg bg-red-50 border border-red-200 text-red-800">
+                      <AlertCircle className="h-5 w-5 text-red-500 mt-0.5" />
+                      <div>
+                        <p className="font-medium">Une erreur est survenue</p>
+                        <p className="text-sm mt-1">{errorMessage}</p>
+                      </div>
+                    </div>
+                  )}
+                  
                   <div>
                     <Label htmlFor="name">Nom complet *</Label>
                     <Input
@@ -156,8 +230,19 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
-                    Envoyer le message
+                  <Button 
+                    type="submit" 
+                    className="w-full bg-blue-600 hover:bg-blue-700"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      <span className="flex items-center justify-center">
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Envoi en cours...
+                      </span>
+                    ) : (
+                      "Envoyer le message"
+                    )}
                   </Button>
                 </form>
               </CardContent>
