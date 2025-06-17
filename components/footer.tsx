@@ -1,8 +1,25 @@
+"use client"
+
 import { Mail, Linkedin, Facebook } from "lucide-react"
 import Link from "next/link"
 import { NewsletterForm } from "@/components/newsletter-form"
 
+// Extend Window interface to include our custom function
+declare global {
+  interface Window {
+    reopenCookieConsent?: () => void;
+  }
+}
+
 export function Footer() {
+  // Function to reopen cookie consent banner
+  const handleOpenCookieSettings = () => {
+    // Access the global function exposed by CookieConsent component
+    if (typeof window !== "undefined" && window.reopenCookieConsent) {
+      window.reopenCookieConsent()
+    }
+  }
+
   return (
     <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-4 py-12">
@@ -91,13 +108,22 @@ export function Footer() {
 
         <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">© {new Date().getFullYear()} Mouvaux Demain. Tous droits réservés.</p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link href="#" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">
+          <div className="flex flex-wrap gap-x-6 gap-y-2 mt-4 md:mt-0 justify-center">
+            <Link href="/mentions-legales" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">
               Mentions légales
             </Link>
-            <Link href="#" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">
+            <Link href="/politique-de-confidentialite" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">
               Politique de confidentialité
             </Link>
+            <Link href="/cookies" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">
+              Politique des cookies
+            </Link>
+            <button 
+              onClick={handleOpenCookieSettings} 
+              className="text-gray-400 hover:text-blue-400 text-sm transition-colors bg-transparent border-none cursor-pointer"
+            >
+              Gérer les cookies
+            </button>
           </div>
         </div>
       </div>

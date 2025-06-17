@@ -6,6 +6,7 @@ import { Header } from "../components/header"
 import { Footer } from "../components/footer"
 import { NewsletterPopup } from "../components/newsletter-popup"
 import { ScrollToTop } from "../components/scroll-to-top"
+import { CookieConsent } from "../components/cookie-consent"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -34,6 +35,7 @@ export default function RootLayout({
         <Footer />
         <NewsletterPopup />
         <ScrollToTop />
+        <CookieConsent />
       </body>
     </html>
   )
