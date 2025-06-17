@@ -11,9 +11,10 @@ type MailchimpResponse = {
 /**
  * Adds a new subscriber to the Mailchimp audience list
  * @param email - The email address to subscribe
+ * @param name - The subscriber's name (optional)
  * @returns Promise with success status and message
  */
-export async function subscribeToNewsletter(email: string): Promise<MailchimpResponse> {
+export async function subscribeToNewsletter(email: string, name?: string): Promise<MailchimpResponse> {
   if (!process.env.MAILCHIMP_API_KEY || 
       !process.env.MAILCHIMP_AUDIENCE_ID || 
       !process.env.MAILCHIMP_SERVER_PREFIX) {
@@ -29,10 +30,23 @@ export async function subscribeToNewsletter(email: string): Promise<MailchimpRes
   
   try {
     // Prepare data for Mailchimp API
-    const data = {
+    const data: any = {
       email_address: email,
       status: 'subscribed', // Use 'pending' if you want double opt-in
     };
+
+    // Add merge fields if name is provided
+    if (name) {
+      // Split name into first name and last name
+      const nameParts = name.split(' ');
+      const firstName = nameParts[0] || '';
+      const lastName = nameParts.length > 1 ? nameParts.slice(1).join(' ') : '';
+      
+      data.merge_fields = {
+        FNAME: firstName,
+        LNAME: lastName
+      };
+    }
 
     // Make API request
     const response = await fetch(url, {

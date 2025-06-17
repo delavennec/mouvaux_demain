@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { sendContactEmail } from '../../../lib/email';
+import { subscribeToNewsletter } from '@/lib/mailchimp';
 
 export async function POST(request: Request) {
   try {
@@ -38,6 +39,21 @@ export async function POST(request: Request) {
       message: formData.message,
       newsletter: formData.newsletter || false,
     });
+
+    // Subscribe to newsletter if option is checked
+    if (formData.newsletter) {
+      try {
+        console.log('Subscribing to newsletter with name and email:', {
+          name: formData.name,
+          email: formData.email
+        });
+        await subscribeToNewsletter(formData.email, formData.name);
+        console.log('Newsletter subscription successful');
+      } catch (newsletterError) {
+        console.error('Newsletter subscription failed:', newsletterError);
+        // We don't fail the entire request if newsletter subscription fails
+      }
+    }
 
     if (result.success) {
       console.log('Email sent successfully');

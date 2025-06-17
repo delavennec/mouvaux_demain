@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
   try {
     // Parse request body
     const body = await req.json();
-    const { email } = body;
+    const { email, name } = body;
 
     // Validate email
     if (!email || !isValidEmail(email)) {
@@ -19,8 +19,8 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Call Mailchimp service
-    const result = await subscribeToNewsletter(email);
+    // Call Mailchimp service with name if provided
+    const result = await subscribeToNewsletter(email, name);
 
     return NextResponse.json(result, { 
       status: result.success ? 200 : 500 
