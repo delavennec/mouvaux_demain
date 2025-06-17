@@ -280,20 +280,14 @@ export default function ContactPage() {
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
                     <Mail className="w-5 h-5 text-blue-600" />
-                    <a href="mailto:contact@delavenne.fr" className="text-blue-600 hover:text-blue-700">
-                      contact@delavenne.fr
+                    <a href="mailto:cdelavenne@dlga.fr" className="text-blue-600 hover:text-blue-700">
+                    cdelavenne@dlga.fr
                     </a>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Linkedin className="w-5 h-5 text-blue-600" />
-                    <a href="#" className="text-blue-600 hover:text-blue-700">
+                    <a href="https://www.linkedin.com/in/charles-delavenne-a4503319/" className="text-blue-600 hover:text-blue-700">
                       LinkedIn
-                    </a>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <Facebook className="w-5 h-5 text-blue-600" />
-                    <a href="#" className="text-blue-600 hover:text-blue-700">
-                      Facebook
                     </a>
                   </div>
                 </div>

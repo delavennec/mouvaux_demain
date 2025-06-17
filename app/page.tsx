@@ -10,14 +10,18 @@ export default function HomePage() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-indigo-900/60 to-blue-800/70 z-10" />
-        <Image
-          src="/placeholder.svg?height=800&width=1200"
-          alt="Équipe Mouvaux Demain"
-          fill
-          className="object-cover"
-          priority
-        />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/60 via-indigo-900/40 to-blue-800/50 z-10" />
+        <div className="absolute inset-0 overflow-hidden">
+          <Image
+            src="/general/cdelavenne_moving_worward_park_right2.jpg"
+            alt="Équipe Mouvaux Demain"
+            width={1800}
+            height={1250}
+            className="w-auto h-auto min-w-full min-h-full"
+            style={{ transform: 'translate(0px, -70px)' }}
+            priority
+          />
+        </div>
         <div className="relative z-20 text-center text-white px-4 max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
             Un vote ambitieux et constructif pour Mouvaux
