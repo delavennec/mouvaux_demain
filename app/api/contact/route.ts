@@ -4,6 +4,13 @@ import { sendContactEmail } from '../../../lib/email';
 export async function POST(request: Request) {
   try {
     console.log('Contact form submission received');
+    console.log('Environment variables available:', {
+      SENDGRID_API_KEY: !!process.env.SENDGRID_API_KEY,
+      EMAIL_FROM: !!process.env.EMAIL_FROM,
+      EMAIL_TO: !!process.env.EMAIL_TO,
+      NODE_ENV: process.env.NODE_ENV
+    });
+    
     const formData = await request.json();
     
     // Validate required fields

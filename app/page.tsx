@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Shield, Leaf, Calculator, ChevronRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { NewsletterForm } from "@/components/newsletter-form"
 
 export default function HomePage() {
   return (
@@ -101,14 +102,13 @@ export default function HomePage() {
             dans votre boîte mail.
           </p>
           <div className="max-w-md mx-auto">
-            <div className="flex flex-col sm:flex-row gap-3">
-              <input
-                type="email"
-                placeholder="Votre adresse email"
-                className="flex-1 px-4 py-3 rounded-lg border-0 text-gray-900 placeholder-gray-500"
-              />
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 font-semibold">Je m'inscris</Button>
-            </div>
+            <NewsletterForm 
+              buttonText="Je m'inscris"
+              buttonClassName="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 font-semibold"
+              inputClassName="flex-1 px-4 py-3 rounded-lg border-0 text-gray-900 placeholder-gray-500"
+              messageClassName="text-blue-100"
+              layout="row"
+            />
             <p className="text-blue-100 text-sm mt-3">✓ Pas de spam • ✓ Désinscription facile • ✓ Données protégées</p>
           </div>
         </div>
@@ -159,13 +159,14 @@ export default function HomePage() {
           <p className="text-lg text-gray-600 mb-8">
             Rejoignez les <strong>500+ habitants</strong> qui suivent déjà notre campagne par email.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
-            <input
-              type="email"
-              placeholder="votre@email.fr"
-              className="flex-1 px-4 py-3 rounded-lg border border-gray-300 text-gray-900"
+          <div className="flex justify-center max-w-lg mx-auto">
+            <NewsletterForm 
+              buttonText="Rejoindre"
+              buttonClassName="bg-blue-600 hover:bg-blue-700 px-6 py-3"
+              inputClassName="flex-1 px-4 py-3 rounded-lg border border-gray-300 text-gray-900"
+              messageClassName="text-gray-600 mt-2"
+              layout="row"
             />
-            <Button className="bg-blue-600 hover:bg-blue-700 px-6 py-3">Rejoindre</Button>
           </div>
         </div>
       </section>
