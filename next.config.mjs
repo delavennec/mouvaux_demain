@@ -7,11 +7,10 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: true,
+    domains: ['vercel.com'],
+    unoptimized: process.env.NODE_ENV === 'development',
   },
-  output: 'export',
-  distDir: 'dist',
-  trailingSlash: true,
+  poweredByHeader: false,
 }
 
 export default nextConfig
