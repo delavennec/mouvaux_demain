@@ -1,8 +1,13 @@
 import sgMail from '@sendgrid/mail';
 
-// Initialize SendGrid with the API key from environment variables
-if (process.env.SENDGRID_API_KEY) {
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+// Get environment variables with fallback values for local development
+const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY || '';
+const EMAIL_FROM = process.env.EMAIL_FROM || 'noreply@example.com';
+const EMAIL_TO = process.env.EMAIL_TO || 'cdelavenne@dlga.fr';
+
+// Initialize SendGrid with the API key
+if (SENDGRID_API_KEY) {
+  sgMail.setApiKey(SENDGRID_API_KEY);
 }
 
 type ContactFormData = {
@@ -15,17 +20,26 @@ type ContactFormData = {
 
 export async function sendContactEmail(formData: ContactFormData): Promise<{ success: boolean; error?: string }> {
   try {
-    if (!process.env.SENDGRID_API_KEY || !process.env.EMAIL_FROM || !process.env.EMAIL_TO) {
-      throw new Error('Missing email configuration');
+    // Check if we have the API key
+    if (!SENDGRID_API_KEY) {
+      console.error('SendGrid API key not found');
+      throw new Error('Configuration d\'envoi d\'email manquante');
     }
 
     const emailSubject = formData.subject 
       ? `Contact - ${formData.subject}`
       : 'Nouveau message de contact - Mouvaux Demain';
 
+    // Debug log (remove in production)
+    console.log('Email configuration:', { 
+      hasApiKey: !!SENDGRID_API_KEY, 
+      emailFrom: EMAIL_FROM,
+      emailTo: EMAIL_TO 
+    });
+
     const msg = {
-      to: process.env.EMAIL_TO, // Default receiver email (cdelavenne@dlga.fr in env var)
-      from: process.env.EMAIL_FROM, // Verified sender email
+      to: EMAIL_TO,
+      from: EMAIL_FROM,
       subject: emailSubject,
       text: `
 Nom: ${formData.name}
