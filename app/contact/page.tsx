@@ -8,7 +8,7 @@ import { Input } from "../../components/ui/input"
 import { Label } from "../../components/ui/label"
 import { Textarea } from "../../components/ui/textarea"
 import { Checkbox } from "../../components/ui/checkbox"
-import { Mail, FileText, Linkedin, Facebook, CheckCircle, AlertCircle, Loader2 } from "lucide-react"
+import { Mail, FileText, Facebook, CheckCircle, AlertCircle, Loader2 } from "lucide-react"
 import { useState } from "react"
 import { toast } from "sonner"
 import { NewsletterForm } from "@/components/newsletter-form"
@@ -280,14 +280,8 @@ export default function ContactPage() {
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
                     <Mail className="w-5 h-5 text-blue-600" />
-                    <a href="mailto:cdelavenne@dlga.fr" className="text-blue-600 hover:text-blue-700">
-                    cdelavenne@dlga.fr
-                    </a>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <Linkedin className="w-5 h-5 text-blue-600" />
-                    <a href="https://www.linkedin.com/in/charles-delavenne-a4503319/" className="text-blue-600 hover:text-blue-700">
-                      LinkedIn
+                    <a href="mailto:contact@delavenne.fr" className="text-blue-600 hover:text-blue-700">
+                    contact@delavenne.fr
                     </a>
                   </div>
                 </div>

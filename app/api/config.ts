@@ -5,7 +5,7 @@ export const serverConfig = {
   },
   email: {
     from: process.env.EMAIL_FROM || 'noreply@example.com',
-    to: process.env.EMAIL_TO || 'cdelavenne@dlga.fr',
+    to: process.env.EMAIL_TO || 'contact@delavenne.fr',
   },
   env: process.env.NODE_ENV || 'development',
 }; 

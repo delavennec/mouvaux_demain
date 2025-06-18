@@ -14,12 +14,19 @@ export const metadata: Metadata = {
   title: "Mouvaux Demain - Charles Delavenne",
   description: "Un vote ambitieux et constructif pour Mouvaux. Pour un cadre de vie serein et agréable.",
   keywords: "Mouvaux, Charles Delavenne, élections, municipales, écologie, sécurité, budget",
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    apple: { url: '/favicon.png', sizes: '180x180' },
+  },
   openGraph: {
     title: "Mouvaux Demain - Charles Delavenne",
     description: "Un vote ambitieux et constructif pour Mouvaux. Pour un cadre de vie serein et agréable.",
     type: "website",
   },
-    generator: 'v0.dev'
+  generator: 'v0.dev'
 }
 
 export default function RootLayout({

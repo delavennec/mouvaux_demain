@@ -1,6 +1,6 @@
 "use client"
 
-import { Mail, Linkedin, Facebook } from "lucide-react"
+import { Mail, Facebook } from "lucide-react"
 import Link from "next/link"
 import { NewsletterForm } from "@/components/newsletter-form"
 
@@ -53,9 +53,6 @@ export function Footer() {
             <div className="flex space-x-4">
               <a href="mailto:contact@delavenne.fr" className="text-gray-300 hover:text-blue-400 transition-colors">
                 <Mail className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">
-                <Linkedin className="w-5 h-5" />
               </a>
               <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">
                 <Facebook className="w-5 h-5" />
