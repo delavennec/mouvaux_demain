@@ -21,9 +21,9 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
-      <div className="container flex h-16 items-center justify-between gap-6 px-4">
+      <div className="container flex h-16 items-center px-6">
         {/* Logo */}
-        <Link href="/" className="flex items-center space-x-2">
+        <Link href="/" className="flex items-center space-x-2 flex-shrink-0">
           <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
             <span className="text-white font-bold text-sm">RM</span>
           </div>
@@ -31,8 +31,8 @@ export function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-16">
-          <nav className="flex items-center space-x-10">
+        <div className="hidden lg:flex items-center flex-1 ml-10">
+          <nav className="flex items-center space-x-5 lg:space-x-7 xl:space-x-9">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -47,7 +47,7 @@ export function Header() {
           </nav>
 
           {/* CTA Buttons */}
-          <div className="flex items-center space-x-5">
+          <div className="flex items-center space-x-3 lg:space-x-4 ml-auto pl-16 lg:pl-20 xl:pl-24">
             <Button asChild variant="outline" size="sm">
               <Link href="/contact">Nous soutenir</Link>
             </Button>
