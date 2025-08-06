@@ -1,6 +1,6 @@
 "use client"
 
-import { Mail, Facebook } from "lucide-react"
+import { Mail, Facebook, X, Instagram } from "lucide-react"
 import Link from "next/link"
 import { NewsletterForm } from "@/components/newsletter-form"
 
@@ -28,12 +28,12 @@ export function Footer() {
           <div className="md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-sm">MD</span>
+                <span className="text-white font-bold text-sm">RM</span>
               </div>
-              <span className="font-bold text-lg">Mouvaux Demain</span>
+              <span className="font-bold text-lg">Renouveau pour Mouvaux</span>
             </div>
             <p className="text-gray-300 mb-6 max-w-md">
-              Un vote ambitieux et constructif pour Mouvaux. Pour un cadre de vie serein et agréable.
+              Un vote ambitieux et constructif pour Mouvaux. Pour une ville sûre, attractive, dynamique et agréable.
             </p>
 
             {/* Newsletter signup in footer */}
@@ -51,11 +51,17 @@ export function Footer() {
             </div>
 
             <div className="flex space-x-4">
-              <a href="mailto:contact@delavenne.fr" className="text-gray-300 hover:text-blue-400 transition-colors">
+              <a href="mailto:contact.mouvaux2026@gmail.com" className="text-gray-300 hover:text-blue-400 transition-colors">
                 <Mail className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">
+              <a href="https://www.facebook.com/share/19n839yhVx/?mibextid=wwXIfr" className="text-gray-300 hover:text-blue-400 transition-colors" target="_blank" rel="noopener noreferrer">
                 <Facebook className="w-5 h-5" />
+              </a>
+              <a href="https://twitter.com/Mouvaux2026" className="text-gray-300 hover:text-blue-400 transition-colors" target="_blank" rel="noopener noreferrer">
+                <X className="w-5 h-5" />
+              </a>
+              <a href="https://www.instagram.com/charlesdelavenne2024?utm_source=ig_web_button_share_sheet&igsh=bTd1b2JjdnVneWZn" className="text-gray-300 hover:text-blue-400 transition-colors" target="_blank" rel="noopener noreferrer">
+                <Instagram className="w-5 h-5" />
               </a>
             </div>
           </div>
@@ -75,13 +81,23 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/programme" className="text-gray-300 hover:text-blue-400 transition-colors">
-                  Programme
+                <Link href="/association" className="text-gray-300 hover:text-blue-400 transition-colors">
+                  Renouveau pour Mouvaux
                 </Link>
               </li>
               <li>
-                <Link href="/association" className="text-gray-300 hover:text-blue-400 transition-colors">
-                  Association
+                <Link href="/programme" className="text-gray-300 hover:text-blue-400 transition-colors">
+                  Nos priorités
+                </Link>
+              </li>
+              <li>
+                <Link href="/actualites" className="text-gray-300 hover:text-blue-400 transition-colors">
+                  Actualités
+                </Link>
+              </li>
+              <li>
+                <Link href="/evenements" className="text-gray-300 hover:text-blue-400 transition-colors">
+                  Evénements
                 </Link>
               </li>
               <li>
@@ -98,13 +114,13 @@ export function Footer() {
             <div className="space-y-2 text-gray-300">
               <p>137, rue Faidherbe</p>
               <p>59420 Mouvaux</p>
-              <p>contact@delavenne.fr</p>
+              <p>contact.mouvaux2026@gmail.com</p>
             </div>
           </div>
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">© {new Date().getFullYear()} Mouvaux Demain. Tous droits réservés.</p>
+          <p className="text-gray-400 text-sm">© {new Date().getFullYear()} Renouveau pour Mouvaux. Tous droits réservés.</p>
           <div className="flex flex-wrap gap-x-6 gap-y-2 mt-4 md:mt-0 justify-center">
             <Link href="/mentions-legales" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">
               Mentions légales

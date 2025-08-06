@@ -5,7 +5,7 @@ import sgMail from '@sendgrid/mail';
 const FALLBACK_CONFIG = {
   apiKey: '', // You must set this in Vercel dashboard or deployment will fail
   emailFrom: 'noreply@example.com', // Must be verified in SendGrid
-  emailTo: 'contact@delavenne.fr'
+  emailTo: 'contact.mouvaux2026@gmail.com'
 };
 
 // Get environment variables with fallback values
@@ -24,6 +24,10 @@ type ContactFormData = {
   subject: string;
   message: string;
   newsletter: boolean;
+  engage?: boolean;
+  contactTeam?: boolean;
+  hostEvent?: boolean;
+  financialSupport?: boolean;
 };
 
 export async function sendContactEmail(formData: ContactFormData): Promise<{ success: boolean; error?: string }> {
@@ -47,7 +51,7 @@ export async function sendContactEmail(formData: ContactFormData): Promise<{ suc
 
     const emailSubject = formData.subject 
       ? `Contact - ${formData.subject}`
-      : 'Nouveau message de contact - Mouvaux Demain';
+      : 'Nouveau message de contact - Renouveau pour Mouvaux';
 
     // Debug log for environment variables
     console.log('Email configuration:', { 
@@ -72,15 +76,28 @@ Email: ${formData.email}
 ${formData.subject ? `Sujet: ${formData.subject}` : ''}
 Message: ${formData.message}
 Inscription newsletter: ${formData.newsletter ? 'Oui' : 'Non'}
+${formData.engage ? 'Engagement dans la campagne: Oui' : ''}
+${formData.contactTeam ? 'Contact avec un membre de l\'équipe: Oui' : ''}
+${formData.hostEvent ? 'Accueil d\'un apéro Mouvaux 2026: Oui' : ''}
+${formData.financialSupport ? 'Soutien financier de la campagne: Oui' : ''}
       `,
       html: `
-<h3>Nouveau message de contact - Mouvaux Demain</h3>
+<h3>Nouveau message de contact - Renouveau pour Mouvaux</h3>
 <p><strong>Nom:</strong> ${formData.name}</p>
 <p><strong>Email:</strong> ${formData.email}</p>
 ${formData.subject ? `<p><strong>Sujet:</strong> ${formData.subject}</p>` : ''}
 <p><strong>Message:</strong></p>
 <p>${formData.message.replace(/\n/g, '<br>')}</p>
 <p><strong>Inscription newsletter:</strong> ${formData.newsletter ? 'Oui' : 'Non'}</p>
+
+${formData.engage || formData.contactTeam || formData.hostEvent || formData.financialSupport ? 
+`<h4>Engagement souhaité:</h4>
+<ul>
+  ${formData.engage ? '<li><strong>Je souhaite m\'engager et participer à la campagne</strong></li>' : ''}
+  ${formData.contactTeam ? '<li><strong>Je souhaite avoir contact direct avec un membre de l\'équipe</strong></li>' : ''}
+  ${formData.hostEvent ? '<li><strong>Je souhaite accueillir un apéro « Mouvaux 2026 » à mon domicile</strong></li>' : ''}
+  ${formData.financialSupport ? '<li><strong>Je souhaite soutenir financièrement la campagne</strong></li>' : ''}
+</ul>` : ''}
       `,
     };
 

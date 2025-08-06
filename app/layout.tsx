@@ -11,8 +11,8 @@ import { CookieConsent } from "../components/cookie-consent"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Mouvaux Demain - Charles Delavenne",
-  description: "Un vote ambitieux et constructif pour Mouvaux. Pour un cadre de vie serein et agréable.",
+  title: "Renouveau pour Mouvaux  - Charles Delavenne",
+  description: "Un vote ambitieux et constructif pour Mouvaux. Pour une ville sûre, attractive, dynamique et agréable.",
   keywords: "Mouvaux, Charles Delavenne, élections, municipales, écologie, sécurité, budget",
   icons: {
     icon: [
@@ -22,8 +22,8 @@ export const metadata: Metadata = {
     apple: { url: '/favicon.png', sizes: '180x180' },
   },
   openGraph: {
-    title: "Mouvaux Demain - Charles Delavenne",
-    description: "Un vote ambitieux et constructif pour Mouvaux. Pour un cadre de vie serein et agréable.",
+    title: "Renouveau pour Mouvaux  - Charles Delavenne",
+    description: "Un vote ambitieux et constructif pour Mouvaux. Pour une ville sûre, attractive, dynamique et agréable.",
     type: "website",
   },
   generator: 'v0.dev'

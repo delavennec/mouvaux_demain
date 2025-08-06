@@ -28,7 +28,11 @@ export async function POST(request: Request) {
       email: formData.email,
       hasSubject: !!formData.subject,
       messageLength: formData.message.length,
-      newsletter: formData.newsletter || false
+      newsletter: formData.newsletter || false,
+      engage: formData.engage || false,
+      contactTeam: formData.contactTeam || false,
+      hostEvent: formData.hostEvent || false,
+      financialSupport: formData.financialSupport || false
     });
 
     // Send email
@@ -38,6 +42,10 @@ export async function POST(request: Request) {
       subject: formData.subject || '',
       message: formData.message,
       newsletter: formData.newsletter || false,
+      engage: formData.engage || false,
+      contactTeam: formData.contactTeam || false,
+      hostEvent: formData.hostEvent || false,
+      financialSupport: formData.financialSupport || false,
     });
 
     // Subscribe to newsletter if option is checked

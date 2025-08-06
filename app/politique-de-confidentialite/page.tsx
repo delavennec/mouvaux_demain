@@ -17,7 +17,7 @@ export default function PrivacyPolicyPage() {
 
           <h2 className="text-2xl font-semibold mt-8 mb-4">1. Introduction</h2>
           <p>
-            Mouvaux Demain s'engage à protéger la vie privée des utilisateurs de son site internet. Cette politique de confidentialité explique comment nous collectons, utilisons, partageons et protégeons vos informations personnelles.
+            Renouveau pour Mouvaux s'engage à protéger la vie privée des utilisateurs de son site internet. Cette politique de confidentialité explique comment nous collectons, utilisons, partageons et protégeons vos informations personnelles.
           </p>
           
           <h2 className="text-2xl font-semibold mt-8 mb-4">2. Responsable du traitement</h2>
@@ -25,7 +25,7 @@ export default function PrivacyPolicyPage() {
             Le responsable du traitement des données à caractère personnel est :
           </p>
           <p className="ml-4">
-            Association Mouvaux Demain<br />
+            Association Renouveau pour Mouvaux<br />
             137, rue Faidherbe<br />
             59420 Mouvaux<br />
             Email : contact@delavenne.fr
@@ -141,7 +141,7 @@ export default function PrivacyPolicyPage() {
             Pour toute question concernant cette politique de confidentialité ou vos données personnelles, veuillez nous contacter à l'adresse suivante :
           </p>
           <p className="ml-4">
-            Association Mouvaux Demain<br />
+            Association Renouveau pour Mouvaux<br />
             137, rue Faidherbe<br />
             59420 Mouvaux<br />
             Email : contact@delavenne.fr

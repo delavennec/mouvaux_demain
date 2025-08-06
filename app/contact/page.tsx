@@ -8,41 +8,13 @@ import { Input } from "../../components/ui/input"
 import { Label } from "../../components/ui/label"
 import { Textarea } from "../../components/ui/textarea"
 import { Checkbox } from "../../components/ui/checkbox"
-import { Mail, FileText, Facebook, CheckCircle, AlertCircle, Loader2 } from "lucide-react"
+import { Mail, Facebook, CheckCircle, AlertCircle, Loader2 } from "lucide-react"
+import { Phone, X, Instagram } from "lucide-react"
 import { useState } from "react"
 import { toast } from "sonner"
 import { NewsletterForm } from "@/components/newsletter-form"
 
-const documents = [
-  { 
-    title: "Circulaire Charles Delavenne", 
-    type: "PDF", 
-    size: "728 KB",
-    path: "/circulaire_Charles_Delavenne.pdf",
-    available: true
-  },
-  { 
-    title: "Programme complet", 
-    type: "PDF", 
-    size: "2.1 MB",
-    available: false,
-    comingSoon: "Disponible prochainement"
-  },
-  { 
-    title: "Tract de campagne", 
-    type: "PDF", 
-    size: "1.5 MB",
-    available: false,
-    comingSoon: "En cours de finalisation"
-  },
-  { 
-    title: "Statuts de l'association", 
-    type: "PDF", 
-    size: "0.8 MB",
-    available: false,
-    comingSoon: "Bientôt disponible"
-  },
-]
+
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -52,6 +24,10 @@ export default function ContactPage() {
     message: "",
     newsletter: false,
     gdpr: false,
+    engage: false,
+    contactTeam: false,
+    hostEvent: false,
+    financialSupport: false,
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -97,6 +73,10 @@ export default function ContactPage() {
           message: "",
           newsletter: false,
           gdpr: false,
+          engage: false,
+          contactTeam: false,
+          hostEvent: false,
+          financialSupport: false,
         })
       } else {
         setFormStatus("error")
@@ -122,13 +102,12 @@ export default function ContactPage() {
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Contact & Ressources</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Contact</h1>
           <p className="text-xl text-gray-600">Échangeons ensemble sur l'avenir de Mouvaux</p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="max-w-2xl mx-auto">
           {/* Contact Form */}
-          <div>
             <Card>
               <CardContent className="p-8">
                 <h2 className="text-2xl font-bold mb-6 text-gray-900">Nous contacter</h2>
@@ -198,7 +177,80 @@ export default function ContactPage() {
                     />
                   </div>
 
-                  <div className="space-y-4">
+                  <div className="space-y-6">
+                    <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-lg border border-blue-200">
+                      <h4 className="font-medium text-blue-800 mb-3">S'engager avec nous</h4>
+                      <div className="space-y-4">
+                        <div className="flex items-start space-x-3">
+                          <Checkbox
+                            id="engage"
+                            className="mt-1"
+                            checked={formData.engage}
+                            onCheckedChange={(checked) => {
+                              handleInputChange("engage", checked as boolean);
+                              if (checked) {
+                                handleInputChange("subject", "Engagement dans la campagne");
+                              }
+                            }}
+                          />
+                          <Label htmlFor="engage" className="text-sm">
+                            Je souhaite m'engager et participer à la campagne de « Renouveau pour Mouvaux ».
+                          </Label>
+                        </div>
+
+                        <div className="flex items-start space-x-3">
+                          <Checkbox
+                            id="contact-team"
+                            className="mt-1"
+                            checked={formData.contactTeam}
+                            onCheckedChange={(checked) => {
+                              handleInputChange("contactTeam", checked as boolean);
+                              if (checked) {
+                                handleInputChange("subject", "Contact avec un membre de l'équipe");
+                              }
+                            }}
+                          />
+                          <Label htmlFor="contact-team" className="text-sm">
+                            Je souhaite avoir contact direct avec un membre de l'équipe de campagne.
+                          </Label>
+                        </div>
+
+                        <div className="flex items-start space-x-3">
+                          <Checkbox
+                            id="host-event" 
+                            className="mt-1"
+                            checked={formData.hostEvent}
+                            onCheckedChange={(checked) => {
+                              handleInputChange("hostEvent", checked as boolean);
+                              if (checked) {
+                                handleInputChange("subject", "Accueil d'un apéro Mouvaux 2026");
+                              }
+                            }}
+                          />
+                          <Label htmlFor="host-event" className="text-sm">
+                            Je souhaite accueillir un apéro « Mouvaux 2026 » à mon domicile, en présence du candidat Charles Delavenne.
+                          </Label>
+                        </div>
+
+                        <div className="flex items-start space-x-3">
+                          <Checkbox
+                            id="financial-support"
+                            className="mt-1"
+                            checked={formData.financialSupport}
+                            onCheckedChange={(checked) => {
+                              handleInputChange("financialSupport", checked as boolean);
+                              if (checked) {
+                                handleInputChange("subject", "Soutien financier de la campagne");
+                              }
+                            }}
+                          />
+                          <Label htmlFor="financial-support" className="text-sm">
+                            Je souhaite soutenir financièrement la campagne « Renouveau pour Mouvaux ». Un don même modeste sera très utile.
+                          </Label>
+                        </div>
+                      </div>
+                    </div>
+
                     <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-lg border border-blue-200">
                       <div className="flex items-start space-x-3">
                         <Checkbox
@@ -209,7 +261,7 @@ export default function ContactPage() {
                         />
                         <div>
                           <Label htmlFor="newsletter" className="text-sm font-medium text-blue-800">
-                            ✉️ Je souhaite recevoir la newsletter de Mouvaux Demain
+                            ✉️ Je souhaite recevoir la newsletter de Renouveau pour Mouvaux
                           </Label>
                           <p className="text-xs text-blue-700 mt-1">
                             Actualités exclusives, invitations aux événements, propositions détaillées
@@ -252,7 +304,7 @@ export default function ContactPage() {
             {/* Newsletter Signup Card */}
             <Card className="mt-8 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 border-blue-200">
               <CardContent className="p-8">
-                <h3 className="text-xl font-bold mb-4 text-gray-900">📬 Newsletter Mouvaux Demain</h3>
+                <h3 className="text-xl font-bold mb-4 text-gray-900">📬 Newsletter Renouveau pour Mouvaux</h3>
                 <p className="text-gray-600 mb-6">
                   Rejoignez notre communauté et recevez toutes nos actualités directement par email.
                 </p>
@@ -265,13 +317,15 @@ export default function ContactPage() {
                     layout="row"
                   />
                   <div className="text-sm text-gray-500 space-y-1">
-                    <p>✓ Contenu exclusif chaque semaine</p>
+                    <p>✓ Des infos exclusives régulièrementne</p>
                     <p>✓ Invitations prioritaires aux événements</p>
                     <p>✓ Désinscription en un clic</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
+
+
 
             {/* Contact Info */}
             <Card className="mt-8">
@@ -280,57 +334,50 @@ export default function ContactPage() {
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
                     <Mail className="w-5 h-5 text-blue-600" />
-                    <a href="mailto:contact@delavenne.fr" className="text-blue-600 hover:text-blue-700">
-                    contact@delavenne.fr
+                    <a href="mailto:contact.mouvaux2026@gmail.com" className="text-blue-600 hover:text-blue-700">
+                    contact.mouvaux2026@gmail.com
                     </a>
                   </div>
+                  <div className="flex items-center space-x-3">
+                    <Phone className="w-5 h-5 text-blue-600" />
+                    <a href="tel:0621284082" className="text-blue-600 hover:text-blue-700">
+                      06 21 28 40 82
+                    </a>
                 </div>
-              </CardContent>
-            </Card>
           </div>
 
-          {/* Documents */}
-          <div className="space-y-8">
-            <Card>
-              <CardContent className="p-8">
-                <h2 className="text-2xl font-bold mb-6 text-gray-900 flex items-center">
-                  <FileText className="w-6 h-6 mr-2 text-purple-600" />
-                  Documents utiles
-                </h2>
-                <div className="space-y-3">
-                  {documents.map((doc, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-                    >
-                      <div>
-                        <h4 className="font-medium text-gray-900">{doc.title}</h4>
-                        <p className="text-sm text-gray-500">
-                          {doc.type} • {doc.size}
-                          {!doc.available && doc.comingSoon && (
-                            <span className="ml-2 text-blue-600 italic">
-                              {doc.comingSoon}
-                            </span>
-                          )}
-                        </p>
-                      </div>
-                      {doc.available ? (
-                        <a href={doc.path} download target="_blank" rel="noopener noreferrer">
-                          <Button variant="ghost" size="sm">
-                            Télécharger
-                          </Button>
-                        </a>
-                      ) : (
-                        <Button variant="ghost" size="sm" disabled>
-                          Télécharger
-                        </Button>
-                      )}
-                    </div>
-                  ))}
+                <h3 className="text-xl font-bold mt-8 mb-6 text-gray-900">Nous suivre sur nos réseaux sociaux</h3>
+                <div className="flex flex-wrap gap-4">
+                  <a 
+                    href="https://www.facebook.com/share/19n839yhVx/?mibextid=wwXIfr" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-2 bg-blue-100 hover:bg-blue-200 text-blue-800 px-4 py-2 rounded-full transition-colors"
+                  >
+                    <Facebook className="w-5 h-5" />
+                    <span>Facebook</span>
+                  </a>
+                  <a 
+                    href="https://twitter.com/Mouvaux2026" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-2 bg-blue-100 hover:bg-blue-200 text-blue-800 px-4 py-2 rounded-full transition-colors"
+                  >
+                    <X className="w-5 h-5" />
+                    <span>@Mouvaux2026</span>
+                  </a>
+                  <a 
+                    href="https://www.instagram.com/charlesdelavenne2024?utm_source=ig_web_button_share_sheet&igsh=bTd1b2JjdnVneWZn" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-2 bg-blue-100 hover:bg-blue-200 text-blue-800 px-4 py-2 rounded-full transition-colors"
+                  >
+                    <Instagram className="w-5 h-5" />
+                    <span>Instagram</span>
+                  </a>
                 </div>
               </CardContent>
             </Card>
-          </div>
         </div>
       </div>
     </div>

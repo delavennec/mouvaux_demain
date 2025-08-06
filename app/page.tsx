@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Shield, Leaf, Calculator, ChevronRight } from "lucide-react"
+import { ChevronRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { NewsletterForm } from "@/components/newsletter-form"
@@ -13,84 +13,53 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/60 via-indigo-900/40 to-blue-800/50 z-10" />
         <div className="absolute inset-0 overflow-hidden">
           <Image
-            src="/general/cdelavenne_moving_worward_park_right2.jpg"
-            alt="Équipe Mouvaux Demain"
+            src="/general/photo_de_groupe.jpg"
+            alt="Équipe Renouveau pour Mouvaux "
             width={1800}
             height={1250}
             className="w-auto h-auto min-w-full min-h-full"
-            style={{ transform: 'translate(0px, -70px)' }}
+            style={{ transform: 'translate(0px, -200px)' }}
             priority
           />
         </div>
-        <div className="relative z-20 text-center text-white px-4 max-w-4xl mx-auto">
+        <div className="relative z-20 text-center text-white px-4 max-w-4xl mx-auto" style={{ marginTop: '20vh' }}>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
             Un vote ambitieux et constructif pour Mouvaux
           </h1>
           <div className="flex flex-col items-center justify-center bg-blue-600/90 px-6 py-3 rounded-lg mb-8 inline-block">
-            <p className="text-lg md:text-xl font-medium">Pour un cadre de vie serein et agréable</p>
+            <p className="text-lg md:text-xl font-medium">Pour une ville sûre, attractive, dynamique et agréable</p>
           </div>
           <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg mx-auto">
-            <Link href="/contact">Je soutiens Mouvaux Demain</Link>
+            <Link href="/contact">Soutenir Renouveau pour Mouvaux </Link>
           </Button>
         </div>
       </section>
 
-      {/* Highlights Section */}
+      {/* Pourquoi je m'engage Section */}
       <section className="py-16 px-4 bg-gradient-to-br from-blue-50 via-indigo-50 to-slate-50">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Nos priorités pour Mouvaux</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="group hover:shadow-lg transition-shadow cursor-pointer">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors">
-                  <Shield className="w-8 h-8 text-blue-600" />
-                </div>
-                <h3 className="text-xl font-semibold mb-4 text-gray-900">Sécurité</h3>
-                <p className="text-gray-600 mb-4">
-                  Renforcement des effectifs de police municipale et mise en place de dispositifs de vidéoprotection.
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Pourquoi je m'engage</h2>
+          <div className="max-w-4xl mx-auto">
+            <Card>
+              <CardContent className="p-8">
+                <p className="text-gray-700 mb-4">
+                  Je m'engage dans la course aux élections municipales de Mouvaux dans un esprit résolument constructif, avec l'ambition de proposer un renouveau pour notre ville. Avec des élus municipaux, d'anciens élus, des citoyens engagés et motivés, partageant une vision commune, je souhaite apporter un nouveau souffle à Mouvaux.
                 </p>
-                <Link
-                  href="/programme#securite"
-                  className="text-blue-600 font-medium inline-flex items-center hover:text-blue-700"
-                >
-                  En savoir plus <ChevronRight className="w-4 h-4 ml-1" />
-                </Link>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-lg transition-shadow cursor-pointer">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-200 transition-colors">
-                  <Leaf className="w-8 h-8 text-green-600" />
-                </div>
-                <h3 className="text-xl font-semibold mb-4 text-gray-900">Écologie</h3>
-                <p className="text-gray-600 mb-4">
-                  Transition écologique pragmatique avec développement des énergies renouvelables locales.
+                <p className="text-gray-700 mb-4">
+                  De nombreux Mouvallois en font quotidiennement le constat. Face aux défis auxquels est confrontée notre commune située au cœur d'une grande agglomération, Mouvaux doit se réinventer pour répondre aux préoccupations et aux attentes légitimes de ses habitants tout en protégeant les atouts de notre ville. La préservation du cadre de vie, héritage inestimable de la commune, constitue un pilier fondamental de notre démarche, tout comme la garantie de la sécurité pour tous.
                 </p>
-                <Link
-                  href="/programme#ecologie"
-                  className="text-blue-600 font-medium inline-flex items-center hover:text-blue-700"
-                >
-                  En savoir plus <ChevronRight className="w-4 h-4 ml-1" />
-                </Link>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-lg transition-shadow cursor-pointer">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-orange-200 transition-colors">
-                  <Calculator className="w-8 h-8 text-orange-600" />
-                </div>
-                <h3 className="text-xl font-semibold mb-4 text-gray-900">Budget</h3>
-                <p className="text-gray-600 mb-4">
-                  Gestion budgétaire responsable sans augmentation des impôts locaux.
+                <p className="text-gray-700 mb-4">
+                  L'adaptation aux nouvelles réalités de la vie quotidienne représente un enjeu majeur. Dans un contexte métropolitain en constante évolution, Mouvaux doit offrir à ses habitants les conditions optimales pour mener une vie épanouie : travailler, se former, se déplacer, se détendre dans des espaces de qualité, faire ses courses dans de bonnes conditions, habiter dans un cadre serein.
                 </p>
-                <Link
-                  href="/programme#budget"
-                  className="text-blue-600 font-medium inline-flex items-center hover:text-blue-700"
-                >
-                  En savoir plus <ChevronRight className="w-4 h-4 ml-1" />
-                </Link>
+                <p className="text-gray-700 mb-4">
+                  Il faut s'adapter mais aussi préserver l'essentiel. Notre ville a un atout majeur, les plus anciens côtoient les plus jeunes. Je veux apporter une attention particulière à ce lien si précieux entre les générations. Ce sera un axe important du projet qui sera proposé aux Mouvallois.
+                </p>
+                <p className="text-gray-700 mb-4">
+                  Il s'agit de redonner un véritable souffle à Mouvaux, de créer une dynamique positive qui rende la ville attractive non seulement pour ses habitants actuels, mais également pour ceux qui souhaiteraient s'y installer.
+                </p>
+                <p className="text-gray-700">
+                  Cette vision s'appuie sur une conviction forte : une municipalité efficace, sur un territoire métropolitain dense, doit être à l'écoute de ses citoyens et dans un esprit constructif avec les communes voisines. En associant expertise et engagement citoyen, notre démarche vise à construire ensemble l'avenir de Mouvaux, en préservant son identité tout en l'adaptant aux enjeux du XXIe siècle.
+                </p>
               </CardContent>
             </Card>
           </div>
@@ -123,15 +92,21 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Actualités</h2>
           <div className="grid md:grid-cols-1 gap-8 max-w-lg mx-auto">
-            <Card>
-              <CardContent className="p-6">
-                <div className="text-sm text-blue-600 font-medium mb-2">Samedi 05 juillet 2025 (18h00)</div>
-                <h3 className="text-lg font-semibold mb-3">Réunion publique – Apéro républicain</h3>
-                <p className="text-gray-600 text-sm">
-                  Salle Courcol, Mouvaux
-                </p>
-              </CardContent>
-            </Card>
+            <Link href="/evenements" className="block transition-transform hover:scale-102 hover:shadow-md">
+              <Card className="cursor-pointer hover:border-blue-300">
+                <CardContent className="p-6">
+                  <div className="text-sm text-blue-600 font-medium mb-2">Vendredi 12 septembre (18h30)</div>
+                  <h3 className="text-lg font-semibold mb-3">Réunion publique - Verre de l'amitié</h3>
+                  <p className="text-gray-600 text-sm">
+                    Salle Courcol, Mouvaux
+                  </p>
+                  <div className="flex items-center text-blue-600 mt-3 text-sm font-medium">
+                    <span>En savoir plus</span>
+                    <ChevronRight className="h-4 w-4 ml-1" />
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
           </div>
         </div>
       </section>

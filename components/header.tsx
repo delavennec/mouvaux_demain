@@ -9,8 +9,10 @@ import { usePathname } from "next/navigation"
 const navigation = [
   { name: "Accueil", href: "/" },
   { name: "Charles Delavenne", href: "/charles-delavenne" },
-  { name: "Programme", href: "/programme" },
-  { name: "Association", href: "/association" },
+  { name: "Renouveau pour Mouvaux", href: "/association" },
+  { name: "Nos priorités", href: "/programme" },
+  { name: "Actualités", href: "/actualites" },
+  { name: "Evénements", href: "/evenements" },
   { name: "Contact", href: "/contact" },
 ]
 
@@ -19,38 +21,40 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
-      <div className="container flex h-16 items-center justify-between px-4">
+      <div className="container flex h-16 items-center justify-between gap-6 px-4">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
           <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-            <span className="text-white font-bold text-sm">MD</span>
+            <span className="text-white font-bold text-sm">RM</span>
           </div>
-          <span className="font-bold text-lg text-gray-900">Mouvaux Demain</span>
+          <span className="font-bold text-lg text-gray-900">Renouveau pour Mouvaux</span>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center space-x-8">
-          {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className={`text-sm font-medium transition-colors hover:text-blue-600 ${
-                pathname === item.href ? "text-blue-600" : "text-gray-700"
-              }`}
-            >
-              {item.name}
-            </Link>
-          ))}
-        </nav>
+        <div className="hidden lg:flex items-center gap-16">
+          <nav className="flex items-center space-x-10">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={`text-sm font-medium transition-colors hover:text-blue-600 ${
+                  pathname === item.href ? "text-blue-600" : "text-gray-700"
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </nav>
 
-        {/* CTA Buttons */}
-        <div className="hidden lg:flex items-center space-x-3">
-          <Button asChild variant="outline" size="sm">
-            <Link href="/contact">Je soutiens</Link>
-          </Button>
-          <Button asChild size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">
-            <Link href="#newsletter">Newsletter</Link>
-          </Button>
+          {/* CTA Buttons */}
+          <div className="flex items-center space-x-5">
+            <Button asChild variant="outline" size="sm">
+              <Link href="/contact">Nous soutenir</Link>
+            </Button>
+            <Button asChild size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">
+              <Link href="#newsletter">Newsletter</Link>
+            </Button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -62,7 +66,7 @@ export function Header() {
             </Button>
           </SheetTrigger>
           <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-            <div className="flex flex-col space-y-4 mt-8">
+            <div className="flex flex-col space-y-5 mt-8">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
@@ -74,9 +78,9 @@ export function Header() {
                   {item.name}
                 </Link>
               ))}
-              <div className="pt-4 space-y-3">
+              <div className="pt-5 space-y-4">
                 <Button asChild variant="outline" className="w-full border-blue-600 text-blue-600 hover:bg-blue-50">
-                  <Link href="/contact">Je soutiens</Link>
+                  <Link href="/contact">Nous soutenir</Link>
                 </Button>
                 <Button asChild className="w-full bg-blue-600 hover:bg-blue-700">
                   <Link href="#newsletter">Newsletter gratuite</Link>

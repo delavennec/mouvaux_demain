@@ -20,7 +20,7 @@ export default function LegalNoticePage() {
           
           <h3 className="text-xl font-semibold mt-6 mb-3">1.1 Éditeur du site</h3>
           <p className="ml-4">
-            <strong>Association Mouvaux Demain</strong><br />
+            <strong>Association Renouveau pour Mouvaux</strong><br />
             Association loi 1901<br />
             Adresse : 137, rue Faidherbe, 59420 Mouvaux<br />
             Email : contact@delavenne.fr<br />
@@ -37,7 +37,7 @@ export default function LegalNoticePage() {
           
           <h3 className="text-xl font-semibold mt-6 mb-3">1.3 Directeur de la publication</h3>
           <p className="ml-4">
-            Charles Delavenne, Président de l'association Mouvaux Demain
+            Charles Delavenne, Président de l'association Renouveau pour Mouvaux
           </p>
           
           <h2 className="text-2xl font-semibold mt-8 mb-4">2. Présentation du site</h2>
@@ -45,7 +45,7 @@ export default function LegalNoticePage() {
             Le site <strong>mouvaux-demain.fr</strong> a pour objet de :
           </p>
           <ul className="list-disc ml-6 mb-4">
-            <li>Présenter l'association Mouvaux Demain et ses activités</li>
+            <li>Présenter l'association Renouveau pour Mouvaux et ses activités</li>
             <li>Informer sur le programme politique de Charles Delavenne pour la commune de Mouvaux</li>
             <li>Permettre aux utilisateurs de contacter l'association</li>
             <li>Proposer l'inscription à une newsletter d'information</li>
@@ -94,7 +94,7 @@ export default function LegalNoticePage() {
             Pour toute question concernant ces mentions légales, vous pouvez nous contacter à l'adresse suivante :
           </p>
           <p className="ml-4">
-            Association Mouvaux Demain<br />
+            Association Renouveau pour Mouvaux<br />
             137, rue Faidherbe<br />
             59420 Mouvaux<br />
             Email : contact@delavenne.fr

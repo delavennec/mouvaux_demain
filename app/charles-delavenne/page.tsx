@@ -12,7 +12,7 @@ export default function CharlesDelavennePage() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Charles Delavenne</h1>
-          <p className="text-xl text-blue-600 font-medium">Tête de liste Mouvaux Demain</p>
+          <p className="text-xl text-blue-600 font-medium">Tête de liste Renouveau pour Mouvaux</p>
         </div>
 
         {/* Intro Section */}
@@ -99,9 +99,9 @@ export default function CharlesDelavennePage() {
                 <div className="ml-16">
                   <Card>
                     <CardContent className="p-6">
-                      <h3 className="text-xl font-semibold mb-2 text-gray-900">Mouvaux Demain</h3>
+                      <h3 className="text-xl font-semibold mb-2 text-gray-900">Renouveau pour Mouvaux</h3>
                       <p className="text-gray-600">
-                        Création et animation de l'association Mouvaux Demain pour porter un projet politique centré sur
+                        Création et animation de l'association Renouveau pour Mouvaux pour porter un projet politique centré sur
                         l'intérêt général.
                       </p>
                     </CardContent>

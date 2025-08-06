@@ -150,7 +150,7 @@ export default function CookiePolicyPage() {
             Si vous avez des questions concernant notre utilisation des cookies, veuillez nous contacter à l'adresse suivante :
           </p>
           <p className="ml-4">
-            Association Mouvaux Demain<br />
+            Association Renouveau pour Mouvaux<br />
             137, rue Faidherbe<br />
             59420 Mouvaux<br />
             Email : contact@delavenne.fr

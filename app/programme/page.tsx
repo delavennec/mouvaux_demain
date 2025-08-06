@@ -2,16 +2,15 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
-import { Shield, Calculator, Leaf, Building2, Briefcase, Users, ChevronDown } from "lucide-react"
+import { Shield, Calculator, Leaf, Building2, Briefcase, Users } from "lucide-react"
 import Link from "next/link"
-import { useState } from "react"
+
 import { NewsletterForm } from "@/components/newsletter-form"
 
 const engagements = [
   {
     id: "securite",
-    title: "Restaurer l'autorité républicaine et garantir la sécurité locale",
+    title: "Renforcer et garantir la sécurité du quotidien dans tous les quartiers",
     icon: Shield,
     points: [
       "Renforcement des effectifs de la police municipale et amélioration de leurs équipements",
@@ -20,43 +19,63 @@ const engagements = [
     ],
   },
   {
-    id: "budget",
-    title: "Assurer une gestion budgétaire responsable",
-    icon: Calculator,
-    points: [
-      "Élaboration d'un budget communal équilibré, sans augmentation des impôts locaux",
-      "Optimisation des dépenses publiques par une évaluation rigoureuse des services municipaux",
-      "Recherche de financements alternatifs, notamment via des partenariats public-privé",
-    ],
-  },
-  {
-    id: "ecologie",
-    title: "Promouvoir une transition écologique pragmatique",
+    id: "cadre-vie",
+    title: "Améliorer le cadre de vie",
     icon: Leaf,
     points: [
-      "Développement de projets d'énergies renouvelables à l'échelle locale",
-      "Soutien à la rénovation énergétique des bâtiments publics et incitation pour les particuliers",
       "Aménagement d'espaces verts et promotion de la biodiversité urbaine",
-    ],
-  },
-  {
-    id: "services",
-    title: "Renforcer les services publics de proximité",
-    icon: Building2,
-    points: [
-      "Amélioration de l'accès aux soins par le soutien à l'installation de professionnels de santé",
-      "Modernisation des infrastructures scolaires et périscolaires",
-      "Développement de services numériques pour faciliter les démarches administratives",
+      "Entretien et valorisation des espaces publics",
+      "Actions pour la propreté et l'embellissement de la commune",
     ],
   },
   {
     id: "economie",
-    title: "Soutenir le dynamisme économique local",
+    title: "Soutenir le dynamisme commercial et restaurer l'attractivité économique locale",
     icon: Briefcase,
     points: [
-      "Création de zones d'activités pour attirer les entreprises et créer des emplois",
       "Soutien aux commerces de proximité et aux initiatives entrepreneuriales locales",
+      "Création de zones d'activités pour attirer les entreprises et créer des emplois",
       "Organisation régulière de forums économiques pour favoriser les échanges entre acteurs locaux",
+    ],
+  },
+  {
+    id: "familles",
+    title: "Accompagner nos aînés, nos jeunes et les familles",
+    icon: Users,
+    points: [
+      "Développement de services et activités adaptés aux besoins des seniors",
+      "Mise en place de dispositifs d'aide et de soutien aux familles",
+      "Création d'espaces et d'animations dédiés à la jeunesse",
+    ],
+  },
+  {
+    id: "education",
+    title: "Assurer la qualité de la vie scolaire et des modes d'accueil de la petite enfance",
+    icon: Building2,
+    points: [
+      "Modernisation des infrastructures scolaires et périscolaires",
+      "Développement des capacités d'accueil pour la petite enfance",
+      "Soutien aux projets éducatifs et périscolaires",
+    ],
+  },
+  {
+    id: "culture",
+    title: "Redynamiser la vie culturelle et soutenir le tissu associatif",
+    icon: Calculator,
+    points: [
+      "Organisation d'événements culturels diversifiés et accessibles à tous",
+      "Soutien financier et logistique aux associations locales",
+      "Création d'espaces dédiés aux activités culturelles et associatives",
+    ],
+  },
+  {
+    id: "services",
+    title: "Préserver et conforter les services publics de proximité",
+    icon: Building2,
+    points: [
+      "Amélioration de l'accès aux soins par le soutien à l'installation de professionnels de santé",
+      "Développement de services numériques pour faciliter les démarches administratives",
+      "Maintien et renforcement des services publics essentiels",
     ],
   },
   {
@@ -72,11 +91,6 @@ const engagements = [
 ]
 
 export default function ProgrammePage() {
-  const [openItems, setOpenItems] = useState<string[]>([])
-
-  const toggleItem = (id: string) => {
-    setOpenItems((prev) => (prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]))
-  }
 
   return (
     <div className="min-h-screen py-8">
@@ -85,7 +99,7 @@ export default function ProgrammePage() {
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Nos engagements pour Mouvaux</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Six priorités pour construire ensemble un avenir responsable, écologique et républicain pour notre commune.
+            Nos priorités pour construire ensemble un avenir responsable, écologique et républicain pour notre commune.
           </p>
         </div>
 
@@ -93,7 +107,6 @@ export default function ProgrammePage() {
         <div className="space-y-6 mb-12">
           {engagements.map((engagement) => {
             const Icon = engagement.icon
-            const isOpen = openItems.includes(engagement.id)
 
             let iconContainerClass = "w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center"
             let iconClass = "w-6 h-6 text-blue-600"
@@ -123,37 +136,24 @@ export default function ProgrammePage() {
 
             return (
               <Card key={engagement.id} id={engagement.id} className="overflow-hidden">
-                <Collapsible open={isOpen} onOpenChange={() => toggleItem(engagement.id)}>
-                  <CollapsibleTrigger className="w-full">
-                    <CardContent className="p-6 hover:bg-gray-50 transition-colors">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-4">
-                          <div className={iconContainerClass}>
-                            <Icon className={iconClass} />
-                          </div>
-                          <h2 className="text-xl font-semibold text-left text-gray-900">{engagement.title}</h2>
-                        </div>
-                        <ChevronDown
-                          className={`w-5 h-5 text-gray-500 transition-transform ${isOpen ? "rotate-180" : ""}`}
-                        />
-                      </div>
-                    </CardContent>
-                  </CollapsibleTrigger>
-                  <CollapsibleContent>
-                    <CardContent className="px-6 pb-6 pt-0">
-                      <div className="ml-16">
-                        <ul className="space-y-3">
-                          {engagement.points.map((point, index) => (
-                            <li key={index} className="flex items-start space-x-3">
-                              <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                              <span className="text-gray-700">{point}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </CardContent>
-                  </CollapsibleContent>
-                </Collapsible>
+                <CardContent className="p-6">
+                  <div className="flex items-start space-x-4">
+                    <div className={iconContainerClass}>
+                      <Icon className={iconClass} />
+                    </div>
+                    <div>
+                      <h2 className="text-xl font-semibold text-left text-gray-900 mb-3">{engagement.title}</h2>
+                      <ul className="space-y-3">
+                        {engagement.points.map((point, index) => (
+                          <li key={index} className="flex items-start space-x-3">
+                            <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                            <span className="text-gray-700">{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
               </Card>
             )
           })}
@@ -165,18 +165,17 @@ export default function ProgrammePage() {
             <CardContent className="p-8 text-center">
               <h3 className="text-2xl font-bold mb-4">Recevez le détail de nos propositions</h3>
               <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                Chaque semaine, nous détaillons une de nos propositions avec des exemples concrets et des témoignages
-                d'habitants. Inscrivez-vous pour tout savoir !
+              Tout au long de la campagne, nous détaillerons nos propositions avec des exemples concrets et des témoignages de Mouvallois. Inscrivez-vous pour tout savoir !
               </p>
               <div className="max-w-md mx-auto">
                 <NewsletterForm 
-                  buttonText="Je veux tout savoir"
+                  buttonText="Je souhaite être informé"
                   buttonClassName="bg-white text-blue-600 hover:bg-gray-100"
                   inputClassName="flex-1 px-4 py-3 rounded-lg text-gray-900"
                   messageClassName="text-blue-100 text-sm mt-2"
                   layout="row"
                 />
-                <p className="text-blue-100 text-sm mt-3">Déjà 300+ inscrits • Contenu exclusif chaque semaine</p>
+                <p className="text-blue-100 text-sm mt-3">Déjà 300+ inscrits • Des infos exclusives régulièrementne</p>
               </div>
             </CardContent>
           </Card>
@@ -186,15 +185,14 @@ export default function ProgrammePage() {
         <div className="text-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-lg p-12">
           <h2 className="text-3xl font-bold mb-6 text-gray-900">Soutenez notre projet pour Mouvaux</h2>
           <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-            Ensemble, construisons une commune plus sûre, plus verte et plus dynamique. Votre soutien est essentiel pour
-            porter ces engagements.
+          Ensemble, construisons une commune plus sûre, plus agréable, plus dynamique. Votre soutien est essentiel pour porter ces engagements.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
-              <Link href="/contact">Je soutiens Mouvaux Demain</Link>
+              <Link href="/contact">Soutenir Renouveau pour Mouvaux</Link>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <Link href="/association">En savoir plus sur l'association</Link>
+              <Link href="/association">En savoir plus sur Renouveau pour Mouvaux</Link>
             </Button>
           </div>
         </div>
