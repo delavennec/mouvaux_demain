@@ -51,7 +51,7 @@ export function Footer() {
             </div>
 
             <div className="flex space-x-4">
-              <a href="mailto:contact.mouvaux2026@gmail.com" className="text-gray-300 hover:text-blue-400 transition-colors">
+              <a href="mailto:RenouveauPourMouvaux@gmail.com" className="text-gray-300 hover:text-blue-400 transition-colors">
                 <Mail className="w-5 h-5" />
               </a>
               <a href="https://www.facebook.com/share/19n839yhVx/?mibextid=wwXIfr" className="text-gray-300 hover:text-blue-400 transition-colors" target="_blank" rel="noopener noreferrer">
@@ -114,7 +114,7 @@ export function Footer() {
             <div className="space-y-2 text-gray-300">
               <p>137, rue Faidherbe</p>
               <p>59420 Mouvaux</p>
-              <p>contact.mouvaux2026@gmail.com</p>
+              <p>RenouveauPourMouvaux@gmail.com</p>
             </div>
           </div>
         </div>

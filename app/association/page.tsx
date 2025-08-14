@@ -147,7 +147,7 @@ export default function AssociationPage() {
               <Link href="/contact">Nous contacter</Link>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <Link href="/programme">Découvrir notre programme</Link>
+              <Link href="/programme">Découvrir notre projet</Link>
             </Button>
           </div>
         </div>

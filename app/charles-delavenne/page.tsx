@@ -101,7 +101,7 @@ export default function CharlesDelavennePage() {
                     <CardContent className="p-6">
                       <h3 className="text-xl font-semibold mb-2 text-gray-900">Renouveau pour Mouvaux</h3>
                       <p className="text-gray-600">
-                        Création et animation de l'association Renouveau pour Mouvaux pour porter un projet politique centré sur
+                        Création et animation du mouvement Renouveau pour Mouvaux pour porter un projet politique centré sur
                         l'intérêt général.
                       </p>
                     </CardContent>
@@ -164,7 +164,7 @@ export default function CharlesDelavennePage() {
               </p>
             </div>
             <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
-              <Link href="/programme">Découvrir notre programme</Link>
+              <Link href="/programme">Découvrir notre projet</Link>
             </Button>
           </div>
         </section>

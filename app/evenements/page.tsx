@@ -10,7 +10,7 @@ const mainEvent = {
   title: "Réunion publique",
   description: "Retrouvez-nous le vendredi 12 septembre à 18h30 à la salle Courcol pour la première réunion publique de « Renouveau pour Mouvaux », suivie d'un verre de l'amitié. Ce sera l'occasion de présenter notre candidat Charles Delavenne et l'équipe « Renouveau pour Mouvaux » et d'échanger avec les Mouvallois sur les principaux axes de notre campagne.",
   location: "Salle Courcol, 29 rue Gallieni, 59420 Mouvaux",
-  contact: "contact.Mouvaux2026@gmail.com",
+  contact: "RenouveauPourMouvaux@gmail.com",
   type: "Réunion publique",
 }
 

@@ -46,7 +46,7 @@ export default function LegalNoticePage() {
           </p>
           <ul className="list-disc ml-6 mb-4">
             <li>Présenter l'association Renouveau pour Mouvaux et ses activités</li>
-            <li>Informer sur le programme politique de Charles Delavenne pour la commune de Mouvaux</li>
+            <li>Informer sur le projet politique de Charles Delavenne pour la commune de Mouvaux</li>
             <li>Permettre aux utilisateurs de contacter l'association</li>
             <li>Proposer l'inscription à une newsletter d'information</li>
           </ul>

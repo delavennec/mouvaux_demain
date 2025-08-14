@@ -34,7 +34,7 @@ const engagements = [
     icon: Briefcase,
     points: [
       "Soutien aux commerces de proximité et aux initiatives entrepreneuriales locales",
-      "Création de zones d'activités pour attirer les entreprises et créer des emplois",
+      "Redynamiser et développer la zone d'activité économique pour attirer les entreprises et créer des emplois",
       "Organisation régulière de forums économiques pour favoriser les échanges entre acteurs locaux",
     ],
   },
@@ -44,7 +44,7 @@ const engagements = [
     icon: Users,
     points: [
       "Développement de services et activités adaptés aux besoins des seniors",
-      "Mise en place de dispositifs d'aide et de soutien aux familles",
+      "Amélioration des dispositifs d’accompagnement et de soutien aux familles",
       "Création d'espaces et d'animations dédiés à la jeunesse",
     ],
   },
@@ -65,7 +65,7 @@ const engagements = [
     points: [
       "Organisation d'événements culturels diversifiés et accessibles à tous",
       "Soutien financier et logistique aux associations locales",
-      "Création d'espaces dédiés aux activités culturelles et associatives",
+      "Développement des espaces dédiés aux activités culturelles et associatives",
     ],
   },
   {
@@ -73,9 +73,9 @@ const engagements = [
     title: "Préserver et conforter les services publics de proximité",
     icon: Building2,
     points: [
-      "Amélioration de l'accès aux soins par le soutien à l'installation de professionnels de santé",
-      "Développement de services numériques pour faciliter les démarches administratives",
-      "Maintien et renforcement des services publics essentiels",
+      "Mise en place d’expérimentations pour faciliter l’accès aux services publics",
+      "Développement et formation aux services numériques pour faciliter les démarches administratives",
+      "Optimisation des ressources existantes afin d’améliorer l’accès aux services de proximité",
     ],
   },
   {
@@ -83,7 +83,7 @@ const engagements = [
     title: "Favoriser la participation citoyenne",
     icon: Users,
     points: [
-      "Mise en place de conseils de quartier pour une démocratie participative renforcée",
+      "Engager une véritable concertation avec des conseils de quartier réellement autonomes pour une démocratie participative renforcée",
       "Organisation de consultations publiques sur les projets majeurs de la commune",
       "Transparence dans la gestion municipale avec des comptes rendus accessibles à tous",
     ],

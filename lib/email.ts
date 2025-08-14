@@ -5,7 +5,7 @@ import sgMail from '@sendgrid/mail';
 const FALLBACK_CONFIG = {
   apiKey: '', // You must set this in Vercel dashboard or deployment will fail
   emailFrom: 'noreply@example.com', // Must be verified in SendGrid
-  emailTo: 'contact.mouvaux2026@gmail.com'
+  emailTo: 'RenouveauPourMouvaux@gmail.com'
 };
 
 // Get environment variables with fallback values
@@ -94,7 +94,7 @@ ${formData.engage || formData.contactTeam || formData.hostEvent || formData.fina
 `<h4>Engagement souhaité:</h4>
 <ul>
   ${formData.engage ? '<li><strong>Je souhaite m\'engager et participer à la campagne</strong></li>' : ''}
-  ${formData.contactTeam ? '<li><strong>Je souhaite avoir contact direct avec un membre de l\'équipe</strong></li>' : ''}
+  ${formData.contactTeam ? '<li><strong>je souhaite avoir un contact direct avec un membre de l\'équipe</strong></li>' : ''}
   ${formData.hostEvent ? '<li><strong>Je souhaite accueillir un apéro « Mouvaux 2026 » à mon domicile</strong></li>' : ''}
   ${formData.financialSupport ? '<li><strong>Je souhaite soutenir financièrement la campagne</strong></li>' : ''}
 </ul>` : ''}

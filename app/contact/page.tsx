@@ -211,7 +211,7 @@ export default function ContactPage() {
                             }}
                           />
                           <Label htmlFor="contact-team" className="text-sm">
-                            Je souhaite avoir contact direct avec un membre de l'équipe de campagne.
+                            je souhaite avoir un contact direct avec un membre de l'équipe de campagne.
                           </Label>
                         </div>
 
@@ -334,8 +334,8 @@ export default function ContactPage() {
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
                     <Mail className="w-5 h-5 text-blue-600" />
-                    <a href="mailto:contact.mouvaux2026@gmail.com" className="text-blue-600 hover:text-blue-700">
-                    contact.mouvaux2026@gmail.com
+                    <a href="mailto:RenouveauPourMouvaux@gmail.com" className="text-blue-600 hover:text-blue-700">
+                    RenouveauPourMouvaux@gmail.com
                     </a>
                   </div>
                   <div className="flex items-center space-x-3">
