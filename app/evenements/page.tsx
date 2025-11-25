@@ -5,12 +5,21 @@ import Link from "next/link"
 
 // Main event data
 const mainEvent = {
-  date: "12 Septembre 2024",
+  date: "12 Septembre 2025",
   time: "18h30",
   title: "Réunion publique",
   description: "Retrouvez-nous le vendredi 12 septembre à 18h30 à la salle Courcol pour la première réunion publique de « Renouveau pour Mouvaux », suivie d'un verre de l'amitié. Ce sera l'occasion de présenter notre candidat Charles Delavenne et l'équipe « Renouveau pour Mouvaux » et d'échanger avec les Mouvallois sur les principaux axes de notre campagne.",
   location: "Salle Courcol, 29 rue Gallieni, 59420 Mouvaux",
   contact: "RenouveauPourMouvaux@gmail.com",
+  type: "Réunion publique",
+},
+  {
+  date: "17 Novembre 2025",
+  time: "18h30",
+  title: "Réunion publique",
+  description: "Retrouvez-nous le lundi 17 septembre à 18h30 à la salle Courcol pour la deuxième réunion publique de « Renouveau pour Mouvaux », suivie d'un verre de l'amitié. Les Mouvallois et Mouvalloises ont eu l'occasion d'émettre leurs suggestions pour la ville et d'échanger avec le candidat Charles Delavenne. Nous avons également annoncé le lancement d'ateliers thématiques, visant à rassembler les habitants pour discuter des enjeux de notre ville, en particulier sur les thèmes de la sécurité, l'urbanisation, la culture, les seniors et l'éducation.",
+  location: "Salle Courcol, 29 rue Gallieni, 59420 Mouvaux",
+  contact: "RenouveauMouvaux@gmail.com",
   type: "Réunion publique",
 }
 
