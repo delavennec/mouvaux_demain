@@ -3,24 +3,80 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Calendar, Clock, MapPin, Mail } from "lucide-react"
 import Link from "next/link"
 
-// Main event data
+// Main event data (two featured events)
 const mainEvent = {
   date: "12 Septembre 2025",
   time: "18h30",
   title: "Réunion publique",
-  description: "Retrouvez-nous le vendredi 12 septembre à 18h30 à la salle Courcol pour la première réunion publique de « Renouveau pour Mouvaux », suivie d'un verre de l'amitié. Ce sera l'occasion de présenter notre candidat Charles Delavenne et l'équipe « Renouveau pour Mouvaux » et d'échanger avec les Mouvallois sur les principaux axes de notre campagne.",
+  description:
+    "Retrouvez-nous le vendredi 12 septembre à 18h30 à la salle Courcol pour la première réunion publique de « Renouveau pour Mouvaux », suivie d'un verre de l'amitié. Ce sera l'occasion de présenter notre candidat Charles Delavenne et l'équipe « Renouveau pour Mouvaux » et d'échanger avec les Mouvallois sur les principaux axes de notre campagne.",
   location: "Salle Courcol, 29 rue Gallieni, 59420 Mouvaux",
   contact: "RenouveauPourMouvaux@gmail.com",
   type: "Réunion publique",
-},
-  {
+}
+
+const secondMainEvent = {
   date: "17 Novembre 2025",
   time: "18h30",
   title: "Réunion publique",
-  description: "Retrouvez-nous le lundi 17 septembre à 18h30 à la salle Courcol pour la deuxième réunion publique de « Renouveau pour Mouvaux », suivie d'un verre de l'amitié. Les Mouvallois et Mouvalloises ont eu l'occasion d'émettre leurs suggestions pour la ville et d'échanger avec le candidat Charles Delavenne. Nous avons également annoncé le lancement d'ateliers thématiques, visant à rassembler les habitants pour discuter des enjeux de notre ville, en particulier sur les thèmes de la sécurité, l'urbanisation, la culture, les seniors et l'éducation.",
+  // Fixed month to 'novembre' in the description to match the date
+  description:
+    "Retrouvez-nous le lundi 17 novembre à 18h30 à la salle Courcol pour la deuxième réunion publique de « Renouveau pour Mouvaux », suivie d'un verre de l'amitié. Les Mouvallois et Mouvalloises ont eu l'occasion d'émettre leurs suggestions pour la ville et d'échanger avec le candidat Charles Delavenne. Nous avons également annoncé le lancement d'ateliers thématiques, visant à rassembler les habitants pour discuter des enjeux de notre ville, en particulier sur les thèmes de la sécurité, l'urbanisation, la culture, les seniors et l'éducation.",
   location: "Salle Courcol, 29 rue Gallieni, 59420 Mouvaux",
   contact: "RenouveauMouvaux@gmail.com",
   type: "Réunion publique",
+}
+
+// Helper component to render event card UI (same layout used for the main event)
+type Event = {
+  date: string
+  time: string
+  title: string
+  description: string
+  location: string
+  contact?: string
+  type: string
+}
+
+function EventCard({ event }: { event: Event }) {
+  return (
+    <Card className="hover:shadow-lg transition-shadow border-2 border-blue-500">
+      <CardContent className="p-6">
+        <div className="flex flex-col md:flex-row md:items-start gap-6">
+          <div className="md:w-48 flex-shrink-0">
+            <div className="bg-blue-50 rounded-lg p-4 text-center">
+              <div className="flex items-center justify-center mb-2">
+                <Calendar className="w-5 h-5 text-blue-600 mr-2" />
+                <span className="font-semibold text-blue-600">{event.date}</span>
+              </div>
+              <div className="flex items-center justify-center">
+                <Clock className="w-4 h-4 text-blue-600 mr-2" />
+                <span className="text-blue-600">{event.time}</span>
+              </div>
+            </div>
+            <div className="mt-2 text-center">
+              <span className="inline-block bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded-full">
+                {event.type}
+              </span>
+            </div>
+          </div>
+
+          <div className="flex-1">
+            <h3 className="text-2xl font-semibold mb-3 text-gray-900">{event.title}</h3>
+            <p className="text-gray-600 mb-4 leading-relaxed">{event.description}</p>
+            <div className="flex items-center text-gray-500 mb-2">
+              <MapPin className="w-4 h-4 mr-2" />
+              <span className="text-sm">{event.location}</span>
+            </div>
+            <div className="flex items-center text-gray-500">
+              <Mail className="w-4 h-4 mr-2" />
+              <span className="text-sm">Pour tout renseignement : {event.contact}</span>
+            </div>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  )
 }
 
 // Keeping the events array for future events
@@ -64,46 +120,10 @@ export default function EvenementsPage() {
           <p className="text-xl text-gray-600">Retrouvez nos prochains rendez-vous et venez échanger avec nous</p>
         </div>
 
-        {/* Main Event Highlight */}
-        <div className="mb-12">
-          <Card className="hover:shadow-lg transition-shadow border-2 border-blue-500">
-            <CardContent className="p-6">
-              <div className="flex flex-col md:flex-row md:items-start gap-6">
-                {/* Date and Time */}
-                <div className="md:w-48 flex-shrink-0">
-                  <div className="bg-blue-50 rounded-lg p-4 text-center">
-                    <div className="flex items-center justify-center mb-2">
-                      <Calendar className="w-5 h-5 text-blue-600 mr-2" />
-                      <span className="font-semibold text-blue-600">{mainEvent.date}</span>
-                    </div>
-                    <div className="flex items-center justify-center">
-                      <Clock className="w-4 h-4 text-blue-600 mr-2" />
-                      <span className="text-blue-600">{mainEvent.time}</span>
-                    </div>
-                  </div>
-                  <div className="mt-2 text-center">
-                    <span className="inline-block bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded-full">
-                      {mainEvent.type}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Event Details */}
-                <div className="flex-1">
-                  <h3 className="text-2xl font-semibold mb-3 text-gray-900">{mainEvent.title}</h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">{mainEvent.description}</p>
-                  <div className="flex items-center text-gray-500 mb-2">
-                    <MapPin className="w-4 h-4 mr-2" />
-                    <span className="text-sm">{mainEvent.location}</span>
-                  </div>
-                  <div className="flex items-center text-gray-500">
-                    <Mail className="w-4 h-4 mr-2" />
-                    <span className="text-sm">Pour tout renseignement : {mainEvent.contact}</span>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+        {/* Main Events Highlight (two featured events) */}
+        <div className="mb-12 space-y-6">
+          <EventCard event={secondMainEvent} />
+          <EventCard event={mainEvent} />
         </div>
 
         {/* Future Events List - Hidden for now, will be displayed when needed */}
