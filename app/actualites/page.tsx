@@ -1,5 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
+import EventCard from '@/components/event-card'
+import { secondMainEvent } from '@/lib/events'
 
 export const metadata: Metadata = {
   title: 'Actualités | Renouveau pour Mouvaux',
@@ -10,6 +12,11 @@ export default function ActualitesPage() {
   return (
     <main className="container mx-auto px-4 py-12 max-w-5xl">
       <h1 className="text-3xl md:text-4xl font-bold mb-8 text-center">Actualités</h1>
+
+      {/* Featured event card - 17 Novembre 2025 */}
+      <div className="mb-10 max-w-3xl mx-auto">
+        <EventCard event={secondMainEvent} />
+      </div>
       
       <div className="mb-12">
         <h2 className="text-2xl font-semibold mb-4 text-blue-600">Presse</h2>
