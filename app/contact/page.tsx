@@ -333,14 +333,14 @@ export default function ContactPage() {
                 <h3 className="text-xl font-bold mb-6 text-gray-900">Autres moyens de contact</h3>
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
-                    <Mail className="w-5 h-5 text-blue-600" />
-                    <a href="mailto:RenouveauPourMouvaux@gmail.com" className="text-blue-600 hover:text-blue-700">
+                    <Mail className="w-5 h-5 text-blue-700" />
+                    <a href="mailto:RenouveauPourMouvaux@gmail.com" className="text-blue-700 hover:text-blue-600">
                     RenouveauPourMouvaux@gmail.com
                     </a>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <Phone className="w-5 h-5 text-blue-600" />
-                    <a href="tel:0621284082" className="text-blue-600 hover:text-blue-700">
+                    <Phone className="w-5 h-5 text-blue-700" />
+                    <a href="tel:0621284082" className="text-blue-700 hover:text-blue-600">
                       06 21 28 40 82
                     </a>
                 </div>

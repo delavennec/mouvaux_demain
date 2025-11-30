@@ -35,7 +35,7 @@ export function EventCard({ event, footer, centerTitle, compact }: { event: Even
             {!compact && (
               <div className="flex items-center text-gray-500">
                 <Mail className="w-4 h-4 mr-2" />
-                <span className="text-sm">Pour tout renseignement : {event.contact}</span>
+                <span className="text-sm">Pour tout renseignement : <span className="text-blue-700">{event.contact}</span></span>
               </div>
             )}
             {footer && <div className="mt-3 text-sm text-gray-500">{footer}</div>}
