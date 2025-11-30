@@ -35,7 +35,6 @@ export default function EvenementsPage() {
                   <li>Culture / Citoyenneté / Evénements</li>
                 </ul>
               </div>
-              <div className="text-gray-500 text-sm text-center">Pour tout renseignement : {ateliersOverview.contact}</div>
               <div className="text-gray-500 text-sm text-center mt-3">Merci de s'inscrire à l'adresse {ateliersOverview.contact}</div>
             </div>
           </Link>

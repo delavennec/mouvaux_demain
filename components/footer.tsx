@@ -114,7 +114,12 @@ export function Footer() {
             <div className="space-y-2 text-gray-300">
               <p>137, rue Faidherbe</p>
               <p>59420 Mouvaux</p>
-              <p>RenouveauPourMouvaux@gmail.com</p>
+              <p>
+                <a href="mailto:RenouveauPourMouvaux@gmail.com" className="hover:text-blue-400 transition-colors">RenouveauPourMouvaux@gmail.com</a>
+              </p>
+              <p>
+                <a href="tel:+33689316548" className="hover:text-blue-400 transition-colors">06 89 31 65 48</a>
+              </p>
             </div>
           </div>
         </div>

@@ -4,6 +4,8 @@ import { ChevronRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { NewsletterForm } from "@/components/newsletter-form"
+import EventCard from '@/components/event-card'
+import { mainEvent, secondMainEvent, futureEvents, atelierEvents } from '@/lib/events'
 
 export default function HomePage() {
   return (
@@ -92,21 +94,19 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Actualités</h2>
           <div className="grid md:grid-cols-1 gap-8 max-w-lg mx-auto">
-            <Link href="/evenements" className="block transition-transform hover:scale-102 hover:shadow-md">
-              <Card className="cursor-pointer hover:border-blue-300">
-                <CardContent className="p-6">
-                  <div className="text-sm text-blue-600 font-medium mb-2">Vendredi 12 septembre (18h30)</div>
-                  <h3 className="text-lg font-semibold mb-3">Réunion publique - Verre de l'amitié</h3>
-                  <p className="text-gray-600 text-sm">
-                    Salle Courcol, Mouvaux
-                  </p>
-                  <div className="flex items-center text-blue-600 mt-3 text-sm font-medium">
-                    <span>En savoir plus</span>
-                    <ChevronRight className="h-4 w-4 ml-1" />
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
+            {([secondMainEvent, mainEvent].concat(futureEvents || [], atelierEvents || [])).map((ev, idx) => (
+              <div key={idx} className="block transition-transform hover:scale-102 hover:shadow-md">
+                <EventCard
+                  event={ev}
+                  footer={
+                    <Link href="/evenements" className="flex items-center text-blue-600 mt-3 text-sm font-medium">
+                      <span>En savoir plus</span>
+                      <ChevronRight className="h-4 w-4 ml-1" />
+                    </Link>
+                  }
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
