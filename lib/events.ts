@@ -30,35 +30,7 @@ export const secondMainEvent: Event = {
   type: "Réunion publique",
 }
 
-export const futureEvents: Event[] = [
-  {
-    date: "15 Mai 2025",
-    time: "19h00",
-    title: "Réunion publique - Quartier Centre",
-    description:
-      "Échanges sur nos propositions pour améliorer la sécurité et les services de proximité dans le quartier centre de Mouvaux.",
-    location: "Salle des fêtes, Mairie de Mouvaux",
-    type: "Réunion publique",
-  },
-  {
-    date: "18 Mai 2025",
-    time: "14h00",
-    title: "Atelier participatif - Transition écologique",
-    description:
-      "Construisons ensemble les solutions pour une Mouvaux plus verte et durable. Venez partager vos idées et propositions.",
-    location: "Centre culturel Jacques Brel",
-    type: "Atelier",
-  },
-  {
-    date: "22 Mai 2025",
-    time: "18h30",
-    title: "Rencontre avec les associations",
-    description:
-      "Dialogue avec les acteurs associatifs locaux sur la vie culturelle, sportive et sociale de notre commune.",
-    location: "Maison des associations",
-    type: "Rencontre",
-  },
-]
+export const futureEvents: Event[] = []
 
 export default mainEvent
 

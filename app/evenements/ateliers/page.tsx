@@ -10,7 +10,7 @@ export default function AteliersPage() {
       <p className="text-center text-gray-600 mb-4">
         Venez participer à nos ateliers à thèmes dont le but est d'échanger sur votre vision de la ville, discuter de suggestions ou encore soulever les différentes problématiques rencontrées au quotidien. Votre avis nous est précieux pour donner un nouveau souffle à Mouvaux.
       </p>
-      <p className="text-center text-gray-600 mb-8">Pour tout renseignement : {ateliersOverview.contact}</p>
+      <p className="text-center text-gray-600 mb-8">Pour tout renseignement : <span className="text-blue-700">{ateliersOverview.contact}</span></p>
 
       <div className="space-y-6">
         {atelierEvents.map((atelier, idx) => (
@@ -18,7 +18,7 @@ export default function AteliersPage() {
             <EventCard
               event={atelier}
               centerTitle
-              footer={<span>Merci de s&apos;inscrire à l&apos;adresse {atelier.contact}</span>}
+              footer={<span>Merci de s&apos;inscrire à l&apos;adresse <span className="text-blue-700">{atelier.contact}</span></span>}
             />
           </div>
         ))}
