@@ -15,7 +15,7 @@ export const mainEvent: Event = {
   description:
     "Retrouvez-nous le vendredi 12 septembre à 18h30 à la salle Courcol pour la première réunion publique de « Renouveau pour Mouvaux », suivie d'un verre de l'amitié. Ce sera l'occasion de présenter notre candidat Charles Delavenne et l'équipe « Renouveau pour Mouvaux » et d'échanger avec les Mouvallois sur les principaux axes de notre campagne.",
   location: "Salle Courcol, 29 rue Gallieni, 59420 Mouvaux",
-  contact: "RenouveauPourMouvaux@gmail.com — 06 89 31 65 48",
+  contact: "RenouveauMouvaux@gmail.com — 06 89 31 65 48",
   type: "Réunion publique",
 }
 
@@ -96,6 +96,15 @@ export const atelierEvents: Event[] = [
     time: "9h30 - 11h30",
     title: "Atelier Culture / Citoyenneté / Evénements",
     description: "Samedi 20 Décembre de 9h30 à 11h30\nMairie de Mouvaux (rendez-vous à l'entrée de l'école de musique)",
+    location: "Mairie de Mouvaux",
+    contact: "RenouveauMouvaux@gmail.com — 06 89 31 65 48",
+    type: "Atelier",
+  },
+  {
+    date: "15 Janvier 2026",
+    time: "18h30",
+    title: "Atelier Commerce / Entreprise / Economie / Attractivité",
+    description: "Mercredi 15 Janvier de 18h30\nMairie de Mouvaux",
     location: "Mairie de Mouvaux",
     contact: "RenouveauMouvaux@gmail.com — 06 89 31 65 48",
     type: "Atelier",
