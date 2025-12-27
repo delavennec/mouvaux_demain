@@ -7,8 +7,40 @@ import { NewsletterForm } from "@/components/newsletter-form"
 import EventCard from '@/components/event-card'
 import { mainEvent, secondMainEvent, futureEvents, atelierEvents } from '@/lib/events'
 
+// Parse French date format (e.g., "12 Septembre 2025") to Date object
+function parseFrenchDate(dateString: string): Date {
+  const frenchMonths: { [key: string]: number } = {
+    'janvier': 0, 'février': 1, 'mars': 2, 'avril': 3, 'mai': 4, 'juin': 5,
+    'juillet': 6, 'août': 7, 'septembre': 8, 'octobre': 9, 'novembre': 10, 'décembre': 11
+  }
+  
+  const parts = dateString.toLowerCase().split(/\s+/)
+  const day = parseInt(parts[0], 10)
+  const month = frenchMonths[parts[1]]
+  const year = parseInt(parts[2], 10)
+  
+  return new Date(year, month, day)
+}
+
+// Filter events that haven't passed yet
+function filterFutureEvents(events: any[]): any[] {
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
+  
+  return events.filter(event => {
+    try {
+      const eventDate = parseFrenchDate(event.date)
+      return eventDate >= today
+    } catch {
+      // If parsing fails, include the event
+      return true
+    }
+  })
+}
+
 export default function HomePage() {
-  const homepageEvents = [secondMainEvent, mainEvent].concat(futureEvents || [], ...(atelierEvents || []))
+  const allEvents = [secondMainEvent, mainEvent].concat(futureEvents || [], ...(atelierEvents || []))
+  const homepageEvents = filterFutureEvents(allEvents)
 
   return (
     <div className="min-h-screen">
@@ -96,20 +128,22 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Actualités</h2>
           <div className="grid md:grid-cols-1 gap-8 max-w-lg mx-auto">
-            {homepageEvents.map((ev, idx) => (
-              <div key={idx} className="block transition-transform hover:scale-102 hover:shadow-md">
-                <EventCard
-                  event={ev}
-                  compact
-                  footer={
-                    <Link href="/evenements" className="flex items-center text-blue-600 mt-3 text-sm font-medium">
-                      <span>En savoir plus</span>
-                      <ChevronRight className="h-4 w-4 ml-1" />
-                    </Link>
-                  }
-                />
-              </div>
-            ))}
+            {homepageEvents.map((ev, idx) => {
+              const showFull = ev?.date?.includes('24 Janvier 2026') && ev?.title === 'Réunion publique'
+              return (
+                <div key={idx} className="block transition-transform hover:scale-102 hover:shadow-md">
+                  <EventCard
+                    event={ev}
+                    footer={
+                      <Link href="/evenements" className="flex items-center text-blue-600 mt-3 text-sm font-medium">
+                        <span>En savoir plus</span>
+                        <ChevronRight className="h-4 w-4 ml-1" />
+                      </Link>
+                    }
+                  />
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>

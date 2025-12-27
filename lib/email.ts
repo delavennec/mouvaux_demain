@@ -5,7 +5,7 @@ import sgMail from '@sendgrid/mail';
 const FALLBACK_CONFIG = {
   apiKey: '', // You must set this in Vercel dashboard or deployment will fail
   emailFrom: 'noreply@example.com', // Must be verified in SendGrid
-  emailTo: 'RenouveauPourMouvaux@gmail.com'
+  emailTo: 'RenouveauMouvaux@gmail.com'
 };
 
 // Get environment variables with fallback values

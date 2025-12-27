@@ -115,7 +115,7 @@ export function Footer() {
               <p>137, rue Faidherbe</p>
               <p>59420 Mouvaux</p>
               <p>
-                <a href="mailto:RenouveauPourMouvaux@gmail.com" className="text-blue-700 hover:text-blue-500 transition-colors">RenouveauPourMouvaux@gmail.com</a>
+                <a href="mailto:RenouveauMouvaux@gmail.com" className="text-blue-700 hover:text-blue-500 transition-colors">RenouveauMouvaux@gmail.com</a>
               </p>
               <p>
                 <a href="tel:+33689316548" className="text-blue-700 hover:text-blue-500 transition-colors">06 89 31 65 48</a>

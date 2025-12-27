@@ -334,14 +334,14 @@ export default function ContactPage() {
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
                     <Mail className="w-5 h-5 text-blue-700" />
-                    <a href="mailto:RenouveauPourMouvaux@gmail.com" className="text-blue-700 hover:text-blue-600">
-                    RenouveauPourMouvaux@gmail.com
+                    <a href="mailto:RenouveauMouvaux@gmail.com" className="text-blue-700 hover:text-blue-600">
+                    RenouveauMouvaux@gmail.com
                     </a>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Phone className="w-5 h-5 text-blue-700" />
-                    <a href="tel:0621284082" className="text-blue-700 hover:text-blue-600">
-                      06 21 28 40 82
+                    <a href="tel:+33689316548" className="text-blue-700 hover:text-blue-600">
+                      06 89 31 65 48
                     </a>
                 </div>
           </div>
