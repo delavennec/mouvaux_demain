@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import EventCard from "@/components/event-card"
-import { mainEvent, secondMainEvent, ateliersOverview, atelierEvents } from "@/lib/events"
+import { mainEvent, secondMainEvent, ateliersOverview, atelierEvents, futureEvents } from "@/lib/events"
+import { filterFutureEvents, sortEventsByDate } from "@/lib/utils"
 
 // Main event data moved to lib/events
 
@@ -12,6 +13,13 @@ import { mainEvent, secondMainEvent, ateliersOverview, atelierEvents } from "@/l
 export default function EvenementsPage() {
   // Find the atelier commerce event (15 Janvier 2026)
   const atelierCommerce = atelierEvents.find(e => e.id === "atelier-commerce-2026-01-15")
+  
+  // Get the upcoming meeting (24 Janvier 2026)
+  const upcomingMeeting = futureEvents.find(e => e.id === "reunion-2026-01-24")
+  
+  // Collect all events and sort by date
+  const allEvents = [mainEvent, secondMainEvent].concat(futureEvents || [], ...(atelierEvents || []))
+  const filteredAndSorted = sortEventsByDate(filterFutureEvents(allEvents))
 
   return (
     <div className="min-h-screen py-8">
@@ -22,7 +30,7 @@ export default function EvenementsPage() {
           <p className="text-xl text-gray-600">Retrouvez nos prochains rendez-vous et venez échanger avec nous</p>
         </div>
 
-        {/* Main Events Highlight (Ateliers overview + two featured events) */}
+        {/* Main Events Highlight (Ateliers overview + sorted events) */}
         <div className="mb-12 space-y-6">
           {/* Overview card for Ateliers - clickable to ateliers page (rendered first) */}
           <Link href="/evenements/ateliers" className="block">
@@ -41,16 +49,21 @@ export default function EvenementsPage() {
               <div className="text-gray-500 text-sm text-center mt-3">Merci de s'inscrire à l'adresse {ateliersOverview.contact}</div>
             </div>
           </Link>
-          <EventCard event={secondMainEvent} />
-          <EventCard event={mainEvent} />
           
-          {/* Atelier Commerce with custom title */}
-          {atelierCommerce && (
-            <div className="border-2 border-slate-900 rounded-lg p-6 bg-white hover:shadow-lg transition-shadow">
-              <h3 className="text-2xl font-semibold mb-4 text-slate-900">Atelier déplacé</h3>
-              <EventCard event={atelierCommerce} />
+          {/* All events sorted by date (closest first) */}
+          {filteredAndSorted.map((event, idx) => (
+            <div key={idx}>
+              {/* Special styling for atelier commerce */}
+              {event.id === "atelier-commerce-2026-01-15" ? (
+                <div className="border-2 border-slate-900 rounded-lg p-6 bg-white hover:shadow-lg transition-shadow">
+                  <h3 className="text-2xl font-semibold mb-4 text-slate-900">Atelier déplacé</h3>
+                  <EventCard event={event} />
+                </div>
+              ) : (
+                <EventCard event={event} />
+              )}
             </div>
-          )}
+          ))}
         </div>
 
         {/* Future Events List - Hidden for now, will be displayed when needed */}
