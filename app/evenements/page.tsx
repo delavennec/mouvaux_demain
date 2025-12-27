@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import EventCard from "@/components/event-card"
-import { mainEvent, secondMainEvent, ateliersOverview } from "@/lib/events"
+import { mainEvent, secondMainEvent, ateliersOverview, atelierEvents } from "@/lib/events"
 
 // Main event data moved to lib/events
 
@@ -10,6 +10,9 @@ import { mainEvent, secondMainEvent, ateliersOverview } from "@/lib/events"
 // Keeping the events array in `lib/events` for future events
 
 export default function EvenementsPage() {
+  // Find the atelier commerce event (15 Janvier 2026)
+  const atelierCommerce = atelierEvents.find(e => e.id === "atelier-commerce-2026-01-15")
+
   return (
     <div className="min-h-screen py-8">
       <div className="max-w-4xl mx-auto px-4">
@@ -40,6 +43,14 @@ export default function EvenementsPage() {
           </Link>
           <EventCard event={secondMainEvent} />
           <EventCard event={mainEvent} />
+          
+          {/* Atelier Commerce with custom title */}
+          {atelierCommerce && (
+            <div className="border-2 border-slate-900 rounded-lg p-6 bg-white hover:shadow-lg transition-shadow">
+              <h3 className="text-2xl font-semibold mb-4 text-slate-900">Atelier déplacé</h3>
+              <EventCard event={atelierCommerce} />
+            </div>
+          )}
         </div>
 
         {/* Future Events List - Hidden for now, will be displayed when needed */}
