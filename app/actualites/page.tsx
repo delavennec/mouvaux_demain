@@ -1,7 +1,8 @@
 import React from 'react';
 import { Metadata } from 'next';
 import EventCard from '@/components/event-card'
-import { secondMainEvent } from '@/lib/events'
+import { secondMainEvent, futureEvents, atelierEvents } from '@/lib/events'
+import { filterFutureEvents } from '@/lib/utils'
 
 export const metadata: Metadata = {
   title: 'Actualités | Renouveau pour Mouvaux',
@@ -9,13 +10,18 @@ export const metadata: Metadata = {
 };
 
 export default function ActualitesPage() {
+  const allEvents = [secondMainEvent].concat(futureEvents || [], ...(atelierEvents || []))
+  const actualitesEvents = filterFutureEvents(allEvents)
+
   return (
     <main className="container mx-auto px-4 py-12 max-w-5xl">
       <h1 className="text-3xl md:text-4xl font-bold mb-8 text-center">Actualités</h1>
 
-      {/* Featured event card - 17 Novembre 2025 */}
-      <div className="mb-10 max-w-3xl mx-auto">
-        <EventCard event={secondMainEvent} />
+      {/* Featured events cards */}
+      <div className="mb-10 max-w-3xl mx-auto space-y-6">
+        {actualitesEvents.map((event, idx) => (
+          <EventCard key={idx} event={event} />
+        ))}
       </div>
       
       <div className="mb-12">
