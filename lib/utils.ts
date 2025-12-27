@@ -35,3 +35,16 @@ export function filterFutureEvents(events: any[]): any[] {
     }
   })
 }
+
+// Sort events by date (closest first)
+export function sortEventsByDate(events: any[]): any[] {
+  return [...events].sort((a, b) => {
+    try {
+      const dateA = parseFrenchDate(a.date)
+      const dateB = parseFrenchDate(b.date)
+      return dateA.getTime() - dateB.getTime()
+    } catch {
+      return 0
+    }
+  })
+}
