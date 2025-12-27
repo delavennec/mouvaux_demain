@@ -1,4 +1,5 @@
 export type Event = {
+  id: string
   date: string
   time: string
   title: string
@@ -9,6 +10,7 @@ export type Event = {
 }
 
 export const mainEvent: Event = {
+  id: "reunion-2025-09-12",
   date: "12 Septembre 2025",
   time: "18h30",
   title: "Réunion publique",
@@ -20,6 +22,7 @@ export const mainEvent: Event = {
 }
 
 export const secondMainEvent: Event = {
+  id: "reunion-2025-11-17",
   date: "17 Novembre 2025",
   time: "18h30",
   title: "Réunion publique",
@@ -30,11 +33,24 @@ export const secondMainEvent: Event = {
   type: "Réunion publique",
 }
 
-export const futureEvents: Event[] = []
+export const futureEvents: Event[] = [
+  {
+    id: "reunion-2026-01-24",
+    date: "24 Janvier 2026",
+    time: "18h30",
+    title: "Réunion publique",
+    description:
+      "Nous nous faisons un plaisir de vous retrouver pour notre troisième réunion publique, qui se déroulera sur le thème de la sécurité.",
+    location: "Salle Bercker, 574 rue de Tourcoing",
+    contact: "RenouveauMouvaux@gmail.com — 06 89 31 65 48",
+    type: "Réunion publique",
+  },
+]
 
 export default mainEvent
 
 export const ateliersOverview = {
+  id: "ateliers-overview",
   date: "",
   time: "",
   title: "Ateliers thématiques ouverts à tous",
@@ -47,6 +63,7 @@ export const ateliersOverview = {
 
 export const atelierEvents: Event[] = [
   {
+    id: "atelier-securite-2025-12-19",
     date: "19 Décembre 2025",
     time: "18h30 - 20h30",
     title: "Atelier Sécurité",
@@ -56,6 +73,7 @@ export const atelierEvents: Event[] = [
     type: "Atelier",
   },
   {
+    id: "atelier-economie-2025-12-06",
     date: "6 Décembre 2025",
     time: "14h30 - 16h30",
     title: "Atelier Economie / Attractivité / Entreprises / Commerce",
@@ -65,6 +83,7 @@ export const atelierEvents: Event[] = [
     type: "Atelier",
   },
   {
+    id: "atelier-environnement-2025-12-18",
     date: "18 Décembre 2025",
     time: "18h30 - 20h30",
     title: "Atelier Environnement / Propreté / Cause animale / Urbanisme",
@@ -74,6 +93,7 @@ export const atelierEvents: Event[] = [
     type: "Atelier",
   },
   {
+    id: "atelier-jeunesse-2025-12-17",
     date: "17 Décembre 2025",
     time: "18h30 - 20h30",
     title: "Atelier Jeunesse / Sport / Education",
@@ -83,6 +103,7 @@ export const atelierEvents: Event[] = [
     type: "Atelier",
   },
   {
+    id: "atelier-famille-2025-12-11",
     date: "11 Décembre 2025",
     time: "18h30 - 20h30",
     title: "Atelier Famille / Santé / Seniors",
@@ -92,6 +113,7 @@ export const atelierEvents: Event[] = [
     type: "Atelier",
   },
   {
+    id: "atelier-culture-2025-12-20",
     date: "20 Décembre 2025",
     time: "9h30 - 11h30",
     title: "Atelier Culture / Citoyenneté / Evénements",
@@ -101,6 +123,7 @@ export const atelierEvents: Event[] = [
     type: "Atelier",
   },
   {
+    id: "atelier-commerce-2026-01-15",
     date: "15 Janvier 2026",
     time: "18h30",
     title: "Atelier Commerce / Entreprise / Economie / Attractivité",

@@ -128,20 +128,22 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Actualités</h2>
           <div className="grid md:grid-cols-1 gap-8 max-w-lg mx-auto">
-            {homepageEvents.map((ev, idx) => (
-              <div key={idx} className="block transition-transform hover:scale-102 hover:shadow-md">
-                <EventCard
-                  event={ev}
-                  compact
-                  footer={
-                    <Link href="/evenements" className="flex items-center text-blue-600 mt-3 text-sm font-medium">
-                      <span>En savoir plus</span>
-                      <ChevronRight className="h-4 w-4 ml-1" />
-                    </Link>
-                  }
-                />
-              </div>
-            ))}
+            {homepageEvents.map((ev, idx) => {
+              const showFull = ev?.date?.includes('24 Janvier 2026') && ev?.title === 'Réunion publique'
+              return (
+                <div key={idx} className="block transition-transform hover:scale-102 hover:shadow-md">
+                  <EventCard
+                    event={ev}
+                    footer={
+                      <Link href="/evenements" className="flex items-center text-blue-600 mt-3 text-sm font-medium">
+                        <span>En savoir plus</span>
+                        <ChevronRight className="h-4 w-4 ml-1" />
+                      </Link>
+                    }
+                  />
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
