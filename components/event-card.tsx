@@ -2,7 +2,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Calendar, Clock, MapPin, Mail } from "lucide-react"
 import type { Event as EventType } from '@/lib/events'
 
-export function EventCard({ event, footer, centerTitle, compact }: { event: EventType; footer?: React.ReactNode; centerTitle?: boolean; compact?: boolean }) {
+export function EventCard({ event, footer, centerTitle, compact, contactInline }: { event: EventType; footer?: React.ReactNode; centerTitle?: boolean; compact?: boolean; contactInline?: boolean }) {
   return (
     <Card className="hover:shadow-lg transition-shadow border-2 border-blue-500">
       <CardContent className="p-6">
@@ -28,17 +28,27 @@ export function EventCard({ event, footer, centerTitle, compact }: { event: Even
           <div className="flex-1">
             <h3 className={`text-2xl font-semibold mb-3 text-gray-900 ${centerTitle ? 'text-center' : ''}`}>{event.title}</h3>
             {!compact && <p className="text-gray-600 mb-4 leading-relaxed">{event.description}</p>}
-            <div className="flex items-center text-gray-500 mb-2">
-              <MapPin className="w-4 h-4 mr-2" />
-              <span className="text-sm">{event.location}</span>
+            <div className="flex items-start text-gray-500 mb-1">
+              <div className="flex items-center">
+                <MapPin className="w-4 h-4 mr-2" />
+                <span className="text-sm">{event.location}</span>
+              </div>
+              {event.contact && contactInline && (
+                <div className="ml-4 text-sm text-gray-500">
+                  <span>Pour tout renseignement : </span>
+                  <span className="text-blue-700">{event.contact}</span>
+                </div>
+              )}
             </div>
-            {!compact && (
-              <div className="flex items-center text-gray-500">
+
+            {footer && <div className="mt-1 text-sm text-gray-500">{footer}</div>}
+
+            {!compact && !contactInline && event.contact && (
+              <div className="flex items-center text-gray-500 mt-2">
                 <Mail className="w-4 h-4 mr-2" />
                 <span className="text-sm">Pour tout renseignement : <span className="text-blue-700">{event.contact}</span></span>
               </div>
             )}
-            {footer && <div className="mt-3 text-sm text-gray-500">{footer}</div>}
           </div>
         </div>
       </CardContent>
