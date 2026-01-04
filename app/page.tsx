@@ -65,39 +65,130 @@ export default function HomePage() {
           <div className="flex flex-col items-center justify-center bg-blue-600/90 px-6 py-3 rounded-lg mb-8 inline-block">
             <p className="text-lg md:text-xl font-medium">Pour une ville sûre, attractive, dynamique et agréable</p>
           </div>
-          <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg mx-auto">
-            <Link href="/contact">Soutenir Renouveau pour Mouvaux </Link>
-          </Button>
+          <div className="flex flex-col gap-4 items-center">
+            <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">
+              <Link href="/contact">Soutenir Renouveau pour Mouvaux </Link>
+            </Button>
+          </div>
         </div>
       </section>
 
-      {/* Pourquoi je m'engage Section */}
-      <section className="py-16 px-4 bg-gradient-to-br from-blue-50 via-indigo-50 to-slate-50">
+      {/* Nos Priorités Button */}
+      <div className="flex justify-center px-4 mt-8 relative z-10">
+        <Button asChild size="lg" className="bg-blue-900 hover:bg-blue-950 text-white px-8 py-3 text-lg">
+          <Link href="/programme">Nos priorités</Link>
+        </Button>
+      </div>
+
+      {/* News Teaser */}
+      <section className="py-16 px-4 -mt-8">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Pourquoi je m'engage</h2>
-          <div className="max-w-4xl mx-auto">
-            <Card>
-              <CardContent className="p-8">
-                <p className="text-gray-700 mb-4">
-                  Je m'engage dans la course aux élections municipales de Mouvaux dans un esprit résolument constructif, avec l'ambition de proposer un renouveau pour notre ville. Avec des élus municipaux, d'anciens élus, des citoyens engagés et motivés, partageant une vision commune, je souhaite apporter un nouveau souffle à Mouvaux.
-                </p>
-                <p className="text-gray-700 mb-4">
-                  De nombreux Mouvallois en font quotidiennement le constat. Face aux défis auxquels est confrontée notre commune située au cœur d'une grande agglomération, Mouvaux doit se réinventer pour répondre aux préoccupations et aux attentes légitimes de ses habitants tout en protégeant les atouts de notre ville. La préservation du cadre de vie, héritage inestimable de la commune, constitue un pilier fondamental de notre démarche, tout comme la garantie de la sécurité pour tous.
-                </p>
-                <p className="text-gray-700 mb-4">
-                  L'adaptation aux nouvelles réalités de la vie quotidienne représente un enjeu majeur. Dans un contexte métropolitain en constante évolution, Mouvaux doit offrir à ses habitants les conditions optimales pour mener une vie épanouie : travailler, se former, se déplacer, se détendre dans des espaces de qualité, faire ses courses dans de bonnes conditions, habiter dans un cadre serein.
-                </p>
-                <p className="text-gray-700 mb-4">
-                  Il faut s'adapter mais aussi préserver l'essentiel. Notre ville a un atout majeur, les plus anciens côtoient les plus jeunes. Je veux apporter une attention particulière à ce lien si précieux entre les générations. Ce sera un axe important du projet qui sera proposé aux Mouvallois.
-                </p>
-                <p className="text-gray-700 mb-4">
-                  Il s'agit de redonner un véritable souffle à Mouvaux, de créer une dynamique positive qui rende la ville attractive non seulement pour ses habitants actuels, mais également pour ceux qui souhaiteraient s'y installer.
-                </p>
-                <p className="text-gray-700">
-                  Cette vision s'appuie sur une conviction forte : une municipalité efficace, sur un territoire métropolitain dense, doit être à l'écoute de ses citoyens et dans un esprit constructif avec les communes voisines. En associant expertise et engagement citoyen, notre démarche vise à construire ensemble l'avenir de Mouvaux, en préservant son identité tout en l'adaptant aux enjeux du XXIe siècle.
-                </p>
-              </CardContent>
-            </Card>
+          <div className="grid md:grid-cols-1 gap-8 max-w-4xl">
+            <div>
+              <h3 className="text-xl font-semibold mb-4 text-gray-900">Nos ateliers d'échange et de réflexion</h3>
+              {homepageEvents
+                .filter(ev => ev?.title?.includes('Atelier'))
+                .map((ev, idx) => (
+                  <div key={idx} className="block transition-transform hover:scale-102 hover:shadow-md">
+                    <EventCard
+                      event={ev}
+                      compact
+                      contactInline
+                      footer={
+                        <Link href="/evenements" className="flex items-center text-blue-600 mt-1 text-sm font-medium">
+                          <span>En savoir plus</span>
+                          <ChevronRight className="h-4 w-4 ml-1" />
+                        </Link>
+                      }
+                    />
+                  </div>
+                ))}
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold mb-4 text-gray-900">Notre prochaine réunion publique</h3>
+              {homepageEvents
+                .filter(ev => ev?.title?.includes('Réunion'))
+                .map((ev, idx) => (
+                  <div key={idx} className="block transition-transform hover:scale-102 hover:shadow-md">
+                    <EventCard
+                      event={ev}
+                      compact
+                      contactInline
+                      footer={
+                        <Link href="/evenements" className="flex items-center text-blue-600 mt-1 text-sm font-medium">
+                          <span>En savoir plus</span>
+                          <ChevronRight className="h-4 w-4 ml-1" />
+                        </Link>
+                      }
+                    />
+                  </div>
+                ))}
+            </div>
+            {homepageEvents
+              .filter(ev => !ev?.title?.includes('Atelier') && !ev?.title?.includes('Réunion'))
+              .map((ev, idx) => (
+                <div key={idx} className="block transition-transform hover:scale-102 hover:shadow-md">
+                  <EventCard
+                    event={ev}
+                    footer={
+                      <Link href="/evenements" className="flex items-center text-blue-600 mt-3 text-sm font-medium">
+                        <span>En savoir plus</span>
+                        <ChevronRight className="h-4 w-4 ml-1" />
+                      </Link>
+                    }
+                  />
+                </div>
+              ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Divider & Events Section */}
+      <section className="pt-4 pb-16 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="border-t-4 border-blue-900 mb-8"></div>
+          <h2 className="text-3xl font-bold mb-4 text-gray-900">Nos événements et positions</h2>
+          <div className="mb-10">
+            <a
+              href="https://www.facebook.com/charlesxdelavenne"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-blue-600 font-semibold hover:underline text-lg"
+            >
+              En savoir plus
+              <ChevronRight className="w-4 h-4 ml-1" />
+            </a>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="flex flex-col items-center text-left">
+              <Image
+                src="/accueil/photo-reunion.jpg"
+                alt="Réunion publique 17 novembre"
+                width={384}
+                height={288}
+                className="w-[384px] h-auto rounded-lg object-cover"
+              />
+              <p className="text-base text-gray-700 leading-relaxed mt-4 max-w-[384px]">
+                Extraordinaire réunion publique à Mouvaux. Vous étiez plus de 150 à avoir pris du temps pour échanger avec notre équipe sur l'avenir de notre ville. Voilà déjà 5 mois que l'on se prépare, si les Mouvallois le veulent bien, à arriver à la tête de la municipalité en mars prochain. Ce fut l'occasion de rappeler les raisons de mon engagement. Elles sont ancrées dans mon histoire, ma famille, mon parcours.
+              </p>
+              <Link href="/charles-delavenne" className="inline-flex items-center text-blue-900 font-semibold hover:underline mt-3 justify-start w-[384px]">
+                Charles Delavenne
+                <ChevronRight className="w-4 h-4 ml-1" />
+              </Link>
+            </div>
+            <div className="flex flex-col items-center text-left">
+              <Image
+                src="/accueil/pb-chauffage.jpg"
+                alt="Problématique chauffage école"
+                width={384}
+                height={288}
+                className="w-[384px] h-auto rounded-lg object-cover"
+              />
+              <p className="text-base text-gray-700 leading-relaxed mt-4 max-w-[384px]">
+                «Qu'est-ce que je fais des biftecks et des brocolis?». Est-ce la réponse appropriée attendue d'un maire lorsque des parents d'élèves soulèvent un problème bien réel ? Ces parents s'étonnent que le paiement de la cantine ne soit pas annulable alors que leurs enfants sont contraints de rester à la maison en raison d'une panne de chauffage dans leur école. La municipalité a peut être légalement raison, mais un peu d'empathie et de compréhension seraient bienvenues. Peu importe le nombre de familles concernées ou qu'une partie de ces familles ne soient pas mouvalloises, pour chacune d'entre elles, c'est un problème compréhensible notamment pour celles qui ont plusieurs enfants. Une fois encore, une preuve d'absence d'écoute et de bienveillance…
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -119,31 +210,6 @@ export default function HomePage() {
               layout="row"
             />
             <p className="text-blue-100 text-sm mt-3">✓ Pas de spam • ✓ Désinscription facile • ✓ Données protégées</p>
-          </div>
-        </div>
-      </section>
-
-      {/* News Teaser */}
-      <section className="py-16 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Actualités</h2>
-          <div className="grid md:grid-cols-1 gap-8 max-w-lg mx-auto">
-            {homepageEvents.map((ev, idx) => {
-              const showFull = ev?.date?.includes('24 Janvier 2026') && ev?.title === 'Réunion publique'
-              return (
-                <div key={idx} className="block transition-transform hover:scale-102 hover:shadow-md">
-                  <EventCard
-                    event={ev}
-                    footer={
-                      <Link href="/evenements" className="flex items-center text-blue-600 mt-3 text-sm font-medium">
-                        <span>En savoir plus</span>
-                        <ChevronRight className="h-4 w-4 ml-1" />
-                      </Link>
-                    }
-                  />
-                </div>
-              )
-            })}
           </div>
         </div>
       </section>

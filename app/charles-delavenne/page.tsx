@@ -44,6 +44,37 @@ export default function CharlesDelavennePage() {
           </div>
         </section>
 
+        {/* Pourquoi je m'engage Section */}
+        <section className="py-16 px-4 bg-gradient-to-br from-blue-50 via-indigo-50 to-slate-50">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Pourquoi je m'engage</h2>
+            <div className="max-w-4xl mx-auto">
+              <Card>
+                <CardContent className="p-8">
+                  <p className="text-gray-700 mb-4">
+                    Je m'engage dans la course aux élections municipales de Mouvaux dans un esprit résolument constructif, avec l'ambition de proposer un renouveau pour notre ville. Avec des élus municipaux, d'anciens élus, des citoyens engagés et motivés, partageant une vision commune, je souhaite apporter un nouveau souffle à Mouvaux.
+                  </p>
+                  <p className="text-gray-700 mb-4">
+                    De nombreux Mouvallois en font quotidiennement le constat. Face aux défis auxquels est confrontée notre commune située au cœur d'une grande agglomération, Mouvaux doit se réinventer pour répondre aux préoccupations et aux attentes légitimes de ses habitants tout en protégeant les atouts de notre ville. La préservation du cadre de vie, héritage inestimable de la commune, constitue un pilier fondamental de notre démarche, tout comme la garantie de la sécurité pour tous.
+                  </p>
+                  <p className="text-gray-700 mb-4">
+                    L'adaptation aux nouvelles réalités de la vie quotidienne représente un enjeu majeur. Dans un contexte métropolitain en constante évolution, Mouvaux doit offrir à ses habitants les conditions optimales pour mener une vie épanouie : travailler, se former, se déplacer, se détendre dans des espaces de qualité, faire ses courses dans de bonnes conditions, habiter dans un cadre serein.
+                  </p>
+                  <p className="text-gray-700 mb-4">
+                    Il faut s'adapter mais aussi préserver l'essentiel. Notre ville a un atout majeur, les plus anciens côtoient les plus jeunes. Je veux apporter une attention particulière à ce lien si précieux entre les générations. Ce sera un axe important du projet qui sera proposé aux Mouvallois.
+                  </p>
+                  <p className="text-gray-700 mb-4">
+                    Il s'agit de redonner un véritable souffle à Mouvaux, de créer une dynamique positive qui rende la ville attractive non seulement pour ses habitants actuels, mais également pour ceux qui souhaiteraient s'y installer.
+                  </p>
+                  <p className="text-gray-700">
+                    Cette vision s'appuie sur une conviction forte : une municipalité efficace, sur un territoire métropolitain dense, doit être à l'écoute de ses citoyens et dans un esprit constructif avec les communes voisines. En associant expertise et engagement citoyen, notre démarche vise à construire ensemble l'avenir de Mouvaux, en préservant son identité tout en l'adaptant aux enjeux du XXIe siècle.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
         {/* Timeline */}
         <section className="mb-16 bg-gradient-to-br from-gray-50 to-blue-50 py-12 px-6 rounded-2xl">
           <h2 className="text-3xl font-bold mb-12 text-center text-gray-900">Parcours professionnel et engagement</h2>
