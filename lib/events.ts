@@ -127,7 +127,7 @@ export const atelierEvents: Event[] = [
     date: "15 Janvier 2026",
     time: "18h30",
     title: "Atelier Commerce / Entreprise / Economie / Attractivité",
-    description: "Mercredi 15 Janvier de 18h30\nMairie de Mouvaux",
+    description: "Jeudi 15 Janvier de 18h30\nMairie de Mouvaux",
     location: "Mairie de Mouvaux",
     contact: "RenouveauMouvaux@gmail.com — 06 89 31 65 48",
     type: "Atelier",
