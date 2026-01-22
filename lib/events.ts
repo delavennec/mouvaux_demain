@@ -37,7 +37,7 @@ export const futureEvents: Event[] = [
   {
     id: "reunion-2026-01-24",
     date: "24 Janvier 2026",
-    time: "18h30",
+    time: "17h30",
     title: "Réunion publique",
     description:
       "Nous nous faisons un plaisir de vous retrouver pour notre troisième réunion publique, qui se déroulera sur le thème de la sécurité.",
