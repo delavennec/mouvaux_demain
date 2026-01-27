@@ -121,7 +121,7 @@ export default function HomePage() {
               </div>
               <div className="text-base text-gray-700 leading-relaxed mt-4 max-w-[384px]">
                 <p>
-                  Une superbe troisième réunion publique où nous avons eu la chance de réunir plus de 130 personnes hier soir à la salle Bercker.{' '}
+                  Une superbe troisième réunion publique où nous avons eu la chance de réunir plus de 150 personnes hier soir à la salle Bercker.{' '}
                   {expandedText1 && (
                     <span>
                       Un grand merci à notre équipe soudée et au soutien indéfectible des Mouvallois présents. 
