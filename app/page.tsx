@@ -101,14 +101,13 @@ export default function HomePage() {
             <div className="flex flex-col items-center text-left">
               <div className="w-[384px] grid grid-cols-2 gap-2 mb-4">
                 <div className="relative aspect-square rounded-lg overflow-hidden">
-                  <video
+                  <Image
+                    src="/accueil/photo-site.jpg"
+                    alt="Réunion publique 24 janvier"
+                    width={186}
+                    height={186}
                     className="w-full h-full object-cover"
-                    controls
-                    preload="metadata"
-                  >
-                    <source src="/accueil/reunion-24-janvier.mp4" type="video/mp4" />
-                    Votre navigateur ne supporte pas la lecture de vidéos.
-                  </video>
+                  />
                 </div>
                 <div className="relative aspect-square rounded-lg overflow-hidden">
                   <Image
