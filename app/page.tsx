@@ -7,6 +7,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { NewsletterForm } from "@/components/newsletter-form"
 import EventCard from '@/components/event-card'
+import { EventPositionCard } from '@/components/event-position-card'
 import { mainEvent, secondMainEvent, futureEvents, atelierEvents } from '@/lib/events'
 import { filterFutureEvents } from "@/lib/utils"
 import { useState } from "react"
@@ -14,9 +15,6 @@ import { useState } from "react"
 export default function HomePage() {
   const allEvents = [secondMainEvent, mainEvent].concat(futureEvents || [], ...(atelierEvents || []))
   const homepageEvents = filterFutureEvents(allEvents)
-  const [expandedText1, setExpandedText1] = useState(false)
-  const [expandedText2, setExpandedText2] = useState(false)
-  const [expandedText3, setExpandedText3] = useState(false)
 
   return (
     <div className="min-h-screen">
@@ -42,7 +40,7 @@ export default function HomePage() {
             <p className="text-lg md:text-xl font-medium">Pour une ville sûre, attractive, dynamique et agréable</p>
           </div>
           <div className="flex flex-col gap-4 items-center">
-            <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">
+            <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg border-2 border-blue-900">
               <Link href="/contact">Soutenir Renouveau pour Mouvaux </Link>
             </Button>
           </div>
@@ -80,7 +78,7 @@ export default function HomePage() {
       </section>
 
       {/* Nos événements et positions - Moved up */}
-      <section className="pt-16 pb-16 px-4">
+      <section className="pt-8 pb-16 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="border-t-4 border-blue-900 mb-8"></div>
           <h2 className="text-3xl font-bold mb-4 text-gray-900">Nos événements et positions</h2>
@@ -97,100 +95,60 @@ export default function HomePage() {
           </div>
           
           <div className="grid md:grid-cols-2 gap-8">
-            {/* Nouveau contenu - Réunion 24 janvier avec vidéo et photo */}
-            <div className="flex flex-col items-center text-left">
-              <div className="w-[384px] grid grid-cols-2 gap-2 mb-4">
-                <div className="relative aspect-square rounded-lg overflow-hidden">
-                  <Image
-                    src="/accueil/photo-site.jpg"
-                    alt="Réunion publique 24 janvier"
-                    width={186}
-                    height={186}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="relative aspect-square rounded-lg overflow-hidden">
-                  <Image
-                    src="/accueil/photo-reunion-24-charles.jpeg"
-                    alt="Réunion publique 24 janvier"
-                    width={186}
-                    height={186}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-              <div className="text-base text-gray-700 leading-relaxed mt-4 max-w-[384px]">
-                <p>
-                  Une superbe troisième réunion publique où nous avons eu la chance de réunir plus de 150 personnes hier soir à la salle Bercker.{' '}
-                  {expandedText1 && (
-                    <span>
-                      Un grand merci à notre équipe soudée et au soutien indéfectible des Mouvallois présents. 
-                      C'est au travers de l'écoute et des échanges dynamiques que nous réaliserons ce renouveau pour Mouvaux.
-                    </span>
-                  )}
-                </p>
-                <button
-                  onClick={() => setExpandedText1(!expandedText1)}
-                  className="text-blue-900 font-semibold underline hover:text-blue-700 mt-2 text-sm"
-                >
-                  {expandedText1 ? 'Moins' : 'Plus'}
-                </button>
-              </div>
-            </div>
-            <div className="flex flex-col items-center text-left">
-              <Image
-                src="/accueil/photo-reunion.jpg"
-                alt="Réunion publique 17 novembre"
-                width={384}
-                height={288}
-                className="w-[384px] h-auto rounded-lg object-cover"
-              />
-              <div className="text-base text-gray-700 leading-relaxed mt-4 max-w-[384px]">
-                <p>
-                  Extraordinaire réunion publique à Mouvaux.{' '}
-                  {expandedText2 && (
-                    <span>
-                      Vous étiez plus de 150 à avoir pris du temps pour échanger avec notre équipe sur l'avenir de notre ville. Voilà déjà 5 mois que l'on se prépare, si les Mouvallois le veulent bien, à arriver à la tête de la municipalité en mars prochain. Ce fut l'occasion de rappeler les raisons de mon engagement. Elles sont ancrées dans mon histoire, ma famille, mon parcours.
-                    </span>
-                  )}
-                </p>
-                <button
-                  onClick={() => setExpandedText2(!expandedText2)}
-                  className="text-blue-900 font-semibold underline hover:text-blue-700 mt-2 text-sm"
-                >
-                  {expandedText2 ? 'Moins' : 'Plus'}
-                </button>
-              </div>
-              <Link href="/charles-delavenne" className="inline-flex items-center text-blue-900 font-semibold hover:underline mt-3 justify-start w-[384px]">
-                Charles Delavenne
-                <ChevronRight className="w-4 h-4 ml-1" />
-              </Link>
-            </div>
-            <div className="flex flex-col items-center text-left">
-              <Image
-                src="/accueil/pb-chauffage.jpg"
-                alt="Problématique chauffage école"
-                width={384}
-                height={288}
-                className="w-[384px] h-auto rounded-lg object-cover"
-              />
-              <div className="text-base text-gray-700 leading-relaxed mt-4 max-w-[384px]">
-                <p>
-                  «Qu'est-ce que je fais des biftecks et des brocolis?».{' '}
-                  {expandedText3 && (
-                    <span>
-                      Est-ce la réponse appropriée attendue d'un maire lorsque des parents d'élèves soulèvent un problème bien réel ? Ces parents s'étonnent que le paiement de la cantine ne soit pas annulable alors que leurs enfants sont contraints de rester à la maison en raison d'une panne de chauffage dans leur école. La municipalité a peut être légalement raison, mais un peu d'empathie et de compréhension seraient bienvenues. Peu importe le nombre de familles concernées ou qu'une partie de ces familles ne soient pas mouvalloises, pour chacune d'entre elles, c'est un problème compréhensible notamment pour celles qui ont plusieurs enfants. Une fois encore, une preuve d'absence d'écoute et de bienveillance…
-                    </span>
-                  )}
-                </p>
-                <button
-                  onClick={() => setExpandedText3(!expandedText3)}
-                  className="text-blue-900 font-semibold underline hover:text-blue-700 mt-2 text-sm"
-                >
-                  {expandedText3 ? 'Moins' : 'Plus'}
-                </button>
-              </div>
-            </div>
+            {/* Réunion publique 24 janvier 2026 */}
+            <EventPositionCard
+              date="24 janvier 2026"
+              title="Réunion publique"
+              images={[
+                { src: '/accueil/photo-site.jpg', alt: 'Réunion publique 24 janvier' },
+                { src: '/accueil/photo-reunion-24-charles.jpeg', alt: 'Charles Delavenne lors de la réunion' }
+              ]}
+              text="Une superbe troisième réunion publique où nous avons eu la chance de réunir plus de 150 personnes hier soir à la salle Bercker. Un grand merci à notre équipe soudée et au soutien indéfectible des Mouvallois présents. C'est au travers de l'écoute et des échanges dynamiques que nous réaliserons ce renouveau pour Mouvaux."
+            />
+
+            {/* Porte-à-porte janvier 2026 */}
+            <EventPositionCard
+              date="Janvier 2026"
+              title="Porte à porte"
+              images={[
+                { src: '/accueil/photo porte a porte.jpg', alt: 'Porte-à-porte rue de Londres' }
+              ]}
+              text="Encore une belle soirée de porte-à-porte rue de Londres. Merci à tous pour votre engagement."
+              fullWidthImage
+            />
+
+            {/* Atelier commerce janvier 2026 */}
+            <EventPositionCard
+              date="Janvier 2026"
+              title="Atelier Commerce"
+              images={[
+                { src: '/accueil/photo atelier commerce 1.jpg', alt: 'Atelier commerce - échanges' },
+                { src: '/accueil/photo atelier commerce 2.jpg', alt: 'Atelier commerce - participants' }
+              ]}
+              text="Retour en images sur notre atelier commerce, qui fut un lieu de dialogue constructif et d'enrichissantes suggestions. Merci aux Mouvallois pour la qualité des échanges, l'écoute et les nombreuses visions partagées. C'est ensemble que l'on fait bouger les choses."
+            />
+
+            {/* Réunion publique 17 novembre */}
+            <EventPositionCard
+              date="17 novembre 2025"
+              title="Réunion publique"
+              images={[
+                { src: '/accueil/photo-reunion.jpg', alt: 'Réunion publique 17 novembre' },
+                { src: '/accueil/photo web 17 nov.jpeg', alt: 'Réunion publique 17 novembre - vue d\'ensemble' }
+              ]}
+              text="Extraordinaire réunion publique à Mouvaux. Vous étiez plus de 150 à avoir pris du temps pour échanger avec notre équipe sur l'avenir de notre ville. Voilà déjà 5 mois que l'on se prépare, si les Mouvallois le veulent bien, à arriver à la tête de la municipalité en mars prochain. Ce fut l'occasion de rappeler les raisons de mon engagement. Elles sont ancrées dans mon histoire, ma famille, mon parcours."
+              link={{ text: 'Charles Delavenne', href: '/charles-delavenne' }}
+            />
+
+            {/* Position sur le problème de chauffage */}
+            <EventPositionCard
+              date="Décembre 2025"
+              images={[
+                { src: '/accueil/pb-chauffage.jpg', alt: 'Problématique chauffage école' }
+              ]}
+              text="«Qu'est-ce que je fais des biftecks et des brocolis?». Est-ce la réponse appropriée attendue d'un maire lorsque des parents d'élèves soulèvent un problème bien réel ? Ces parents s'étonnent que le paiement de la cantine ne soit pas annulable alors que leurs enfants sont contraints de rester à la maison en raison d'une panne de chauffage dans leur école. La municipalité a peut être légalement raison, mais un peu d'empathie et de compréhension seraient bienvenues. Peu importe le nombre de familles concernées ou qu'une partie de ces familles ne soient pas mouvalloises, pour chacune d'entre elles, c'est un problème compréhensible notamment pour celles qui ont plusieurs enfants. Une fois encore, une preuve d'absence d'écoute et de bienveillance…"
+              previewSentences={2}
+            />
           </div>
         </div>
       </section>

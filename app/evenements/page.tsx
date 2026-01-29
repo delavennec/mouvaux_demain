@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
 import Link from "next/link"
 import EventCard from "@/components/event-card"
 import { mainEvent, secondMainEvent, ateliersOverview, atelierEvents, futureEvents } from "@/lib/events"
@@ -29,6 +30,27 @@ export default function EvenementsPage() {
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Événements</h1>
           <p className="text-xl text-gray-600">Retrouvez nos prochains rendez-vous et venez échanger avec nous</p>
         </div>
+
+        {/* Prochaine réunion publique */}
+        <section className="mb-8">
+          <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200 shadow-lg">
+            <CardContent className="p-8">
+              <h3 className="text-2xl font-bold mb-4 text-gray-900 text-center">
+                Prochaine réunion publique : Samedi 21 février en salle Courcol
+              </h3>
+              <div className="text-center text-gray-700 space-y-2">
+                <p className="text-lg">Venez échanger avec nous sur l'avenir de Mouvaux</p>
+                <p className="font-medium mt-4">
+                  Pour plus d'informations :{' '}
+                  <a href="mailto:RenouveauMouvaux@gmail.com" className="text-blue-600 hover:underline">
+                    RenouveauMouvaux@gmail.com
+                  </a>
+                  {' '}- <a href="tel:0689316548" className="text-blue-600 hover:underline">06 89 31 65 48</a>
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
 
         {/* Main Events Highlight (Ateliers overview + sorted events) */}
         <div className="mb-12 space-y-6">

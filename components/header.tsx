@@ -48,7 +48,7 @@ export function Header() {
 
           {/* CTA Buttons */}
           <div className="flex items-center space-x-3 lg:space-x-4 ml-auto pl-16 lg:pl-20 xl:pl-24">
-            <Button asChild variant="outline" size="sm">
+            <Button asChild variant="outline" size="sm" className="border-2 border-blue-900">
               <Link href="/contact">Nous soutenir</Link>
             </Button>
             <Button asChild size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">
