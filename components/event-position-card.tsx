@@ -58,7 +58,7 @@ export function EventPositionCard({
 
   return (
     <Card className={`transition-all duration-300 rounded-3xl ${expanded ? 'shadow-[0_20px_60px_rgba(0,0,0,0.35)]' : 'shadow-[0_15px_50px_rgba(0,0,0,0.3)]'}`}>
-      <CardContent className="p-6 relative overflow-hidden bg-blue-50">
+      <CardContent className="p-6 relative overflow-hidden bg-blue-50 rounded-3xl">
         {/* Gradient overlay from edges - strong at borders, fading to center */}
         <div className="absolute inset-0 rounded-3xl pointer-events-none bg-gradient-to-br from-blue-100/40 via-transparent via-60% to-blue-100/40"></div>
         
@@ -102,27 +102,29 @@ export function EventPositionCard({
           ) : isDualImage ? (
             <div className="w-full grid grid-cols-2 gap-2 max-w-[428px] bg-gradient-to-r from-blue-100/50 via-transparent to-blue-100/50 rounded-lg p-2">
               {images.map((img, idx) => (
-                <div key={idx} className="relative rounded-lg overflow-hidden" style={{ width: '210px', height: '200px' }}>
+                <div key={idx} className="relative w-full aspect-[21/20] rounded-lg overflow-hidden">
                   <Image
                     src={img.src}
                     alt={img.alt}
                     width={210}
                     height={200}
                     className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                    sizes="(max-width: 640px) 50vw, 210px"
                   />
                 </div>
               ))}
             </div>
           ) : (
-            <div className="grid grid-cols-2 gap-2 max-w-[428px]">
+            <div className="grid grid-cols-2 gap-2 max-w-[428px] w-full">
               {images.map((img, idx) => (
-                <div key={idx} className="relative rounded-lg overflow-hidden" style={{ width: '210px', height: '200px' }}>
+                <div key={idx} className="relative w-full aspect-[21/20] rounded-lg overflow-hidden">
                   <Image
                     src={img.src}
                     alt={img.alt}
                     width={210}
                     height={200}
                     className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                    sizes="(max-width: 640px) 50vw, 210px"
                   />
                 </div>
               ))}
