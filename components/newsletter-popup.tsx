@@ -5,24 +5,26 @@ import type React from "react"
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { X, Mail } from "lucide-react"
+import { X, Mail } from "@/components/icons"
 import { NewsletterForm } from "@/components/newsletter-form"
+import { useNewsletter } from "@/components/newsletter-context"
 
 export function NewsletterPopup() {
-  const [isVisible, setIsVisible] = useState(false)
+  const { isOpen, closeNewsletter } = useNewsletter()
+  const [showInitialPopup, setShowInitialPopup] = useState(false)
 
   useEffect(() => {
     // Show popup after 30 seconds or when user scrolls 50% of page
     const timer = setTimeout(() => {
       if (!localStorage.getItem("newsletter-popup-shown")) {
-        setIsVisible(true)
+        setShowInitialPopup(true)
       }
     }, 30000)
 
     const handleScroll = () => {
       const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100
       if (scrollPercent > 50 && !localStorage.getItem("newsletter-popup-shown")) {
-        setIsVisible(true)
+        setShowInitialPopup(true)
       }
     }
 
@@ -34,8 +36,12 @@ export function NewsletterPopup() {
   }, [])
 
   const handleClose = () => {
-    setIsVisible(false)
-    localStorage.setItem("newsletter-popup-shown", "true")
+    if (showInitialPopup) {
+      setShowInitialPopup(false)
+      localStorage.setItem("newsletter-popup-shown", "true")
+    } else {
+      closeNewsletter()
+    }
   }
 
   // Success callback to close the popup when newsletter signup is successful
@@ -44,6 +50,8 @@ export function NewsletterPopup() {
       handleClose()
     }, 3000)
   }
+
+  const isVisible = isOpen || showInitialPopup
 
   if (!isVisible) return null
 

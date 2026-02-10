@@ -5,6 +5,7 @@ import "./globals.css"
 import { Header } from "../components/header"
 import { Footer } from "../components/footer"
 import { NewsletterPopup } from "../components/newsletter-popup"
+import { NewsletterProvider } from "../components/newsletter-context"
 import { ScrollToTop } from "../components/scroll-to-top"
 import { CookieConsent } from "../components/cookie-consent"
 
@@ -37,12 +38,14 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={inter.className}>
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <NewsletterPopup />
-        <ScrollToTop />
-        <CookieConsent />
+        <NewsletterProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+          <NewsletterPopup />
+          <ScrollToTop />
+          <CookieConsent />
+        </NewsletterProvider>
       </body>
     </html>
   )

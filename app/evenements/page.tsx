@@ -27,7 +27,7 @@ export default function EvenementsPage() {
       <div className="max-w-4xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Événements</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Nos Événements</h1>
           <p className="text-xl text-gray-600">Retrouvez nos prochains rendez-vous et venez échanger avec nous</p>
         </div>
 
@@ -52,25 +52,35 @@ export default function EvenementsPage() {
           </Card>
         </section>
 
-        {/* Main Events Highlight (Ateliers overview + sorted events) */}
+        {/* Main Events Highlight (Actualités + sorted events) */}
         <div className="mb-12 space-y-6">
-          {/* Overview card for Ateliers - clickable to ateliers page (rendered first) */}
-          <Link href="/evenements/ateliers" className="block">
-            <div className="hover:shadow-lg transition-shadow border-2 border-blue-500 rounded-lg p-6 bg-white">
-              <h3 className="text-2xl font-semibold mb-3 text-gray-900 text-center">{ateliersOverview.title}</h3>
-              <div className="mb-4">
-                <ul className="list-disc pl-6 text-gray-600">
-                  <li>Sécurité</li>
-                  <li>Economie / Attractivité / Entreprises / Commerce</li>
-                  <li>Environnement / Propreté / Cause animale / Urbanisme</li>
-                  <li>Jeunesse / Sport / Education</li>
-                  <li>Famille / Santé / Seniors</li>
-                  <li>Culture / Citoyenneté / Evénements</li>
-                </ul>
+          {/* Actualités section */}
+          <div>
+            <h2 className="text-3xl font-bold mb-6 text-gray-900">Actualités</h2>
+            
+            {/* Presse subsection */}
+            <div className="mb-8">
+              <h3 className="text-2xl font-semibold mb-4 text-blue-600">Presse</h3>
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <p className="mb-4">
+                  Dans la Voix du Nord le 6 juillet 2025, j&apos;ai annoncé ma candidature et le lancement de la campagne « Renouveau pour Mouvaux »
+                </p>
+                
+                <div className="border border-gray-300 p-4 rounded-lg bg-gray-50 mb-4">
+                  <a 
+                    href="https://www.lavoixdunord.fr/1603743/article/2025-07-06/municipales-mouvaux-charles-delavenne-sera-candidat-la-tete-d-une-liste"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-800 transition-colors"
+                  >
+                    Lire l&apos;article : « Municipales à Mouvaux : Charles Delavenne sera candidat à la tête d'une liste »
+                  </a>
+                </div>
               </div>
-              <div className="text-gray-500 text-sm text-center mt-3">Merci de s'inscrire à l'adresse {ateliersOverview.contact}</div>
             </div>
-          </Link>
+          </div>
+          
+          {/* Ateliers thématiques ouverts à tous - removed, replaced by actualités above */}
           
           {/* All events sorted by date (closest first) */}
           {filteredAndSorted.map((event, idx) => (

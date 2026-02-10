@@ -40,10 +40,30 @@ export function EventPositionCard({
 
   const isSingleImage = images.length === 1
   const isDualImage = images.length === 2
+  // If this card is the "pb-chauffage" publication, keep the original layout (no width constraint)
+  const isPbChauffage = images.some(
+    (img) => img.src && img.src.toString().toLowerCase().includes('pb-chauffage')
+  )
+  const shouldConstrainText = !isPbChauffage
+  // Determine max text width to match image(s) width so the text doesn't overflow image boundaries
+  const textMaxWidth = shouldConstrainText
+    ? isSingleImage
+      ? fullWidthImage
+        ? 300
+        : 200
+      : isDualImage
+      ? 428
+      : 428
+    : undefined
 
   return (
     <Card className={`transition-all duration-300 rounded-3xl ${expanded ? 'shadow-[0_20px_60px_rgba(0,0,0,0.35)]' : 'shadow-[0_15px_50px_rgba(0,0,0,0.3)]'}`}>
-      <CardContent className="p-6">
+      <CardContent className="p-6 relative overflow-hidden bg-blue-50">
+        {/* Gradient overlay from edges - strong at borders, fading to center */}
+        <div className="absolute inset-0 rounded-3xl pointer-events-none bg-gradient-to-br from-blue-100/40 via-transparent via-60% to-blue-100/40"></div>
+        
+        {/* Content wrapper */}
+        <div className="relative z-10">
         {/* Date */}
         <div className="text-blue-900 font-semibold text-sm mb-4">
           {date}{title && ` - ${title}`}
@@ -54,7 +74,7 @@ export function EventPositionCard({
           {isSingleImage ? (
             fullWidthImage ? (
               <div className="relative w-full flex justify-center" style={{ height: '250px' }}>
-                <div className="relative rounded-lg overflow-hidden bg-gradient-to-r from-blue-100 via-transparent to-blue-100 p-4">
+                <div className="relative rounded-lg overflow-hidden p-4">
                   <div className="relative rounded-lg overflow-hidden" style={{ width: '300px', height: '250px' }}>
                     <Image
                       src={images[0].src}
@@ -80,7 +100,7 @@ export function EventPositionCard({
               </div>
             )
           ) : isDualImage ? (
-            <div className="w-full grid grid-cols-2 gap-2 max-w-[428px]">
+            <div className="w-full grid grid-cols-2 gap-2 max-w-[428px] bg-gradient-to-r from-blue-100/50 via-transparent to-blue-100/50 rounded-lg p-2">
               {images.map((img, idx) => (
                 <div key={idx} className="relative rounded-lg overflow-hidden" style={{ width: '210px', height: '200px' }}>
                   <Image
@@ -110,9 +130,12 @@ export function EventPositionCard({
           )}
         </div>
 
-        {/* Text Content */}
-        <div className="text-base text-gray-700 leading-relaxed">
-          <p>
+        {/* Text Content: constrained width to match photo(s) */}
+        <div
+          className={`text-base text-gray-700 leading-relaxed text-left break-words whitespace-normal ${shouldConstrainText ? 'mx-auto' : ''} font-normal`}
+          style={shouldConstrainText ? { maxWidth: `${textMaxWidth}px` } : undefined}
+        >
+          <p className="font-normal">
             {expanded ? text : previewText}
           </p>
           {hasMore && (
@@ -135,6 +158,7 @@ export function EventPositionCard({
             <ChevronRight className="w-4 h-4 ml-1" />
           </Link>
         )}
+        </div>
       </CardContent>
     </Card>
   )

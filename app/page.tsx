@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { ChevronRight } from "lucide-react"
+import { ChevronRight } from "@/components/icons"
 import Image from "next/image"
 import Link from "next/link"
 import { NewsletterForm } from "@/components/newsletter-form"
@@ -10,7 +10,7 @@ import EventCard from '@/components/event-card'
 import { EventPositionCard } from '@/components/event-position-card'
 import { mainEvent, secondMainEvent, futureEvents, atelierEvents } from '@/lib/events'
 import { filterFutureEvents } from "@/lib/utils"
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 
 export default function HomePage() {
   const allEvents = [secondMainEvent, mainEvent].concat(futureEvents || [], ...(atelierEvents || []))
@@ -54,26 +54,67 @@ export default function HomePage() {
         </Button>
       </div>
 
-      {/* Prochaine réunion publique */}
+      {/* Prochaine réunion publique - card left, flyer image right (200px) */}
       <section className="py-8 px-4">
         <div className="max-w-6xl mx-auto">
-          <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200 shadow-lg">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-bold mb-4 text-gray-900 text-center">
-                Prochaine réunion publique : Samedi 21 février en salle Courcol
-              </h3>
-              <div className="text-center text-gray-700 space-y-2">
-                <p className="text-lg">Venez échanger avec nous sur l'avenir de Mouvaux</p>
-                <p className="font-medium mt-4">
-                  Pour plus d'informations :{' '}
-                  <a href="mailto:RenouveauMouvaux@gmail.com" className="text-blue-600 hover:underline">
-                    RenouveauMouvaux@gmail.com
-                  </a>
-                  {' '}- <a href="tel:0689316548" className="text-blue-600 hover:underline">06 89 31 65 48</a>
-                </p>
-              </div>
-            </CardContent>
-          </Card>
+          <div className="flex flex-col md:flex-row items-start gap-[10px]">
+            {/* card side - height matched to flyer */}
+            <div className="flex-1" style={{ height: undefined }} id="reunion-card-wrapper">
+              <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200 shadow-lg h-full">
+                <CardContent className="p-6 h-full flex flex-col justify-between items-center text-center">
+                  <div>
+                    <h3 className="text-3xl font-bold mb-4 text-gray-900">
+                      Notre prochaine réunion publique
+                    </h3>
+                    <p className="text-2xl font-bold text-blue-900 mb-2">
+                      Samedi 21 février
+                    </p>
+                    <p className="text-lg text-gray-700 mb-4">
+                      Salle Courcol, 29 Rue Gallieni
+                    </p>
+                  </div>
+                  <div className="text-gray-700 space-y-1 text-sm">
+                    <p>Venez échanger avec nous sur l'avenir de Mouvaux, en particulier sur le thème intergénérationnel Nos ainés - Nos jeunes.</p>
+                    <p className="font-medium mt-3">Infos :</p>
+                    <p>
+                      <a href="mailto:RenouveauMouvaux@gmail.com" className="text-blue-600 hover:underline break-all">
+                        RenouveauMouvaux@gmail.com
+                      </a>
+                    </p>
+                    <p>
+                      <a href="tel:0689316548" className="text-blue-600 hover:underline">
+                        06 89 31 65 48
+                      </a>
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Flyer image to the right, 200px wide, height auto to preserve aspect */}
+            <div className="flex-shrink-0">
+              <img
+                id="flyer-image"
+                src="/accueil/image-flyer.webp"
+                alt="Flyer"
+                width={200}
+                style={{ width: 200, height: 'auto', display: 'block' }}
+                onLoad={(e) => {
+                  const img = e.currentTarget as HTMLImageElement
+                  const naturalW = img.naturalWidth || 200
+                  const naturalH = img.naturalHeight || 0
+                  const scaledH = naturalH && naturalW ? Math.round((naturalH / naturalW) * 200) : undefined
+                  if (scaledH) {
+                    const wrapper = document.getElementById('reunion-card-wrapper')
+                    if (wrapper) {
+                      // set exact height to match flyer
+                      wrapper.style.height = `${scaledH}px`
+                    }
+                  }
+                }}
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -100,8 +141,8 @@ export default function HomePage() {
               date="24 janvier 2026"
               title="Réunion publique"
               images={[
-                { src: '/accueil/photo-site.jpg', alt: 'Réunion publique 24 janvier' },
-                { src: '/accueil/photo-reunion-24-charles.jpeg', alt: 'Charles Delavenne lors de la réunion' }
+                { src: '/accueil/photo-site.webp', alt: 'Réunion publique 24 janvier' },
+                { src: '/accueil/photo-reunion-24-charles.webp', alt: 'Charles Delavenne lors de la réunion' }
               ]}
               text="Une superbe troisième réunion publique où nous avons eu la chance de réunir plus de 150 personnes hier soir à la salle Bercker. Un grand merci à notre équipe soudée et au soutien indéfectible des Mouvallois présents. C'est au travers de l'écoute et des échanges dynamiques que nous réaliserons ce renouveau pour Mouvaux."
             />
@@ -111,7 +152,7 @@ export default function HomePage() {
               date="Janvier 2026"
               title="Porte à porte"
               images={[
-                { src: '/accueil/photo porte a porte.jpg', alt: 'Porte-à-porte rue de Londres' }
+                { src: '/accueil/photo porte a porte.webp', alt: 'Porte-à-porte rue de Londres' }
               ]}
               text="Encore une belle soirée de porte-à-porte rue de Londres. Merci à tous pour votre engagement."
               fullWidthImage
@@ -122,8 +163,8 @@ export default function HomePage() {
               date="Janvier 2026"
               title="Atelier Commerce"
               images={[
-                { src: '/accueil/photo atelier commerce 1.jpg', alt: 'Atelier commerce - échanges' },
-                { src: '/accueil/photo atelier commerce 2.jpg', alt: 'Atelier commerce - participants' }
+                { src: '/accueil/photo atelier commerce 1.webp', alt: 'Atelier commerce - échanges' },
+                { src: '/accueil/photo atelier commerce 2.webp', alt: 'Atelier commerce - participants' }
               ]}
               text="Retour en images sur notre atelier commerce, qui fut un lieu de dialogue constructif et d'enrichissantes suggestions. Merci aux Mouvallois pour la qualité des échanges, l'écoute et les nombreuses visions partagées. C'est ensemble que l'on fait bouger les choses."
             />
@@ -133,8 +174,8 @@ export default function HomePage() {
               date="17 novembre 2025"
               title="Réunion publique"
               images={[
-                { src: '/accueil/photo-reunion.jpg', alt: 'Réunion publique 17 novembre' },
-                { src: '/accueil/photo web 17 nov.jpeg', alt: 'Réunion publique 17 novembre - vue d\'ensemble' }
+                { src: '/accueil/photo-reunion.webp', alt: 'Réunion publique 17 novembre' },
+                { src: '/accueil/photo web 17 nov.webp', alt: 'Réunion publique 17 novembre - vue d\'ensemble' }
               ]}
               text="Extraordinaire réunion publique à Mouvaux. Vous étiez plus de 150 à avoir pris du temps pour échanger avec notre équipe sur l'avenir de notre ville. Voilà déjà 5 mois que l'on se prépare, si les Mouvallois le veulent bien, à arriver à la tête de la municipalité en mars prochain. Ce fut l'occasion de rappeler les raisons de mon engagement. Elles sont ancrées dans mon histoire, ma famille, mon parcours."
               link={{ text: 'Charles Delavenne', href: '/charles-delavenne' }}
@@ -144,7 +185,7 @@ export default function HomePage() {
             <EventPositionCard
               date="Décembre 2025"
               images={[
-                { src: '/accueil/pb-chauffage.jpg', alt: 'Problématique chauffage école' }
+                { src: '/accueil/pb-chauffage.webp', alt: 'Problématique chauffage école' }
               ]}
               text="«Qu'est-ce que je fais des biftecks et des brocolis?». Est-ce la réponse appropriée attendue d'un maire lorsque des parents d'élèves soulèvent un problème bien réel ? Ces parents s'étonnent que le paiement de la cantine ne soit pas annulable alors que leurs enfants sont contraints de rester à la maison en raison d'une panne de chauffage dans leur école. La municipalité a peut être légalement raison, mais un peu d'empathie et de compréhension seraient bienvenues. Peu importe le nombre de familles concernées ou qu'une partie de ces familles ne soient pas mouvalloises, pour chacune d'entre elles, c'est un problème compréhensible notamment pour celles qui ont plusieurs enfants. Une fois encore, une preuve d'absence d'écoute et de bienveillance…"
               previewSentences={2}

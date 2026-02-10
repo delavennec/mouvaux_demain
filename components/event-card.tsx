@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card"
-import { Calendar, Clock, MapPin, Mail } from "lucide-react"
+import { Calendar, Clock, MapPin, Mail } from "@/components/icons"
 import type { Event as EventType } from '@/lib/events'
 
 export function EventCard({ event, footer, centerTitle, compact, contactInline }: { event: EventType; footer?: React.ReactNode; centerTitle?: boolean; compact?: boolean; contactInline?: boolean }) {

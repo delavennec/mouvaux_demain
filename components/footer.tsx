@@ -1,6 +1,6 @@
 "use client"
 
-import { Mail, Facebook, X, Instagram } from "lucide-react"
+import { Mail, Facebook, X, Instagram } from "@/components/icons"
 import Link from "next/link"
 import { NewsletterForm } from "@/components/newsletter-form"
 
@@ -54,7 +54,7 @@ export function Footer() {
               <a href="mailto:RenouveauPourMouvaux@gmail.com" className="text-blue-700 hover:text-blue-500 transition-colors">
                 <Mail className="w-5 h-5" />
               </a>
-              <a href="https://www.facebook.com/share/19n839yhVx/?mibextid=wwXIfr" className="text-gray-300 hover:text-blue-400 transition-colors" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.facebook.com/RenouveauPourMouvauxAvecCharlesDelavenne" className="text-gray-300 hover:text-blue-400 transition-colors" target="_blank" rel="noopener noreferrer">
                 <Facebook className="w-5 h-5" />
               </a>
               <a href="https://twitter.com/Mouvaux2026" className="text-gray-300 hover:text-blue-400 transition-colors" target="_blank" rel="noopener noreferrer">
