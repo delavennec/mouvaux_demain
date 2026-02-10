@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Quote } from "lucide-react"
+import { Quote } from "@/components/icons"
 import Image from "next/image"
 import Link from "next/link"
 import { NewsletterForm } from "@/components/newsletter-form"
@@ -19,13 +19,13 @@ export default function CharlesDelavennePage() {
         <section className="mb-16">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <Image
-                src="/DLGA-Charles-DELAVENNE-STUDIOFALOUR-0013.jpg"
-                alt="Charles Delavenne"
-                width={400}
-                height={500}
-                className="rounded-lg shadow-lg w-full"
-              />
+                    <Image
+                      src="/DLGA-Charles-DELAVENNE-STUDIOFALOUR-0013.jpg"
+                      alt="Charles Delavenne"
+                      width={400}
+                      height={500}
+                      className="rounded-lg shadow-lg w-full"
+                    />
             </div>
             <div>
               <h2 className="text-3xl font-bold mb-6 text-gray-900">Un engagement au service de Mouvaux</h2>
@@ -38,6 +38,16 @@ export default function CharlesDelavennePage() {
                   Issu d'une famille engagée dans la vie publique – son père fut agriculteur et maire d'une commune
                   rurale – il a grandi dans le respect des valeurs de la République, du travail, de l'écoute et du
                   service de l'intérêt général.
+                </p>
+                <p className="mt-4">
+                  <a 
+                    href="https://drive.google.com/file/d/13196GCHBrg5nOfPOB1aUDWxmQb2VfFJh/view?usp=sharing" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline font-medium"
+                  >
+                    Découvrez sa lettre de déclaration de candidature.
+                  </a>
                 </p>
               </div>
             </div>

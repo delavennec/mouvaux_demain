@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Download } from "lucide-react"
+import { Download } from "@/components/icons"
 import Link from "next/link"
 import { NewsletterForm } from "@/components/newsletter-form"
 import Image from "next/image"

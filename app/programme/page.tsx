@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Shield, Calculator, Leaf, Building2, Briefcase, Users } from "lucide-react"
+import { Shield, Calculator, Leaf, Building2, Briefcase, Users } from "@/components/icons"
 import Link from "next/link"
 
 import { NewsletterForm } from "@/components/newsletter-form"

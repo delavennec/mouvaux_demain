@@ -2,22 +2,25 @@
 
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Menu } from "lucide-react"
+import { Menu } from "@/components/icons"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { useNewsletter } from "@/components/newsletter-context"
+import { useState } from "react"
 
 const navigation = [
   { name: "Accueil", href: "/" },
   { name: "Charles Delavenne", href: "/charles-delavenne" },
   { name: "Renouveau pour Mouvaux", href: "/association" },
   { name: "Nos priorités", href: "/programme" },
-  { name: "Actualités", href: "/actualites" },
-  { name: "Evénements", href: "/evenements" },
+  { name: "Nos Événements", href: "/evenements" },
   { name: "Contact", href: "/contact" },
 ]
 
 export function Header() {
   const pathname = usePathname()
+  const { openNewsletter } = useNewsletter()
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
@@ -51,14 +54,14 @@ export function Header() {
             <Button asChild variant="outline" size="sm" className="border-2 border-blue-900">
               <Link href="/contact">Nous soutenir</Link>
             </Button>
-            <Button asChild size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">
-              <Link href="#newsletter">Newsletter</Link>
+            <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white" onClick={openNewsletter}>
+              Newsletter
             </Button>
           </div>
         </div>
 
         {/* Mobile Menu */}
-        <Sheet>
+        <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
           <SheetTrigger asChild>
             <Button variant="ghost" size="icon" className="lg:hidden">
               <Menu className="h-6 w-6" />
@@ -74,16 +77,23 @@ export function Header() {
                   className={`text-lg font-medium transition-colors hover:text-blue-600 ${
                     pathname === item.href ? "text-blue-600" : "text-gray-700"
                   }`}
+                  onClick={() => setMobileOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
               <div className="pt-5 space-y-4">
                 <Button asChild variant="outline" className="w-full border-blue-600 text-blue-600 hover:bg-blue-50">
-                  <Link href="/contact">Nous soutenir</Link>
+                  <Link href="/contact" onClick={() => setMobileOpen(false)}>Nous soutenir</Link>
                 </Button>
-                <Button asChild className="w-full bg-blue-600 hover:bg-blue-700">
-                  <Link href="#newsletter">Newsletter gratuite</Link>
+                <Button
+                  className="w-full bg-blue-600 hover:bg-blue-700"
+                  onClick={() => {
+                    setMobileOpen(false)
+                    openNewsletter()
+                  }}
+                >
+                  Newsletter gratuite
                 </Button>
               </div>
             </div>
