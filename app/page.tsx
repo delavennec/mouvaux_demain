@@ -25,10 +25,10 @@ export default function HomePage() {
           <Image
             src="/general/photo_de_groupe.jpg"
             alt="Équipe Renouveau pour Mouvaux "
-            width={1800}
-            height={1250}
-            className="w-auto h-auto min-w-full min-h-full"
-            style={{ transform: 'translate(0px, -200px)' }}
+            fill
+            sizes="100vw"
+            className="object-cover"
+            style={{ objectPosition: 'center 30%' }}
             priority
           />
         </div>
