@@ -70,37 +70,39 @@ export function EventPositionCard({
         </div>
 
         {/* Images */}
-        <div className="flex flex-col items-center mb-4">
+        <div className="flex flex-col items-center mb-4 w-full">
           {isSingleImage ? (
             fullWidthImage ? (
-              <div className="relative w-full flex justify-center" style={{ height: '250px' }}>
-                <div className="relative rounded-lg overflow-hidden p-4">
-                  <div className="relative rounded-lg overflow-hidden" style={{ width: '300px', height: '250px' }}>
+              <div className="relative w-full flex justify-center">
+                <div className="relative rounded-lg overflow-hidden p-4 w-full max-w-[300px]">
+                  <div className="relative rounded-lg overflow-hidden w-full aspect-[6/5]">
                     <Image
                       src={images[0].src}
                       alt={images[0].alt}
                       width={300}
                       height={250}
                       className="w-full h-full object-cover rounded-lg transition-transform duration-300 hover:scale-110"
+                      sizes="(max-width: 640px) 80vw, 300px"
                     />
                   </div>
                 </div>
               </div>
             ) : (
-              <div className="relative w-full rounded-lg overflow-hidden bg-gradient-to-r from-blue-100 via-transparent to-blue-100 flex justify-center" style={{ height: '250px' }}>
-                <div className="relative rounded-lg overflow-hidden" style={{ width: '200px', height: '250px' }}>
+              <div className="relative w-full rounded-lg overflow-hidden bg-gradient-to-r from-blue-100 via-transparent to-blue-100 flex justify-center">
+                <div className="relative rounded-lg overflow-hidden w-full max-w-[220px] aspect-[4/5]">
                   <Image
                     src={images[0].src}
                     alt={images[0].alt}
                     width={200}
                     height={250}
                     className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                    sizes="(max-width: 640px) 70vw, 200px"
                   />
                 </div>
               </div>
             )
           ) : isDualImage ? (
-            <div className="w-full grid grid-cols-2 gap-2 max-w-[428px] bg-gradient-to-r from-blue-100/50 via-transparent to-blue-100/50 rounded-lg p-2">
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-2 max-w-full sm:max-w-[428px] bg-gradient-to-r from-blue-100/50 via-transparent to-blue-100/50 rounded-lg p-2">
               {images.map((img, idx) => (
                 <div key={idx} className="relative w-full aspect-[21/20] rounded-lg overflow-hidden">
                   <Image
@@ -109,13 +111,13 @@ export function EventPositionCard({
                     width={210}
                     height={200}
                     className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-                    sizes="(max-width: 640px) 50vw, 210px"
+                    sizes="(max-width: 640px) 90vw, 210px"
                   />
                 </div>
               ))}
             </div>
           ) : (
-            <div className="grid grid-cols-2 gap-2 max-w-[428px] w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-w-full sm:max-w-[428px] w-full">
               {images.map((img, idx) => (
                 <div key={idx} className="relative w-full aspect-[21/20] rounded-lg overflow-hidden">
                   <Image
@@ -124,7 +126,7 @@ export function EventPositionCard({
                     width={210}
                     height={200}
                     className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-                    sizes="(max-width: 640px) 50vw, 210px"
+                    sizes="(max-width: 640px) 90vw, 210px"
                   />
                 </div>
               ))}
