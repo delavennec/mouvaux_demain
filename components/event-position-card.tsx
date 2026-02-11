@@ -57,7 +57,7 @@ export function EventPositionCard({
     : undefined
 
   return (
-    <Card className={`transition-all duration-300 rounded-3xl ${expanded ? 'shadow-[0_20px_60px_rgba(0,0,0,0.35)]' : 'shadow-[0_15px_50px_rgba(0,0,0,0.3)]'}`}>
+    <Card className={`w-full transition-all duration-300 rounded-3xl ${expanded ? 'shadow-[0_20px_60px_rgba(0,0,0,0.35)]' : 'shadow-[0_15px_50px_rgba(0,0,0,0.3)]'}`}>
       <CardContent className="p-6 relative overflow-hidden bg-blue-50 rounded-3xl">
         {/* Gradient overlay from edges - strong at borders, fading to center */}
         <div className="absolute inset-0 rounded-3xl pointer-events-none bg-gradient-to-br from-blue-100/40 via-transparent via-60% to-blue-100/40"></div>
