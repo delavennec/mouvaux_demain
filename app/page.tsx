@@ -54,66 +54,39 @@ export default function HomePage() {
         </Button>
       </div>
 
-      {/* Prochaine réunion publique - card left, flyer image right (200px) */}
+      {/* Prochaine réunion publique - full width card */}
       <section className="py-8 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row items-start gap-[10px]">
-            {/* card side - height matched to flyer */}
-            <div className="flex-1" style={{ height: undefined }} id="reunion-card-wrapper">
-              <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200 shadow-lg h-full">
-                <CardContent className="p-6 h-full flex flex-col justify-between items-center text-center">
-                  <div>
-                    <h3 className="text-3xl font-bold mb-4 text-gray-900">
-                      Notre prochaine réunion publique
-                    </h3>
-                    <p className="text-2xl font-bold text-blue-900 mb-2">
-                      Samedi 21 février
-                    </p>
-                    <p className="text-lg text-gray-700 mb-4">
-                      Salle Courcol, 29 Rue Gallieni
-                    </p>
-                  </div>
-                  <div className="text-gray-700 space-y-1 text-sm">
-                    <p>Venez échanger avec nous sur l'avenir de Mouvaux, en particulier sur le thème intergénérationnel Nos ainés - Nos jeunes.</p>
-                    <p className="font-medium mt-3">Infos :</p>
-                    <p>
-                      <a href="mailto:RenouveauMouvaux@gmail.com" className="text-blue-600 hover:underline break-all">
-                        RenouveauMouvaux@gmail.com
-                      </a>
-                    </p>
-                    <p>
-                      <a href="tel:0689316548" className="text-blue-600 hover:underline">
-                        06 89 31 65 48
-                      </a>
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Flyer image to the right, 200px wide, height auto to preserve aspect */}
-            <div className="flex-shrink-0">
-              <img
-                id="flyer-image"
-                src="/accueil/image-flyer.webp"
-                alt="Flyer"
-                width={200}
-                style={{ width: 200, height: 'auto', display: 'block' }}
-                onLoad={(e) => {
-                  const img = e.currentTarget as HTMLImageElement
-                  const naturalW = img.naturalWidth || 200
-                  const naturalH = img.naturalHeight || 0
-                  const scaledH = naturalH && naturalW ? Math.round((naturalH / naturalW) * 200) : undefined
-                  if (scaledH) {
-                    const wrapper = document.getElementById('reunion-card-wrapper')
-                    if (wrapper) {
-                      // set exact height to match flyer
-                      wrapper.style.height = `${scaledH}px`
-                    }
-                  }
-                }}
-              />
-            </div>
+          <div className="w-full">
+            <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200 shadow-lg">
+              <CardContent className="p-6 flex flex-col justify-between items-center text-center">
+                <div>
+                  <h3 className="text-3xl font-bold mb-4 text-gray-900">
+                    Notre prochaine réunion publique
+                  </h3>
+                  <p className="text-2xl font-bold text-blue-900 mb-2">
+                    Jeudi 12 mars 2026 à 18H30
+                  </p>
+                  <p className="text-lg text-gray-700 mb-4">
+                    13 rue Michel Raillard, 59200 Tourcoing
+                  </p>
+                </div>
+                <div className="text-gray-700 space-y-1 text-sm">
+                  <p>Nous avons le plaisir de vous inviter à notre dernière réunion publique.</p>
+                  <p className="font-medium mt-3">Infos :</p>
+                  <p>
+                    <a href="mailto:RenouveauMouvaux@gmail.com" className="text-blue-600 hover:underline break-all">
+                      RenouveauMouvaux@gmail.com
+                    </a>
+                  </p>
+                  <p>
+                    <a href="tel:0689316548" className="text-blue-600 hover:underline">
+                      06 89 31 65 48
+                    </a>
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -136,6 +109,42 @@ export default function HomePage() {
           </div>
           
           <div className="grid md:grid-cols-2 gap-8 w-full">
+            {/* Réunion publique 21 février 2026 */}
+            <EventPositionCard
+              date="21 février 2026"
+              title="Réunion publique"
+              images={[
+                { src: '/accueil/reunion-publique-21-fevrier-dos-du-publique.webp', alt: 'Réunion publique 21 février - dos du public' },
+                { src: '/accueil/reunion-publique-21-fevrier-avec-marycke.webp', alt: 'Réunion publique 21 février avec Marycke' }
+              ]}
+              text="Une salle pleine à craquer hier soir pour notre 4eme réunion publique Renouveau pour Mouvaux. En dépit de la pluie et des vacances, vous êtes venus nombreux nous écouter, échanger, poser des questions, toutes pertinentes, sur notre projet concernant la jeunesse, nos aînés, la santé, notre sérieux budgétaire. Jeunes et moins jeunes, votre présence a témoigné de votre attachement à notre ville. A 20 jours de l'élection du 15 mars, nous sommes plus que jamais déterminés et enthousiastes... grâce à vous !"
+            />
+
+            {/* Prise de procurations */}
+            <EventPositionCard
+              date=""
+              title="Prise de procurations"
+              images={[
+                { src: '/accueil/procuration-image.webp', alt: 'Prise de procuration' }
+              ]}
+              text={
+                <>
+                  Les 15 et 22 mars, nous aurons une responsabilité essentielle : choisir l'avenir de notre commune.
+                  Ainsi, nous vous proposons de prendre vos procurations. Pour plus d'informations, contactez nous au{' '}
+                  <a href="tel:0689316578" className="text-blue-900 font-semibold hover:underline">
+                    06 89 31 65 78
+                  </a>{' '}
+                  ou{' '}
+                  <a href="mailto:renouveaumouvaux@gmail.com" className="text-blue-900 font-semibold hover:underline">
+                    renouveaumouvaux@gmail.com
+                  </a>
+                  .
+                </>
+              }
+              imageWidth={400}
+              imageHeight={200}
+            />
+
             {/* Réunion publique 24 janvier 2026 */}
             <EventPositionCard
               date="24 janvier 2026"
@@ -152,9 +161,10 @@ export default function HomePage() {
               date="Janvier 2026"
               title="Porte à porte"
               images={[
-                { src: '/accueil/photo porte a porte.webp', alt: 'Porte-à-porte rue de Londres' }
+                { src: '/accueil/photo porte a porte.webp', alt: 'Porte-à-porte rue de Londres' },
+                { src: '/accueil/photo-porte-a-porte-2.webp', alt: 'Porte-à-porte - equipe' }
               ]}
-              text="Encore une belle soirée de porte-à-porte rue de Londres. Merci à tous pour votre engagement."
+              text="De belles soirées de porte à porte à la rencontre des Mouvallois nous offrant de riches échanges. Merci à tous pour votre engagement."
               fullWidthImage
             />
 
