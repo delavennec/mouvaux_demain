@@ -103,12 +103,12 @@ export default function ContactPage() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Contact</h1>
-          <p className="text-xl text-gray-600">Échangeons ensemble sur l'avenir de Mouvaux</p>
+          <p className="text-xl text-blue-600 font-medium">Échangeons ensemble sur l'avenir de Mouvaux</p>
         </div>
 
         <div className="max-w-2xl mx-auto">
           {/* Contact Form */}
-            <Card>
+            <Card className="bg-blue-50 border-blue-200 shadow-xl">
               <CardContent className="p-8">
                 <h2 className="text-2xl font-bold mb-6 text-gray-900">Nous contacter</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -211,7 +211,7 @@ export default function ContactPage() {
                             }}
                           />
                           <Label htmlFor="contact-team" className="text-sm">
-                            je souhaite avoir un contact direct avec un membre de l'équipe de campagne.
+                            Je souhaite avoir un contact direct avec un membre de l'équipe de campagne.
                           </Label>
                         </div>
 

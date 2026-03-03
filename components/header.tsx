@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { Menu } from "@/components/icons"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
@@ -12,7 +12,8 @@ const navigation = [
   { name: "Accueil", href: "/" },
   { name: "Charles Delavenne", href: "/charles-delavenne" },
   { name: "Renouveau pour Mouvaux", href: "/association" },
-  { name: "Nos priorités", href: "/programme" },
+  { name: "Notre Programme", href: "/programme" },
+  { name: "Notre Liste", href: "/notre-liste" },
   { name: "Nos Événements", href: "/evenements" },
   { name: "Contact", href: "/contact" },
 ]
@@ -69,7 +70,8 @@ export function Header() {
             </Button>
           </SheetTrigger>
           <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-            <div className="flex flex-col space-y-5 mt-8">
+            <SheetTitle className="text-xl font-bold text-gray-900">Menu</SheetTitle>
+            <div className="flex flex-col space-y-5 mt-6">
               {navigation.map((item) => (
                 <Link
                   key={item.name}

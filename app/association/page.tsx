@@ -26,6 +26,18 @@ export default function AssociationPage() {
               priority
             />
           </div>
+          {/* Bouton Adhésion */}
+          <div className="mt-8 text-center">
+            <Button
+              asChild
+              className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-3 rounded-lg font-semibold flex items-center gap-2 mx-auto"
+            >
+              <a href="/bulletin-adhesion.pdf" download>
+                <Download className="w-5 h-5" />
+                Adhérer à l'association Renouveau pour Mouvaux
+              </a>
+            </Button>
+          </div>
         </section>
 
         {/* Présentation */}
