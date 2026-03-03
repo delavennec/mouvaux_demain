@@ -67,9 +67,9 @@ export function NewsletterForm({
     }
   }
 
-  const formClasses = layout === "row" 
-    ? "flex flex-col sm:flex-row gap-3 items-stretch"
-    : "flex flex-col gap-3";
+  const formClasses = layout === "row"
+    ? "w-full max-w-full flex flex-col sm:flex-row gap-3 items-stretch"
+    : "w-full max-w-full flex flex-col gap-3";
 
   return (
     <div className="w-full">
@@ -79,14 +79,14 @@ export function NewsletterForm({
           placeholder="Votre adresse email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className={inputClassName}
+          className={`${layout === "row" ? "w-full min-w-0" : "w-full"} ${inputClassName}`}
           required
           disabled={isSubmitting}
         />
         
         <Button 
           type="button" 
-          className={buttonClassName}
+          className={`${layout === "row" ? "w-full sm:w-auto sm:shrink-0" : "w-full"} ${buttonClassName}`}
           disabled={isSubmitting}
           onClick={handleSubmit}
         >

@@ -28,24 +28,36 @@ export default function EvenementsPage() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Nos Événements</h1>
-          <p className="text-xl text-gray-600">Retrouvez nos prochains rendez-vous et venez échanger avec nous</p>
+          <p className="text-xl text-blue-600 font-medium">Retrouvez nos prochains rendez-vous et venez échanger avec nous</p>
         </div>
 
         {/* Prochaine réunion publique */}
         <section className="mb-8">
           <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200 shadow-lg">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-bold mb-4 text-gray-900 text-center">
-                Prochaine réunion publique : Samedi 21 février en salle Courcol
-              </h3>
-              <div className="text-center text-gray-700 space-y-2">
-                <p className="text-lg">Venez échanger avec nous sur l'avenir de Mouvaux</p>
-                <p className="font-medium mt-4">
-                  Pour plus d'informations :{' '}
-                  <a href="mailto:RenouveauMouvaux@gmail.com" className="text-blue-600 hover:underline">
+            <CardContent className="p-8 flex flex-col justify-between items-center text-center">
+              <div>
+                <h3 className="text-2xl font-bold mb-4 text-gray-900">
+                  Prochaine réunion publique
+                </h3>
+                <p className="text-xl font-bold text-blue-900 mb-2">
+                  Jeudi 12 mars 2026 à 18H30
+                </p>
+                <p className="text-lg text-gray-700 mb-4">
+                  13 rue Michel Raillard, 59200 Tourcoing
+                </p>
+              </div>
+              <div className="text-gray-700 space-y-1 text-sm">
+                <p>Nous avons le plaisir de vous inviter à notre dernière réunion publique.</p>
+                <p className="font-medium mt-3">Infos :</p>
+                <p>
+                  <a href="mailto:RenouveauMouvaux@gmail.com" className="text-blue-600 hover:underline break-all">
                     RenouveauMouvaux@gmail.com
                   </a>
-                  {' '}- <a href="tel:0689316548" className="text-blue-600 hover:underline">06 89 31 65 48</a>
+                </p>
+                <p>
+                  <a href="tel:0689316548" className="text-blue-600 hover:underline">
+                    06 89 31 65 48
+                  </a>
                 </p>
               </div>
             </CardContent>
@@ -62,12 +74,26 @@ export default function EvenementsPage() {
             <div className="mb-8">
               <h3 className="text-2xl font-semibold mb-4 text-blue-600">Presse</h3>
               <div className="bg-white p-6 rounded-lg shadow-md">
+                <div className="border border-gray-300 p-4 rounded-lg bg-gray-50 mb-4">
+                  <p className="mb-4">
+                    Début de campagne officielle le 2 mars 2026 : le candidat tête de liste Charles Delavenne entends battre Éric Durand aux municipales.
+                  </p>
+                  <a 
+                    href="https://www.lavoixdunord.fr/1679506/article/2026-03-02/municipales-mouvaux-diversite-et-competence-sur-la-liste-du-candidat-divers"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-800 transition-colors"
+                  >
+                    Lire l&apos;article : « Municipales à Mouvaux : « diversité et compétence » sur la liste du candidat divers-droite Charles Delavenne »
+                  </a>
+                </div>
+
                 <p className="mb-4">
                   Dans la Voix du Nord le 6 juillet 2025, j&apos;ai annoncé ma candidature et le lancement de la campagne « Renouveau pour Mouvaux »
                 </p>
-                
-                <div className="border border-gray-300 p-4 rounded-lg bg-gray-50 mb-4">
-                  <a 
+
+                <div className="border border-gray-300 p-4 rounded-lg bg-gray-50">
+                  <a
                     href="https://www.lavoixdunord.fr/1603743/article/2025-07-06/municipales-mouvaux-charles-delavenne-sera-candidat-la-tete-d-une-liste"
                     target="_blank"
                     rel="noopener noreferrer"
