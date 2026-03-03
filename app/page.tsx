@@ -50,7 +50,7 @@ export default function HomePage() {
       {/* Notre Programme Button */}
       <div className="flex justify-center px-4 mt-8 relative z-10">
         <Button asChild size="lg" className="bg-blue-900 hover:bg-blue-950 text-white px-8 py-3 text-lg">
-          <Link href="/programme">Notre Programme</Link>
+          <a href="/PROGRAMME.pdf" download="Programme-Renouveau-pour-Mouvaux.pdf">Notre Programme</a>
         </Button>
       </div>
 

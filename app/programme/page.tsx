@@ -31,7 +31,7 @@ export default function ProgrammePage() {
           asChild
           className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-3 rounded-lg font-semibold flex items-center gap-2 mx-auto"
         >
-          <a href="/programme.pdf" download>
+          <a href="/PROGRAMME.pdf" download="Programme-Renouveau-pour-Mouvaux.pdf">
             <Download className="w-5 h-5" />
             Télécharger notre programme
           </a>
