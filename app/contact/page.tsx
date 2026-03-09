@@ -28,6 +28,13 @@ export default function ContactPage() {
     contactTeam: false,
     hostEvent: false,
     financialSupport: false,
+    membershipForm: false,
+    // Champs spécifiques pour le bulletin d'adhésion
+    birthDate: "",
+    birthPlace: "",
+    nationality: "",
+    address: "",
+    phone: "",
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -77,6 +84,12 @@ export default function ContactPage() {
           contactTeam: false,
           hostEvent: false,
           financialSupport: false,
+          membershipForm: false,
+          birthDate: "",
+          birthPlace: "",
+          nationality: "",
+          address: "",
+          phone: "",
         })
       } else {
         setFormStatus("error")
@@ -251,6 +264,103 @@ export default function ContactPage() {
                       </div>
                     </div>
 
+                    <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-4 rounded-lg border border-green-200">
+                      <div className="flex items-start space-x-3">
+                        <Checkbox
+                          id="membershipForm"
+                          checked={formData.membershipForm}
+                          onCheckedChange={(checked) => {
+                            const isChecked = checked as boolean
+                            handleInputChange("membershipForm", isChecked)
+                            if (!isChecked) {
+                              handleInputChange("birthDate", "")
+                              handleInputChange("birthPlace", "")
+                              handleInputChange("nationality", "")
+                              handleInputChange("address", "")
+                              handleInputChange("phone", "")
+                            }
+                          }}
+                          className="mt-1"
+                        />
+                        <div>
+                          <Label htmlFor="membershipForm" className="text-sm font-medium text-green-800">
+                            Je souhaite recevoir le formulaire d'adhésion à l'association Renouveau pour Mouvaux par email
+                          </Label>
+                          <p className="text-xs text-green-700 mt-1">
+                            Recevez directement un document PDF pré-rempli avec vos informations, prêt à être signé
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Champs additionnels pour le bulletin d'adhésion */}
+                    {formData.membershipForm && (
+                      <div className="space-y-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+                        <h3 className="font-semibold text-green-800 text-sm">Informations complémentaires pour votre bulletin d'adhésion</h3>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div>
+                            <Label htmlFor="birthDate">Date de naissance</Label>
+                            <Input
+                              id="birthDate"
+                              type="date"
+                              value={formData.birthDate}
+                              onChange={(e) => handleInputChange("birthDate", e.target.value)}
+                              className="mt-1"
+                            />
+                          </div>
+
+                          <div>
+                            <Label htmlFor="birthPlace">Lieu de naissance</Label>
+                            <Input
+                              id="birthPlace"
+                              value={formData.birthPlace}
+                              onChange={(e) => handleInputChange("birthPlace", e.target.value)}
+                              placeholder="Ville, Pays"
+                              className="mt-1"
+                            />
+                          </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div>
+                            <Label htmlFor="nationality">Nationalité</Label>
+                            <Input
+                              id="nationality"
+                              value={formData.nationality}
+                              onChange={(e) => handleInputChange("nationality", e.target.value)}
+                              placeholder="Française"
+                              className="mt-1"
+                            />
+                          </div>
+
+                          <div>
+                            <Label htmlFor="phone">Téléphone</Label>
+                            <Input
+                              id="phone"
+                              type="tel"
+                              value={formData.phone}
+                              onChange={(e) => handleInputChange("phone", e.target.value)}
+                              placeholder="06 12 34 56 78"
+                              className="mt-1"
+                            />
+                          </div>
+                        </div>
+
+                        <div>
+                          <Label htmlFor="address">Adresse complète</Label>
+                          <Textarea
+                            id="address"
+                            value={formData.address}
+                            onChange={(e) => handleInputChange("address", e.target.value)}
+                            placeholder="Numéro, rue, code postal, ville"
+                            rows={2}
+                            className="mt-1"
+                          />
+                        </div>
+                      </div>
+                    )}
+
                     <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-lg border border-blue-200">
                       <div className="flex items-start space-x-3">
                         <Checkbox
@@ -261,7 +371,7 @@ export default function ContactPage() {
                         />
                         <div>
                           <Label htmlFor="newsletter" className="text-sm font-medium text-blue-800">
-                            ✉️ Je souhaite recevoir la newsletter de Renouveau pour Mouvaux
+                            Je souhaite recevoir la newsletter de Renouveau pour Mouvaux
                           </Label>
                           <p className="text-xs text-blue-700 mt-1">
                             Actualités exclusives, invitations aux événements, propositions détaillées

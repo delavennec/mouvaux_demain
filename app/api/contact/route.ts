@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
-import { sendContactEmail } from '../../../lib/email';
+import { sendContactEmail, sendMembershipFormEmail } from '../../../lib/email';
 import { subscribeToNewsletter } from '@/lib/mailchimp';
+import { generateMembershipPDF } from '@/lib/membership-pdf';
 
 export async function POST(request: Request) {
   try {
@@ -32,7 +33,8 @@ export async function POST(request: Request) {
       engage: formData.engage || false,
       contactTeam: formData.contactTeam || false,
       hostEvent: formData.hostEvent || false,
-      financialSupport: formData.financialSupport || false
+      financialSupport: formData.financialSupport || false,
+      membershipForm: formData.membershipForm || false
     });
 
     // Send email
@@ -46,6 +48,7 @@ export async function POST(request: Request) {
       contactTeam: formData.contactTeam || false,
       hostEvent: formData.hostEvent || false,
       financialSupport: formData.financialSupport || false,
+      membershipForm: formData.membershipForm || false,
     });
 
     // Subscribe to newsletter if option is checked
@@ -60,6 +63,43 @@ export async function POST(request: Request) {
       } catch (newsletterError) {
         console.error('Newsletter subscription failed:', newsletterError);
         // We don't fail the entire request if newsletter subscription fails
+      }
+    }
+
+    // Send membership form if requested
+    if (formData.membershipForm) {
+      try {
+        console.log('Generating membership form PDF for:', formData.email);
+        
+        // Generate the PDF with all collected information
+        // The signature image should be placed in /public/signature-charles-delavenne.png
+        const pdfBuffer = await generateMembershipPDF({
+          name: formData.name,
+          email: formData.email,
+          birthDate: formData.birthDate,
+          birthPlace: formData.birthPlace,
+          nationality: formData.nationality,
+          address: formData.address,
+          phone: formData.phone,
+          signatureUrl: process.env.NEXT_PUBLIC_SIGNATURE_URL || `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/signature-charles-delavenne.png`,
+        });
+
+        // Send the PDF via email
+        const membershipResult = await sendMembershipFormEmail(
+          formData.email,
+          formData.name,
+          pdfBuffer
+        );
+
+        if (membershipResult.success) {
+          console.log('Membership form sent successfully to:', formData.email);
+        } else {
+          console.error('Failed to send membership form:', membershipResult.error);
+          // We don't fail the entire request if membership form sending fails
+        }
+      } catch (membershipError) {
+        console.error('Membership form generation/sending failed:', membershipError);
+        // We don't fail the entire request if membership form fails
       }
     }
 
