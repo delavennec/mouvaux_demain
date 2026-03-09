@@ -28,6 +28,14 @@ type ContactFormData = {
   contactTeam?: boolean;
   hostEvent?: boolean;
   financialSupport?: boolean;
+  membershipForm?: boolean;
+};
+
+type EmailAttachment = {
+  content: string;
+  filename: string;
+  type: string;
+  disposition: string;
 };
 
 export async function sendContactEmail(formData: ContactFormData): Promise<{ success: boolean; error?: string }> {
@@ -108,6 +116,117 @@ ${formData.engage || formData.contactTeam || formData.hostEvent || formData.fina
     return { 
       success: false, 
       error: error instanceof Error ? error.message : 'Une erreur est survenue lors de l\'envoi du message' 
+    };
+  }
+}
+
+export async function sendMembershipFormEmail(
+  toEmail: string,
+  name: string,
+  pdfBuffer: Buffer
+): Promise<{ success: boolean; error?: string }> {
+  try {
+    // Check if we have the necessary configuration
+    if (!SENDGRID_API_KEY || !EMAIL_FROM) {
+      console.error('Email configuration missing');
+      throw new Error('Configuration d\'envoi d\'email manquante');
+    }
+
+    const msg = {
+      to: toEmail,
+      from: EMAIL_FROM,
+      subject: 'Votre formulaire d\'adhésion - Renouveau pour Mouvaux',
+      text: `
+Bonjour ${name},
+
+Merci de votre intérêt pour notre mouvement "Renouveau pour Mouvaux" !
+
+Vous trouverez en pièce jointe votre formulaire d'adhésion pré-rempli avec vos informations.
+
+Pour finaliser votre adhésion :
+1. Téléchargez le document PDF ci-joint
+2. Imprimez-le
+3. Signez-le dans l'espace prévu à cet effet
+4. Renvoyez-le nous par email à RenouveauMouvaux@gmail.com ou remettez-le lors d'un de nos événements
+
+Nous sommes impatients de vous compter parmi nous !
+
+Cordialement,
+L'équipe de Renouveau pour Mouvaux
+
+Charles Delavenne et son équipe
+RenouveauMouvaux@gmail.com
+06 89 31 65 48
+www.renouveaumouvaux.fr
+      `,
+      html: `
+<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+  <div style="background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%); padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
+    <h1 style="color: white; margin: 0; font-size: 24px;">Renouveau pour Mouvaux</h1>
+  </div>
+  
+  <div style="background: #f9fafb; padding: 30px; border: 1px solid #e5e7eb;">
+    <h2 style="color: #1e40af; margin-top: 0;">Bonjour ${name},</h2>
+    
+    <p style="color: #374151; line-height: 1.6;">
+      Merci de votre intérêt pour notre mouvement <strong>"Renouveau pour Mouvaux"</strong> !
+    </p>
+    
+    <p style="color: #374151; line-height: 1.6;">
+      Vous trouverez en pièce jointe votre <strong>formulaire d'adhésion pré-rempli</strong> avec vos informations.
+    </p>
+    
+    <div style="background: white; padding: 20px; border-left: 4px solid #3b82f6; margin: 20px 0;">
+      <h3 style="color: #1e40af; margin-top: 0;">Pour finaliser votre adhésion :</h3>
+      <ol style="color: #374151; line-height: 1.8;">
+        <li>📥 Téléchargez le document PDF ci-joint</li>
+        <li>🖨️ Imprimez-le</li>
+        <li>✍️ Signez-le dans l'espace prévu à cet effet</li>
+        <li>📧 Renvoyez-le nous par email à <a href="mailto:RenouveauMouvaux@gmail.com" style="color: #3b82f6;">RenouveauMouvaux@gmail.com</a><br>
+            ou remettez-le lors d'un de nos événements</li>
+      </ol>
+    </div>
+    
+    <p style="color: #374151; line-height: 1.6;">
+      Nous sommes <strong>impatients de vous compter parmi nous</strong> !
+    </p>
+    
+    <p style="color: #374151; line-height: 1.6; margin-bottom: 0;">
+      Cordialement,<br>
+      L'équipe de Renouveau pour Mouvaux
+    </p>
+  </div>
+  
+  <div style="background: #1f2937; padding: 20px; text-align: center; border-radius: 0 0 10px 10px;">
+    <p style="color: #9ca3af; margin: 5px 0; font-size: 14px;">
+      <strong style="color: white;">Charles Delavenne et son équipe</strong>
+    </p>
+    <p style="color: #9ca3af; margin: 5px 0; font-size: 14px;">
+      📧 <a href="mailto:RenouveauMouvaux@gmail.com" style="color: #60a5fa;">RenouveauMouvaux@gmail.com</a><br>
+      📞 <a href="tel:+33689316548" style="color: #60a5fa;">06 89 31 65 48</a><br>
+      🌐 <a href="http://www.renouveaumouvaux.fr" style="color: #60a5fa;">www.renouveaumouvaux.fr</a>
+    </p>
+  </div>
+</div>
+      `,
+      attachments: [
+        {
+          content: pdfBuffer.toString('base64'),
+          filename: `Formulaire_Adhesion_${name.replace(/\s+/g, '_')}.pdf`,
+          type: 'application/pdf',
+          disposition: 'attachment',
+        },
+      ],
+    };
+
+    await sgMail.send(msg);
+    console.log('Membership form email sent successfully to:', toEmail);
+    return { success: true };
+  } catch (error) {
+    console.error('Error sending membership form email:', error);
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : 'Une erreur est survenue lors de l\'envoi du formulaire',
     };
   }
 } 
