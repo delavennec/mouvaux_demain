@@ -133,7 +133,7 @@ export default function HomePage() {
               55% veulent un nouveau Maire dans leur commune
             </a>
             <a
-              href="https://www.facebook.com/reel/1821331605204938"
+              href="https://www.youtube.com/watch?v=bNPvgywtaiY"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Ouvrir la vidéo Facebook"
