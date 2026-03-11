@@ -12,6 +12,10 @@ const FALLBACK_CONFIG = {
 const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY || FALLBACK_CONFIG.apiKey;
 const EMAIL_FROM = process.env.EMAIL_FROM || FALLBACK_CONFIG.emailFrom;
 const EMAIL_TO = process.env.EMAIL_TO || FALLBACK_CONFIG.emailTo;
+const EMAIL_TO_LIST = EMAIL_TO
+  .split(',')
+  .map((email) => email.trim())
+  .filter(Boolean);
 
 // Initialize SendGrid with the API key
 if (SENDGRID_API_KEY) {
@@ -38,7 +42,7 @@ type EmailAttachment = {
   disposition: string;
 };
 
-export async function sendContactEmail(formData: ContactFormData): Promise<{ success: boolean; error?: string }> {
+export async function sendContactEmail(formData: ContactFormData): Promise<{ success: boolean; error?: string; messageId?: string }> {
   try {
     // Check if we have the API key
     if (!SENDGRID_API_KEY) {
@@ -52,7 +56,7 @@ export async function sendContactEmail(formData: ContactFormData): Promise<{ suc
       throw new Error('Configuration d\'envoi d\'email manquante (EMAIL_FROM)');
     }
 
-    if (!EMAIL_TO) {
+    if (!EMAIL_TO_LIST.length) {
       console.error('Recipient email not found in environment variables or config');
       throw new Error('Configuration d\'envoi d\'email manquante (EMAIL_TO)');
     }
@@ -65,7 +69,7 @@ export async function sendContactEmail(formData: ContactFormData): Promise<{ suc
     console.log('Email configuration:', { 
       hasApiKey: !!SENDGRID_API_KEY, 
       emailFrom: EMAIL_FROM,
-      emailTo: EMAIL_TO,
+      emailTo: EMAIL_TO_LIST,
       envVars: {
         SENDGRID_API_KEY: !!process.env.SENDGRID_API_KEY,
         EMAIL_FROM: !!process.env.EMAIL_FROM,
@@ -75,8 +79,9 @@ export async function sendContactEmail(formData: ContactFormData): Promise<{ suc
     });
 
     const msg = {
-      to: EMAIL_TO,
+      to: EMAIL_TO_LIST.length === 1 ? EMAIL_TO_LIST[0] : EMAIL_TO_LIST,
       from: EMAIL_FROM,
+      replyTo: formData.email,
       subject: emailSubject,
       text: `
 Nom: ${formData.name}
@@ -109,8 +114,18 @@ ${formData.engage || formData.contactTeam || formData.hostEvent || formData.fina
       `,
     };
 
-    await sgMail.send(msg);
-    return { success: true };
+    const [sendgridResponse] = await sgMail.send(msg);
+    const messageId = sendgridResponse?.headers?.['x-message-id'] as string | undefined;
+
+    console.log('SendGrid accepted contact email', {
+      statusCode: sendgridResponse?.statusCode,
+      messageId,
+      to: EMAIL_TO_LIST,
+      from: EMAIL_FROM,
+      replyTo: formData.email,
+    });
+
+    return { success: true, messageId };
   } catch (error) {
     console.error('Error sending email:', error);
     return { 

@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { ChevronRight } from "@/components/icons"
+import { ChevronRight, Clapperboard } from "@/components/icons"
 import Image from "next/image"
 import Link from "next/link"
 import { NewsletterForm } from "@/components/newsletter-form"
@@ -118,8 +118,51 @@ export default function HomePage() {
       </section>
 
       {/* Nos événements et positions - Moved up */}
-      <section className="pt-8 pb-16 px-4">
+      <section className="pt-0 pb-16 px-4">
         <div className="max-w-6xl mx-auto">
+          <div className="mb-[10px] flex flex-nowrap items-center justify-start gap-1.5 overflow-x-auto px-2 text-left text-blue-900">
+            <span className="text-lg font-bold">Retrouvez toutes nos vidéos :</span>
+            <a
+              href="https://www.youtube.com/watch?v=T8pWp85pMPI"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Ouvrir la deuxième vidéo"
+              className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-blue-900 px-3 py-2 text-xs font-semibold text-white transition-colors hover:bg-blue-800"
+            >
+              <Clapperboard className="h-2.5 w-2.5" />
+              55% veulent un nouveau Maire dans leur commune
+            </a>
+            <a
+              href="https://www.facebook.com/reel/1821331605204938"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Ouvrir la vidéo Facebook"
+              className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-blue-900 px-3 py-2 text-xs font-semibold text-white transition-colors hover:bg-blue-800"
+            >
+              <Clapperboard className="h-2.5 w-2.5" />
+              Interview
+            </a>
+            <a
+              href="https://www.youtube.com/watch?v=OKfblNb3jVI"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Ouvrir la vidéo sur l'aménagement du territoire"
+              className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-blue-900 px-3 py-2 text-xs font-semibold text-white transition-colors hover:bg-blue-800"
+            >
+              <Clapperboard className="h-2.5 w-2.5" />
+              Aménagement du territoire
+            </a>
+            <a
+              href="https://www.facebook.com/reel/3030928560627924/?s=single_unit"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Ouvrir la vidéo Complexe Coubertin"
+              className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-blue-900 px-3 py-2 text-xs font-semibold text-white transition-colors hover:bg-blue-800"
+            >
+              <Clapperboard className="h-2.5 w-2.5" />
+              Complexe Coubertin
+            </a>
+          </div>
           <div className="border-t-4 border-blue-900 mb-8"></div>
           <h2 className="text-3xl font-bold mb-4 text-gray-900">Nos événements et positions</h2>
           <div className="mb-10">

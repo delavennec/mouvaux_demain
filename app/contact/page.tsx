@@ -130,7 +130,7 @@ export default function ContactPage() {
                       <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
                       <div>
                         <p className="font-medium">Message envoyé avec succès</p>
-                        <p className="text-sm mt-1">Merci pour votre message ! Nous vous répondrons dans les meilleurs délais.</p>
+                        <p className="text-sm mt-1">Merci pour votre message ! Nous vous répondrons dans les meilleurs délais. N'oubliez pas de vérifier vos spams.</p>
                       </div>
                     </div>
                   )}
