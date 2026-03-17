@@ -87,7 +87,16 @@ export async function POST(request: Request) {
     console.log('Google Sheets row added successfully');
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('Contact form error:', error);
+    const rawMessage = error instanceof Error ? error.message : String(error);
+    const privateKeyRaw = process.env.GOOGLE_PRIVATE_KEY || '';
+    console.error('Contact form error:', rawMessage);
+    console.error('Private key diagnostics:', {
+      length: privateKeyRaw.length,
+      startsWithBegin: privateKeyRaw.startsWith('-----BEGIN'),
+      startsWithQuote: privateKeyRaw.startsWith('"'),
+      containsLiteralN: privateKeyRaw.includes('\\n'),
+      containsRealNewline: privateKeyRaw.includes('\n'),
+    });
     return NextResponse.json(
       { error: getGoogleSheetsErrorMessage(error) },
       { status: 500 }
