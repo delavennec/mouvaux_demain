@@ -27,7 +27,9 @@ export async function appendMembershipRow(data: MembershipRowData): Promise<void
   const auth = new google.auth.GoogleAuth({
     credentials: {
       client_email: getRequiredEnv('GOOGLE_SERVICE_ACCOUNT_EMAIL'),
-      private_key: getRequiredEnv('GOOGLE_PRIVATE_KEY').replace(/\\n/g, '\n'),
+      private_key: getRequiredEnv('GOOGLE_PRIVATE_KEY')
+        .replace(/^["']|["']$/g, '')  // supprime les guillemets entourants si collés depuis .env.local
+        .replace(/\\n/g, '\n'),
     },
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
   });

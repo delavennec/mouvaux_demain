@@ -1,11 +1,20 @@
 import { NextResponse } from 'next/server';
 
 export async function GET() {
-  // For security, we'll only return if the variables exist, not their values
+  const privateKey = process.env.GOOGLE_PRIVATE_KEY || '';
   return NextResponse.json({
-    hasApiKey: !!process.env.SENDGRID_API_KEY,
-    hasEmailFrom: !!process.env.EMAIL_FROM,
-    hasEmailTo: !!process.env.EMAIL_TO,
-    nodeEnv: process.env.NODE_ENV
+    nodeEnv: process.env.NODE_ENV,
+    google: {
+      hasEmail: !!process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+      hasPrivateKey: !!privateKey,
+      hasSheetId: !!process.env.GOOGLE_SHEET_ID,
+      hasTableName: !!process.env.GOOGLE_TABLE_NAME,
+      privateKeyLength: privateKey.length,
+      privateKeyStart: privateKey.slice(0, 20),
+      startsWithBegin: privateKey.startsWith('-----BEGIN'),
+      startsWithQuote: privateKey.startsWith('"'),
+      containsLiteralBackslashN: privateKey.includes('\\n'),
+      containsRealNewline: privateKey.includes('\n'),
+    }
   });
 } 
