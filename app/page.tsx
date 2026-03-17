@@ -41,7 +41,7 @@ export default function HomePage() {
           </div>
           <div className="flex flex-col gap-4 items-center">
             <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg border-2 border-blue-900">
-              <Link href="/contact">Adhérer à Renouveau pour Mouvaux</Link>
+              <Link href="/adherer">Adhérer à Renouveau pour Mouvaux</Link>
             </Button>
           </div>
         </div>
