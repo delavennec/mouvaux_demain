@@ -2,9 +2,10 @@
   "framework": "nextjs",
   "regions": ["cdg1"],
   "env": {
-    "SENDGRID_API_KEY": "${SENDGRID_API_KEY}",
-    "EMAIL_FROM": "${EMAIL_FROM}",
-    "EMAIL_TO": "${EMAIL_TO}"
+    "GOOGLE_SERVICE_ACCOUNT_EMAIL": "${GOOGLE_SERVICE_ACCOUNT_EMAIL}",
+    "GOOGLE_PRIVATE_KEY": "${GOOGLE_PRIVATE_KEY}",
+    "GOOGLE_SHEET_ID": "${GOOGLE_SHEET_ID}",
+    "GOOGLE_TABLE_NAME": "${GOOGLE_TABLE_NAME}"
   },
   "buildCommand": null,
   "installCommand": null

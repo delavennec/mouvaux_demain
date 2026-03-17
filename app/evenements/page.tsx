@@ -39,16 +39,12 @@ export default function EvenementsPage() {
                 <h3 className="text-2xl font-bold mb-4 text-gray-900">
                   Prochaine réunion publique
                 </h3>
-                <p className="text-xl font-bold text-blue-900 mb-2">
-                  Jeudi 12 mars 2026 à 18H30
-                </p>
-                <p className="text-lg text-gray-700 mb-4">
-                  13 rue Michel Raillard, 59200 Tourcoing
+                <p className="text-xl font-bold text-blue-900 mb-5">
+                  Date et lieu à venir
                 </p>
               </div>
               <div className="text-gray-700 space-y-1 text-sm">
-                <p>Nous avons le plaisir de vous inviter à notre dernière réunion publique.</p>
-                <p className="font-medium mt-3">Infos :</p>
+                <p className="font-medium">Infos :</p>
                 <p>
                   <a href="mailto:RenouveauMouvaux@gmail.com" className="text-blue-600 hover:underline break-all">
                     RenouveauMouvaux@gmail.com
