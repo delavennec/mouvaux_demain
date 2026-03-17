@@ -101,8 +101,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-300 hover:text-blue-400 transition-colors">
-                  Contact
+                <Link href="/adherer" className="text-gray-300 hover:text-blue-400 transition-colors">
+                  Adhérer
                 </Link>
               </li>
             </ul>

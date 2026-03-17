@@ -15,7 +15,7 @@ const navigation = [
   { name: "Notre Programme", href: "/programme" },
   { name: "Notre Liste", href: "/notre-liste" },
   { name: "Nos Événements", href: "/evenements" },
-  { name: "Adhérer", href: "/contact" },
+  { name: "Adhérer", href: "/adherer" },
 ]
 
 export function Header() {
@@ -53,7 +53,7 @@ export function Header() {
           {/* CTA Buttons */}
           <div className="flex items-center space-x-3 lg:space-x-4 ml-auto pl-16 lg:pl-20 xl:pl-24">
             <Button asChild variant="outline" size="sm" className="border-2 border-blue-900">
-              <Link href="/contact">Nous soutenir</Link>
+              <Link href="/adherer">Nous soutenir</Link>
             </Button>
             <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white" onClick={openNewsletter}>
               Newsletter
@@ -86,7 +86,7 @@ export function Header() {
               ))}
               <div className="pt-5 space-y-4">
                 <Button asChild variant="outline" className="w-full border-blue-600 text-blue-600 hover:bg-blue-50">
-                  <Link href="/contact" onClick={() => setMobileOpen(false)}>Nous soutenir</Link>
+                  <Link href="/adherer" onClick={() => setMobileOpen(false)}>Nous soutenir</Link>
                 </Button>
                 <Button
                   className="w-full bg-blue-600 hover:bg-blue-700"

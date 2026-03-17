@@ -124,7 +124,7 @@ export default function AssociationPage() {
               </p>
               <div className="space-y-4">
                 <Button asChild className="w-full bg-blue-600 hover:bg-blue-700">
-                  <Link href="/contact">Nous contacter</Link>
+                  <Link href="/adherer">Nous contacter</Link>
                 </Button>
               </div>
             </CardContent>
@@ -156,7 +156,7 @@ export default function AssociationPage() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
-              <Link href="/contact">Nous contacter</Link>
+              <Link href="/adherer">Nous contacter</Link>
             </Button>
             <Button asChild variant="outline" size="lg">
               <Link href="/programme">Découvrir notre projet</Link>

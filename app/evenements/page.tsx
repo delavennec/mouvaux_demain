@@ -169,7 +169,7 @@ export default function EvenementsPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild className="bg-blue-600 hover:bg-blue-700">
-              <Link href="/contact">Nous contacter</Link>
+              <Link href="/adherer">Nous contacter</Link>
             </Button>
             <Button asChild variant="outline">
               <Link href="/association">Rejoindre Renouveau pour Mouvaux</Link>
