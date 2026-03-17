@@ -28,8 +28,8 @@ export async function appendMembershipRow(data: MembershipRowData): Promise<void
     credentials: {
       client_email: getRequiredEnv('GOOGLE_SERVICE_ACCOUNT_EMAIL'),
       private_key: getRequiredEnv('GOOGLE_PRIVATE_KEY')
-        .replace(/^["']|["']$/g, '')  // supprime les guillemets entourants si collés depuis .env.local
-        .replace(/\\n/g, '\n'),
+        .replace(/^["']|["']$/g, '')  // supprime les guillemets entourants si présents
+        .replace(/\\n/g, '\n'),       // convertit \n littéraux en vrais sauts de ligne (les vrais \n passent tels quels)
     },
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
   });
