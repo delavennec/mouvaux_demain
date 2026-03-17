@@ -34,14 +34,14 @@ export default function HomePage() {
         </div>
         <div className="relative z-20 text-center text-white px-4 max-w-4xl mx-auto" style={{ marginTop: '20vh' }}>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Un vote ambitieux et constructif pour Mouvaux
+            Renouveau pour Mouvaux
           </h1>
           <div className="flex flex-col items-center justify-center bg-blue-600/90 px-6 py-3 rounded-lg mb-8 inline-block">
             <p className="text-lg md:text-xl font-medium">Pour une ville sûre, attractive, dynamique et agréable</p>
           </div>
           <div className="flex flex-col gap-4 items-center">
             <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg border-2 border-blue-900">
-              <Link href="/contact">Soutenir Renouveau pour Mouvaux </Link>
+              <Link href="/contact">Adhérer à Renouveau pour Mouvaux</Link>
             </Button>
           </div>
         </div>
@@ -54,66 +54,34 @@ export default function HomePage() {
         </Button>
       </div>
 
-      {/* Prochaine réunion publique & Flyer programme */}
+      {/* Prochaine réunion publique */}
       <section className="py-8 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="flex gap-6 items-start">
-            {/* Prochaine réunion publique card */}
-            <div className="flex-1">
-              <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200 shadow-lg">
-                <CardContent className="p-6 flex flex-col justify-between items-center text-center h-full">
-                  <div>
-                    <h3 className="text-3xl font-bold mb-4 text-gray-900">
-                      Notre prochaine réunion publique
-                    </h3>
-                    <p className="text-2xl font-bold text-blue-900 mb-2">
-                      Jeudi 12 mars 2026 à 18H30
-                    </p>
-                    <p className="text-lg text-gray-700 mb-4">
-                      13 rue Michel Raillard, 59200 Tourcoing
-                    </p>
-                  </div>
-                  <div className="text-gray-700 space-y-1 text-sm">
-                    <p>Nous avons le plaisir de vous inviter à notre dernière réunion publique.</p>
-                    <p className="font-medium mt-3">Infos :</p>
-                    <p>
-                      <a href="mailto:RenouveauMouvaux@gmail.com" className="text-blue-600 hover:underline break-all">
-                        RenouveauMouvaux@gmail.com
-                      </a>
-                    </p>
-                    <p>
-                      <a href="tel:0689316548" className="text-blue-600 hover:underline">
-                        06 89 31 65 48
-                      </a>
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-              {/* Bouton Notre flyer */}
-              <div className="mt-4 text-center">
-                <Button
-                  asChild
-                  className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-6 py-2 rounded-lg font-semibold flex items-center gap-2 mx-auto"
-                >
-                  <a href="/flyer-programme.pdf" download>
-                    <ChevronRight className="w-5 h-5" />
-                    Notre flyer
-                  </a>
-                </Button>
+          <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200 shadow-lg">
+            <CardContent className="p-6 md:p-8 flex flex-col items-center text-center">
+              <div>
+                <h3 className="text-3xl font-bold mb-4 text-gray-900">
+                  Notre prochaine réunion publique
+                </h3>
+                <p className="text-2xl font-bold text-blue-900 mb-5">
+                  Date et lieu à venir
+                </p>
               </div>
-            </div>
-            
-            {/* Flyer programme image */}
-            <div className="h-[275px] rounded-lg overflow-hidden shadow-lg flex-shrink-0 flex items-center justify-center bg-white">
-              <Image
-                src="/flyer-programme.png"
-                alt="Flyer du programme Renouveau pour Mouvaux"
-                width={400}
-                height={600}
-                className="h-[275px] w-auto object-contain"
-              />
-            </div>
-          </div>
+              <div className="text-gray-700 space-y-1 text-sm">
+                <p className="font-medium">Infos :</p>
+                <p>
+                  <a href="mailto:RenouveauMouvaux@gmail.com" className="text-blue-600 hover:underline break-all">
+                    RenouveauMouvaux@gmail.com
+                  </a>
+                </p>
+                <p>
+                  <a href="tel:0689316548" className="text-blue-600 hover:underline">
+                    06 89 31 65 48
+                  </a>
+                </p>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
 

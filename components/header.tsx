@@ -15,7 +15,7 @@ const navigation = [
   { name: "Notre Programme", href: "/programme" },
   { name: "Notre Liste", href: "/notre-liste" },
   { name: "Nos Événements", href: "/evenements" },
-  { name: "Contact", href: "/contact" },
+  { name: "Adhérer", href: "/contact" },
 ]
 
 export function Header() {

@@ -284,9 +284,53 @@ export const MembershipPDF: React.FC<MembershipPDFProps> = ({
   );
 };
 
-// Fonction pour générer le PDF en buffer
+// Fonction pour générer le PDF en remplissant les champs du template
 export async function generateMembershipPDF(data: MembershipPDFProps): Promise<Buffer> {
-  const { renderToBuffer } = await import('@react-pdf/renderer');
-  const pdfBuffer = await renderToBuffer(<MembershipPDF {...data} />);
-  return pdfBuffer;
+  const { PDFDocument } = await import('pdf-lib');
+  const fs = await import('fs');
+  const path = await import('path');
+
+  const templatePath = path.join(process.cwd(), 'public', 'bulletin-adhesion-template.pdf');
+  const templateBytes = fs.readFileSync(templatePath);
+
+  const pdfDoc = await PDFDocument.load(templateBytes);
+  const form = pdfDoc.getForm();
+
+  const currentDate = new Date().toLocaleDateString('fr-FR', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  });
+
+  const setField = (fieldName: string, value: string) => {
+    try {
+      form.getTextField(fieldName).setText(value);
+    } catch {
+      console.warn(`Champ PDF "${fieldName}" introuvable`);
+    }
+  };
+
+  const checkField = (fieldName: string) => {
+    try {
+      form.getCheckBox(fieldName).check();
+    } catch {
+      console.warn(`Case PDF "${fieldName}" introuvable`);
+    }
+  };
+
+  setField('Nom1', data.name);
+  setField('Nom2', data.name);
+  setField('Date de naissance', data.birthDate || '');
+  setField('Lieu de naissance', data.birthPlace || '');
+  setField('Nationalité', data.nationality || '');
+  setField('Adresse complète', data.address || '');
+  setField('Téléphone', data.phone || '');
+  setField('Email', data.email);
+  setField('Date', currentDate);
+  checkField('Check Box4');
+
+  form.flatten();
+
+  const pdfBytes = await pdfDoc.save();
+  return Buffer.from(pdfBytes);
 }
