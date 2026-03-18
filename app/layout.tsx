@@ -13,7 +13,7 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Renouveau pour Mouvaux  - Charles Delavenne",
-  description: "Un vote ambitieux et constructif pour Mouvaux. Pour une ville sûre, attractive, dynamique et agréable.",
+  description: "Pour une ville sûre, attractive, dynamique et agréable.",
   keywords: "Mouvaux, Charles Delavenne, élections, municipales, écologie, sécurité, budget",
   icons: {
     icon: [
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Renouveau pour Mouvaux  - Charles Delavenne",
-    description: "Un vote ambitieux et constructif pour Mouvaux. Pour une ville sûre, attractive, dynamique et agréable.",
+    description: "Pour une ville sûre, attractive, dynamique et agréable.",
     type: "website",
   },
   generator: 'v0.dev'

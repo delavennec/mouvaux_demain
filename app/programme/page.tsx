@@ -16,12 +16,18 @@ export default function ProgrammePage() {
 
       <div className="w-full mb-8">
         <Image
-          src="/programme/photo-equipe.webp"
-          alt="Photo de l'équipe"
+          src="/programme/photo-equipe-test.webp"
+          alt="Photo de groupe"
           width={2400}
           height={1200}
-          className="w-full h-auto"
+          sizes="100vw"
+          unoptimized
           priority
+          style={{
+            width: '100%',
+            height: 'auto',
+            display: 'block',
+          }}
         />
       </div>
 

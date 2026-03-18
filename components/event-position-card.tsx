@@ -15,6 +15,7 @@ interface EventPositionCardProps {
   }[]
   text: string | ReactNode
   previewSentences?: number
+  previewLines?: number
   fullWidthImage?: boolean
   originalSize?: boolean
   imageMaxWidth?: number
@@ -32,6 +33,7 @@ export function EventPositionCard({
   images,
   text,
   previewSentences = 2,
+  previewLines,
   fullWidthImage = false,
   originalSize = false,
   imageMaxWidth,
@@ -45,6 +47,7 @@ export function EventPositionCard({
   const isStringText = typeof text === 'string'
   const sentences = isStringText ? text.match(/[^.!?»]+[.!?»]+/g) || [text] : []
   const previewText = isStringText ? sentences.slice(0, previewSentences).join(' ').trim() : text
+  const useLinePreview = typeof previewLines === 'number' && previewLines > 0
   const hasMore = isStringText && text.length > previewText.toString().length + 10
 
   const isSingleImage = images.length === 1
@@ -176,14 +179,31 @@ export function EventPositionCard({
           style={shouldConstrainText ? { maxWidth: `${textMaxWidth}px` } : undefined}
         >
           <div className="font-normal">
-            {expanded ? text : previewText}
+            {useLinePreview ? (
+              <div
+                style={
+                  expanded
+                    ? undefined
+                    : {
+                        display: '-webkit-box',
+                        WebkitLineClamp: previewLines,
+                        WebkitBoxOrient: 'vertical',
+                        overflow: 'hidden',
+                      }
+                }
+              >
+                {text}
+              </div>
+            ) : (
+              expanded ? text : previewText
+            )}
           </div>
-          {hasMore && (
+          {(useLinePreview || hasMore) && (
             <button
               onClick={() => setExpanded(!expanded)}
-              className="text-blue-900 font-semibold underline hover:text-blue-700 mt-2 text-sm"
+              className="text-blue-900 font-semibold hover:underline hover:text-blue-700 mt-2 text-sm"
             >
-              {expanded ? 'Moins' : 'Plus'}
+              {expanded ? 'Moins' : 'Lire plus'}
             </button>
           )}
         </div>
