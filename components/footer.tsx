@@ -33,7 +33,7 @@ export function Footer() {
               <span className="font-bold text-lg">Renouveau pour Mouvaux</span>
             </div>
             <p className="text-gray-300 mb-6 max-w-md">
-              Un vote ambitieux et constructif pour Mouvaux. Pour une ville sûre, attractive, dynamique et agréable.
+              Pour une ville sûre, attractive, dynamique et agréable.
             </p>
 
             {/* Newsletter signup in footer */}

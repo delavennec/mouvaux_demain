@@ -39,16 +39,6 @@ export default function CharlesDelavennePage() {
                   rurale – il a grandi dans le respect des valeurs de la République, du travail, de l'écoute et du
                   service de l'intérêt général.
                 </p>
-                <p className="mt-4">
-                  <a 
-                    href="https://drive.google.com/file/d/13196GCHBrg5nOfPOB1aUDWxmQb2VfFJh/view?usp=sharing" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-blue-600 hover:underline font-medium"
-                  >
-                    Découvrez sa lettre de déclaration de candidature.
-                  </a>
-                </p>
               </div>
             </div>
           </div>

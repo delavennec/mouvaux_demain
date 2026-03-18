@@ -163,7 +163,7 @@ export default function EvenementsPage() {
 
         {/* CTA Section */}
         <div className="text-center mt-12 bg-blue-50 rounded-lg p-8">
-          <h2 className="text-2xl font-bold mb-4 text-gray-900">Participez à notre campagne</h2>
+          <h2 className="text-2xl font-bold mb-4 text-gray-900">Participez aux échanges citoyens</h2>
           <p className="text-gray-600 mb-6">
             Votre présence et vos questions enrichissent nos échanges. Tous nos événements sont ouverts à tous.
           </p>

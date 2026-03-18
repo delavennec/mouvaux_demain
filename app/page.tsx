@@ -23,7 +23,7 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/60 via-indigo-900/40 to-blue-800/50 z-10" />
         <div className="absolute inset-0 overflow-hidden">
           <Image
-            src="/general/photo_de_groupe.jpg"
+            src="/general/photo-de-groupe-hero.webp"
             alt="Équipe Renouveau pour Mouvaux "
             fill
             sizes="100vw"
@@ -91,23 +91,13 @@ export default function HomePage() {
           <div className="mb-[10px] flex flex-nowrap items-center justify-start gap-1.5 overflow-x-auto px-2 text-left text-blue-900">
             <span className="text-lg font-bold">Retrouvez toutes nos vidéos :</span>
             <a
-              href="https://www.youtube.com/watch?v=T8pWp85pMPI"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Ouvrir la deuxième vidéo"
-              className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-blue-900 px-3 py-2 text-xs font-semibold text-white transition-colors hover:bg-blue-800"
-            >
-              <Clapperboard className="h-2.5 w-2.5" />
-              55% veulent un nouveau Maire dans leur commune
-            </a>
-            <a
               href="https://www.youtube.com/watch?v=bNPvgywtaiY"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Ouvrir la vidéo Facebook"
-              className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-blue-900 px-3 py-2 text-xs font-semibold text-white transition-colors hover:bg-blue-800"
+              className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-blue-900 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-800"
             >
-              <Clapperboard className="h-2.5 w-2.5" />
+              <Clapperboard className="h-3 w-3" />
               Interview
             </a>
             <a
@@ -115,9 +105,9 @@ export default function HomePage() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Ouvrir la vidéo sur l'aménagement du territoire"
-              className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-blue-900 px-3 py-2 text-xs font-semibold text-white transition-colors hover:bg-blue-800"
+              className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-blue-900 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-800"
             >
-              <Clapperboard className="h-2.5 w-2.5" />
+              <Clapperboard className="h-3 w-3" />
               Aménagement du territoire
             </a>
             <a
@@ -125,9 +115,9 @@ export default function HomePage() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Ouvrir la vidéo Complexe Coubertin"
-              className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-blue-900 px-3 py-2 text-xs font-semibold text-white transition-colors hover:bg-blue-800"
+              className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-blue-900 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-800"
             >
-              <Clapperboard className="h-2.5 w-2.5" />
+              <Clapperboard className="h-3 w-3" />
               Complexe Coubertin
             </a>
           </div>
@@ -146,6 +136,25 @@ export default function HomePage() {
           </div>
           
           <div className="grid md:grid-cols-2 gap-8 w-full">
+            {/* Réunion publique 12 mars 2026 */}
+            <EventPositionCard
+              date="12 mars 2026"
+              title="Réunion publique"
+              images={[
+                { src: '/accueil/photo-reu-12-1.webp', alt: 'Réunion publique 12 mars - photo 1' },
+                { src: '/accueil/photo-reu-12-2.webp', alt: 'Réunion publique 12 mars - photo 2' }
+              ]}
+              text={`Un immense merci aux Mouvalloises et aux Mouvallois ! Hier, vous étiez plus de 260 à venir nous rencontrer et échanger sur notre programme, une mobilisation exceptionnelle qui témoigne de votre attachement à l'avenir de notre commune et renforce notre motivation.
+
+Nous aurions également souhaité échanger et débattre avec le maire sortant. Il a refusé la main tendue en posant des conditions qu'il savait probablement impossible à satisfaire. Nous aurions ainsi pu débattre du projet d'accueil de gens du voyage rue Michel Raillard qu'il a approuvé en conseil communautaire en octobre dernier.
+
+Projet que je m'engage à réexaminer une fois élu. On ne peut pas prendre de telles décisions en catimini.
+J'aurais aussi pu lui exprimer ma profonde émotion, la vôtre aussi, et mon désaccord sur ses propos dans la Voix du Nord par lesquels il affirme qu'installer des personnes âgées en centre ville, "c'est tuer le coeur de ville". Des propos profondément choquants et indignes. Je pense exactement le contraire. Nos aînés ne tuent pas le coeur de ville, ils sont le coeur de ville !
+
+Nous avons à coeur de prendre nos responsabilités. Transformons ensemble l'énergie de cette rencontre en une force pour la ville.`}
+              previewLines={6}
+            />
+
             {/* Réunion publique 21 février 2026 */}
             <EventPositionCard
               date="21 février 2026"
@@ -155,31 +164,6 @@ export default function HomePage() {
                 { src: '/accueil/reunion-publique-21-fevrier-avec-marycke.webp', alt: 'Réunion publique 21 février avec Marycke' }
               ]}
               text="Une salle pleine à craquer hier soir pour notre 4eme réunion publique Renouveau pour Mouvaux. En dépit de la pluie et des vacances, vous êtes venus nombreux nous écouter, échanger, poser des questions, toutes pertinentes, sur notre projet concernant la jeunesse, nos aînés, la santé, notre sérieux budgétaire. Jeunes et moins jeunes, votre présence a témoigné de votre attachement à notre ville. A 20 jours de l'élection du 15 mars, nous sommes plus que jamais déterminés et enthousiastes... grâce à vous !"
-            />
-
-            {/* Prise de procurations */}
-            <EventPositionCard
-              date=""
-              title="Prise de procurations"
-              images={[
-                { src: '/accueil/procuration-image.webp', alt: 'Prise de procuration' }
-              ]}
-              text={
-                <>
-                  Les 15 et 22 mars, nous aurons une responsabilité essentielle : choisir l'avenir de notre commune.
-                  Ainsi, nous vous proposons de prendre vos procurations. Pour plus d'informations, contactez nous au{' '}
-                  <a href="tel:0689316578" className="text-blue-900 font-semibold hover:underline">
-                    06 89 31 65 78
-                  </a>{' '}
-                  ou{' '}
-                  <a href="mailto:renouveaumouvaux@gmail.com" className="text-blue-900 font-semibold hover:underline">
-                    renouveaumouvaux@gmail.com
-                  </a>
-                  .
-                </>
-              }
-              imageWidth={400}
-              imageHeight={200}
             />
 
             {/* Réunion publique 24 janvier 2026 */}
@@ -311,7 +295,7 @@ export default function HomePage() {
       {/* Newsletter Signup - Primary CTA */}
       <section className="py-16 px-4 bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Suivez notre campagne au quotidien</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Suivez nos actualités au quotidien</h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
             Recevez en exclusivité nos propositions, invitations aux événements et actualités de campagne directement
             dans votre boîte mail.

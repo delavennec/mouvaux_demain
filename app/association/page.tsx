@@ -15,16 +15,78 @@ export default function AssociationPage() {
           <p className="text-xl text-blue-600 font-medium">Une nouvelle ambition pour Mouvaux</p>
         </div>
 
-        {/* Photo de groupe */}
-        <section className="mb-16 relative">
-          <div className="relative w-full h-[400px] md:h-[500px] rounded-xl overflow-hidden">
-            <Image 
-              src="/general/photo_de_groupe_marche.jpg" 
-              alt="L'équipe de Renouveau pour Mouvaux" 
-              fill 
-              className="object-cover"
-              priority
-            />
+        {/* Galerie photos */}
+        <section className="mb-16">
+          {/* Rangée haute – décalée à gauche */}
+          <div className="grid grid-cols-3 gap-3 md:gap-4 mb-3 md:mb-4 md:pr-24 items-stretch">
+            {/* Image 1 */}
+            <div className="relative rounded-xl overflow-hidden aspect-[4/3]">
+              <Image
+                src="/association/selfie-avec-chien-v2.webp"
+                alt="Selfie avec chien"
+                fill
+                unoptimized={true}
+                className="object-cover"
+              />
+            </div>
+            {/* Image 2 */}
+            <div className="relative rounded-xl overflow-hidden aspect-[4/3]">
+              <Image
+                src="/association/reunion-12-podium-v2.webp"
+                alt="Réunion publique 12 mars"
+                fill
+                unoptimized={true}
+                priority
+                className="object-cover"
+              />
+            </div>
+            {/* Image 3 */}
+            <div className="relative rounded-xl overflow-hidden aspect-[4/3]">
+              <Image
+                src="/association/porte-a-porte-vanessa-v2.webp"
+                alt="Porte à porte avec Vanessa"
+                fill
+                unoptimized={true}
+                className="object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Rangée basse – décalée à droite */}
+          <div className="grid grid-cols-3 gap-3 md:gap-4 md:pl-24 items-stretch">
+            {/* Image 4 */}
+            <div className="relative rounded-xl overflow-hidden aspect-[4/3]">
+              <Image
+                src="/association/charles-et-equipe-v2.webp"
+                alt="Charles et équipe"
+                fill
+                unoptimized={true}
+                priority={true}
+                className="object-cover"
+              />
+            </div>
+            {/* Image 5 */}
+            <div className="relative rounded-xl overflow-hidden aspect-[4/3]">
+              <Image
+                src="/association/reunion-20-mars-v2.webp"
+                alt="Réunion 20 mars"
+                fill
+                unoptimized={true}
+                className="object-cover"
+                style={{ objectPosition: "center 28%" }}
+              />
+            </div>
+            {/* Image 6 */}
+            <div className="relative rounded-xl overflow-hidden aspect-[4/3]">
+              <Image
+                src="/association/telephone-8-mars-v2.webp"
+                alt="Téléphone 8 mars"
+                fill
+                unoptimized={true}
+                priority={true}
+                className="object-cover"
+              />
+            </div>
           </div>
           {/* Bouton Adhésion */}
           <div className="mt-8 text-center">
@@ -32,9 +94,9 @@ export default function AssociationPage() {
               asChild
               className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-3 rounded-lg font-semibold flex items-center gap-2 mx-auto"
             >
-              <a href="/bulletin-adhesion.pdf" download>
+              <a href="/general/RPM-Statuts-250226.pdf" target="_blank" rel="noopener noreferrer">
                 <Download className="w-5 h-5" />
-                Adhérer à l'association Renouveau pour Mouvaux
+                Télécharger les statuts de l&apos;association
               </a>
             </Button>
           </div>
@@ -44,17 +106,12 @@ export default function AssociationPage() {
         <section className="mb-16">
           <Card className="bg-gradient-to-br from-blue-50 via-indigo-50 to-slate-50 border-blue-200">
             <CardContent className="p-8">
-              <h2 className="text-3xl font-bold mb-6 text-gray-900">Un mouvement de rassemblement en vue des élections municipales 2026</h2>
               <div className="text-lg text-gray-700 space-y-4">
-                <p>
-                  À l'approche des élections municipales de mars 2026, la liste « Renouveau pour Mouvaux », propose un projet ambitieux aux Mouvallois et Mouvalloises marquant ainsi l'émergence d'une démarche politique nouvelle portée par des valeurs républicaines partagées.
-                </p>
-                <h3 className="text-2xl font-bold mt-8 mb-4 text-gray-900">Une candidature de rassemblement non partisane</h3>
-                <p>
-                  Ce mouvement incarne avant tout un esprit de rassemblement qui transcende les clivages partisans traditionnels. L'équipe du groupe minoritaire « Mouvaux avec vous », menée par Stéphane Lebon, s'unit à cette candidature, apportant son expertise et sa connaissance approfondie des enjeux locaux. Cette alliance démontre la volonté commune de placer l'intérêt général des Mouvallois au-dessus des ambitions personnelles.
+                <p className="text-blue-700">
+                  Ce mouvement incarne avant tout un esprit de rassemblement qui transcende les clivages partisans traditionnels. L'équipe du groupe minoritaire « Mouvaux avec vous », menée par Stéphane Lebon, s'unit à cette association, apportant son expertise et sa connaissance approfondie des enjeux locaux. Cette alliance démontre la volonté commune de placer l'intérêt général des Mouvallois au-dessus des ambitions personnelles.
                 </p>
                 <p>
-                  Pour le candidat tête de liste Charles Delavenne, cette candidature, située au centre droit a vocation à rassembler le plus largement possible tous les Mouvallois attachés à leur ville. C'est une approche non-partisane qui vise à créer une dynamique ouverte à tous pour servir efficacement la commune.
+                  Pour Charles Delavenne, cette association, située au centre droit a vocation à rassembler le plus largement possible tous les Mouvallois attachés à leur ville. C'est une approche non-partisane qui vise à créer une dynamique ouverte à tous pour servir efficacement la commune.
                 </p>
                 <h3 className="text-2xl font-bold mt-8 mb-4 text-gray-900">L'ambition d'un nouveau souffle</h3>
                 <p>
@@ -62,7 +119,7 @@ export default function AssociationPage() {
                 </p>
                 <h3 className="text-2xl font-bold mt-8 mb-4 text-gray-900">Un projet concerté et réaliste</h3>
                 <p>
-                  Le projet, structuré autour de quelques priorités, sera enrichi au fil de la campagne. Il sera discuté et élaboré en concertation avec les habitants. L'équipe de campagne ira régulièrement à la rencontre des habitants dans chacun des quartiers pour écouter leurs préoccupations et recueillir leurs témoignages et leurs idées.
+                  Il sera discuté et élaboré en concertation avec les habitants. L'équipe de campagne ira régulièrement à la rencontre des habitants dans chacun des quartiers pour écouter leurs préoccupations et recueillir leurs témoignages et leurs idées.
                 </p>
               </div>
             </CardContent>
@@ -73,7 +130,7 @@ export default function AssociationPage() {
         <section className="mb-16">
           <Card>
             <CardContent className="p-8">
-              <h2 className="text-3xl font-bold mb-8 text-gray-900">Quelques axes de notre campagne</h2>
+              <h2 className="text-3xl font-bold mb-8 text-gray-900">Nos priorités</h2>
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="space-y-4">
                   <div className="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-600">
@@ -120,7 +177,7 @@ export default function AssociationPage() {
             <CardContent className="p-8">
               <h3 className="text-2xl font-bold mb-6 text-gray-900">Nous soutenir</h3>
               <p className="text-gray-600 mb-6">
-                Participez activement au projet politique de Renouveau pour Mouvaux et soutenez notre démarche citoyenne.
+                Participez activement aux projets de Renouveau pour Mouvaux et soutenez notre démarche citoyenne.
               </p>
               <div className="space-y-4">
                 <Button asChild className="w-full bg-blue-600 hover:bg-blue-700">
