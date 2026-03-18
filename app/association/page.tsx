@@ -119,7 +119,7 @@ export default function AssociationPage() {
                 </p>
                 <h3 className="text-2xl font-bold mt-8 mb-4 text-gray-900">Un projet concerté et réaliste</h3>
                 <p>
-                  Il sera discuté et élaboré en concertation avec les habitants. L'équipe de campagne ira régulièrement à la rencontre des habitants dans chacun des quartiers pour écouter leurs préoccupations et recueillir leurs témoignages et leurs idées.
+                  Il sera discuté et élaboré en concertation avec les habitants. L'équipe ira régulièrement à la rencontre des habitants dans chacun des quartiers pour écouter leurs préoccupations et recueillir leurs témoignages et leurs idées.
                 </p>
               </div>
             </CardContent>

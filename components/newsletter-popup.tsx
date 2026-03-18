@@ -65,7 +65,7 @@ export function NewsletterPopup() {
           <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full flex items-center justify-center mx-auto mb-6">
             <Mail className="w-8 h-8 text-blue-600" />
           </div>
-          <h3 className="text-2xl font-bold mb-4 text-gray-900">Restez informé de notre campagne</h3>
+          <h3 className="text-2xl font-bold mb-4 text-gray-900">Restez informé de nos actualités</h3>
           <p className="text-gray-600 mb-6">
             Recevez nos actualités exclusives et invitations aux événements directement par email.
           </p>
