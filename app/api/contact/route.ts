@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 import { appendMembershipRow } from '@/lib/google-sheets';
+import { generateMembershipPDF } from '@/lib/membership-pdf';
+import { sendMembershipFormEmail } from '@/lib/email';
 
 function getGoogleSheetsErrorMessage(error: unknown): string {
   const message = error instanceof Error ? error.message : String(error);
@@ -30,7 +32,7 @@ function getGoogleSheetsErrorMessage(error: unknown): string {
 export async function POST(request: Request) {
   try {
     const formData = await request.json();
-    
+
     // Validate required fields
     if (
       !formData.name ||
@@ -61,6 +63,22 @@ export async function POST(request: Request) {
       financialSupport: formData.financialSupport || false,
       gdpr: formData.gdpr,
     });
+
+    try {
+      const pdfBuffer = await generateMembershipPDF({
+        name: formData.name,
+        email: formData.email,
+        birthDate: formData.birthDate,
+        birthPlace: formData.birthPlace,
+        nationality: formData.nationality,
+        address: formData.address,
+        phone: formData.phone,
+      });
+
+      await sendMembershipFormEmail(formData.email, formData.name, pdfBuffer);
+    } catch (emailError) {
+      console.error('PDF/email step failed (membership already saved):', emailError);
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {
